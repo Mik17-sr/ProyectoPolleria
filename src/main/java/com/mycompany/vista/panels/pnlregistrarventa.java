@@ -36,6 +36,7 @@ public class pnlregistrarventa extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnagregarcliente = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(txtobservacionescliente);
 
@@ -54,6 +55,8 @@ public class pnlregistrarventa extends javax.swing.JPanel {
 
         jLabel3.setText("Valor de venta");
 
+        btnagregarcliente.setText("Agregar Cliente");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -62,6 +65,10 @@ public class pnlregistrarventa extends javax.swing.JPanel {
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(106, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnagregarcliente)
+                .addGap(25, 25, 25))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -93,7 +100,9 @@ public class pnlregistrarventa extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(201, Short.MAX_VALUE)
+                .addGap(66, 66, 66)
+                .addComponent(btnagregarcliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(46, 46, 46))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,6 +135,7 @@ public class pnlregistrarventa extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnagregarcliente;
     private javax.swing.JButton btnregistrarcliente;
     private javax.swing.JComboBox<String> cmbcliente;
     private javax.swing.JLabel jLabel1;

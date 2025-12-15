@@ -12,17 +12,15 @@
         <exec.mainClass>com.mycompany.main.Main</exec.mainClass>
     </properties>
     <dependencies>
-<<<<<<< HEAD
+
         <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
-=======
->>>>>>> d3be642e228b6c625284183de9ccb21216b80414
+
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.51.1.0</version>
         </dependency>
-<<<<<<< HEAD
-=======
+
         <dependency>
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf</artifactId>
@@ -31,8 +29,9 @@
         <dependency>
             <groupId>com.formdev</groupId>
             <artifactId>flatlaf-intellij-themes</artifactId>
-            <version>3.4.1</version>
+            <version>3.6</version>
+            <type>jar</type>
         </dependency>
->>>>>>> d3be642e228b6c625284183de9ccb21216b80414
+
     </dependencies>
 </project>

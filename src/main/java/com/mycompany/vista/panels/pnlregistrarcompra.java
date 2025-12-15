@@ -39,6 +39,7 @@ public class pnlregistrarcompra extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtobservacionescliente = new javax.swing.JTextPane();
+        btnagregarproveedor = new javax.swing.JButton();
 
         jFormattedTextField1.setText("jFormattedTextField1");
 
@@ -62,6 +63,8 @@ public class pnlregistrarcompra extends javax.swing.JPanel {
         jLabel5.setText("Observaciónes");
 
         jScrollPane1.setViewportView(txtobservacionescliente);
+
+        btnagregarproveedor.setText("Agregar Proveedor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -88,6 +91,8 @@ public class pnlregistrarcompra extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cmbproveedor, 0, 140, Short.MAX_VALUE)
                                     .addComponent(jTextField2))))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnagregarproveedor)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(15, 15, 15)
@@ -95,7 +100,7 @@ public class pnlregistrarcompra extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(13, 13, 13)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE))
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addGap(0, 0, Short.MAX_VALUE)))))
@@ -115,7 +120,8 @@ public class pnlregistrarcompra extends javax.swing.JPanel {
                         .addGap(31, 31, 31)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cmbproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addComponent(btnagregarproveedor))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,6 +150,7 @@ public class pnlregistrarcompra extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnagregarproveedor;
     private javax.swing.JButton btnregistrarcliente;
     private javax.swing.JComboBox<String> cmbproveedor;
     private javax.swing.JFormattedTextField jFormattedTextField1;
