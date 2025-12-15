@@ -35,7 +35,7 @@ public class pnlRegProveedor extends javax.swing.JPanel {
         txtdireccionproveedor = new javax.swing.JTextField();
         btnregistrarproveedor = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Gotham", 1, 24)); // NOI18N
         jLabel1.setText("Registrar Proveedor");
 
         jLabel2.setText("Nombre");
