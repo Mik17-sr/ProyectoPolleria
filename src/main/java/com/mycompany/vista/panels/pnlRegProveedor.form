@@ -48,7 +48,7 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
-              <Component id="btnregistrar" min="-2" max="-2" attributes="0"/>
+              <Component id="btnregistrarproveedor" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -74,7 +74,7 @@
                   <Component id="txtdireccionproveedor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Component id="btnregistrar" min="-2" max="-2" attributes="0"/>
+              <Component id="btnregistrarproveedor" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="102" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -110,7 +110,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtdireccionproveedor">
     </Component>
-    <Component class="javax.swing.JButton" name="btnregistrar">
+    <Component class="javax.swing.JButton" name="btnregistrarproveedor">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="ff" red="66" type="rgb"/>
@@ -118,7 +118,7 @@
         <Property name="text" type="java.lang.String" value="Registrar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnregistrarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnregistrarproveedorActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

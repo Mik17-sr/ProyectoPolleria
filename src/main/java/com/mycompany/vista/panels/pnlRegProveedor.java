@@ -33,7 +33,7 @@ public class pnlRegProveedor extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         txttelefonoproveedor = new javax.swing.JTextField();
         txtdireccionproveedor = new javax.swing.JTextField();
-        btnregistrar = new javax.swing.JButton();
+        btnregistrarproveedor = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 24)); // NOI18N
         jLabel1.setText("Registrar Proveedor");
@@ -44,9 +44,9 @@ public class pnlRegProveedor extends javax.swing.JPanel {
 
         jLabel4.setText("Direccion");
 
-        btnregistrar.setBackground(new java.awt.Color(102, 255, 102));
-        btnregistrar.setText("Registrar");
-        btnregistrar.addActionListener(this::btnregistrarActionPerformed);
+        btnregistrarproveedor.setBackground(new java.awt.Color(102, 255, 102));
+        btnregistrarproveedor.setText("Registrar");
+        btnregistrarproveedor.addActionListener(this::btnregistrarproveedorActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,7 +75,7 @@ public class pnlRegProveedor extends javax.swing.JPanel {
                 .addGap(132, 132, 132))
             .addGroup(layout.createSequentialGroup()
                 .addGap(183, 183, 183)
-                .addComponent(btnregistrar)
+                .addComponent(btnregistrarproveedor)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -96,18 +96,18 @@ public class pnlRegProveedor extends javax.swing.JPanel {
                     .addComponent(jLabel4)
                     .addComponent(txtdireccionproveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
-                .addComponent(btnregistrar)
+                .addComponent(btnregistrarproveedor)
                 .addContainerGap(102, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
+    private void btnregistrarproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarproveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnregistrarActionPerformed
+    }//GEN-LAST:event_btnregistrarproveedorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnregistrar;
+    private javax.swing.JButton btnregistrarproveedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
