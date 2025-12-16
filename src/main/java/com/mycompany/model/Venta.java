@@ -1,0 +1,32 @@
+package com.mycompany.model;
+
+import java.util.Date;
+
+public class Venta extends Transaccion {
+    private Cliente cliente;
+
+    public Venta() {
+        super();
+        this.cliente = new Cliente();
+    }
+
+    public Venta(Cliente cliente, int id, double precio, Date fecha) {
+        super(id, precio, fecha);
+        this.cliente = cliente;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    @Override
+    public String toString() {
+        return "Venta:" + super.toString() + "\nCliente: " +  cliente;
+    }
+    
+    
+}
