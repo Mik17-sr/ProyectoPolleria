@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
  */
 public class controlador1 implements ActionListener {
     Controller vis;
-    
+    /*
     public controlador1() {
         vis = new Controller();
         vis.iniciar();
@@ -52,5 +52,11 @@ public class controlador1 implements ActionListener {
             JOptionPane.showMessageDialog(null, "Seleccionaste el botón de registrar venta");
             // Aquí iría la lógica para abrir el formulario de registro de venta
         }
+    }
+*/
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
