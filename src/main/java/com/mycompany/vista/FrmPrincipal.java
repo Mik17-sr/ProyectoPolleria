@@ -33,6 +33,78 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         cardLayout = (CardLayout) pnlCards.getLayout();
     }
+
+    public JButton getBtnEditproveedor() {
+        return btnEditproveedor;
+    }
+
+    public void setBtnEditproveedor(JButton btnEditproveedor) {
+        this.btnEditproveedor = btnEditproveedor;
+    }
+
+    public JComboBox<String> getCmbnombreEditproveedor() {
+        return cmbnombreEditproveedor;
+    }
+
+    public void setCmbnombreEditproveedor(JComboBox<String> cmbnombreEditproveedor) {
+        this.cmbnombreEditproveedor = cmbnombreEditproveedor;
+    }
+
+    public JTextField getTxtdireccionEditproveedor() {
+        return txtdireccionEditproveedor;
+    }
+
+    public void setTxtdireccionEditproveedor(JTextField txtdireccionEditproveedor) {
+        this.txtdireccionEditproveedor = txtdireccionEditproveedor;
+    }
+
+    public JTextField getTxtnombreEditproveedor() {
+        return txtnombreEditproveedor;
+    }
+
+    public void setTxtnombreEditproveedor(JTextField txtnombreEditproveedor) {
+        this.txtnombreEditproveedor = txtnombreEditproveedor;
+    }
+
+    public JTextField getTxttelefonoEditproveedor() {
+        return txttelefonoEditproveedor;
+    }
+
+    public void setTxttelefonoEditproveedor(JTextField txttelefonoEditproveedor) {
+        this.txttelefonoEditproveedor = txttelefonoEditproveedor;
+    }
+
+    public JButton getBtnregistrarproveedor() {
+        return btnregistrarproveedor;
+    }
+
+    public void setBtnregistrarproveedor(JButton btnregistrarproveedor) {
+        this.btnregistrarproveedor = btnregistrarproveedor;
+    }
+
+    public JTextField getTxtdireccionproveedor() {
+        return txtdireccionproveedor;
+    }
+
+    public void setTxtdireccionproveedor(JTextField txtdireccionproveedor) {
+        this.txtdireccionproveedor = txtdireccionproveedor;
+    }
+
+    public JTextField getTxtnombreproveedor() {
+        return txtnombreproveedor;
+    }
+
+    public void setTxtnombreproveedor(JTextField txtnombreproveedor) {
+        this.txtnombreproveedor = txtnombreproveedor;
+    }
+
+    public JTextField getTxttelefonoproveedor() {
+        return txttelefonoproveedor;
+    }
+
+    public void setTxttelefonoproveedor(JTextField txttelefonoproveedor) {
+        this.txttelefonoproveedor = txttelefonoproveedor;
+    }
     
     public void mostrarCard(String nombreCard) {
         System.out.println("Mostrando card: " + nombreCard);
@@ -74,11 +146,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JButton getBtnCrearNuevoPedido2() {
-        return btnCrearNuevoPedido2;
+        return btnregistrarcompra;
     }
 
     public void setBtnCrearNuevoPedido2(JButton btnCrearNuevoPedido2) {
-        this.btnCrearNuevoPedido2 = btnCrearNuevoPedido2;
+        this.btnregistrarcompra = btnCrearNuevoPedido2;
     }
 
     public JButton getBtnSdEditClient() {
@@ -138,11 +210,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JButton getBtnregistrarcliente() {
-        return btnregistrarcliente;
+        return btnregistrarproveedor;
     }
 
     public void setBtnregistrarcliente(JButton btnregistrarcliente) {
-        this.btnregistrarcliente = btnregistrarcliente;
+        this.btnregistrarproveedor = btnregistrarcliente;
     }
 
     public JButton getBtnregistrarcliente1() {
@@ -154,11 +226,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JButton getBtnregistrarcliente2() {
-        return btnregistrarcliente2;
+        return btnEditproveedor;
     }
 
     public void setBtnregistrarcliente2(JButton btnregistrarcliente2) {
-        this.btnregistrarcliente2 = btnregistrarcliente2;
+        this.btnEditproveedor = btnregistrarcliente2;
     }
 
     public JButton getBtnregistrarcliente3() {
@@ -178,19 +250,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JComboBox<String> getCmbcliente1() {
-        return cmbcliente1;
+        return cmbcompraReg;
     }
 
     public void setCmbcliente1(JComboBox<String> cmbcliente1) {
-        this.cmbcliente1 = cmbcliente1;
+        this.cmbcompraReg = cmbcliente1;
     }
 
     public JComboBox<String> getCmbcliente2() {
-        return cmbcliente2;
+        return cmbnombreEditproveedor;
     }
 
     public void setCmbcliente2(JComboBox<String> cmbcliente2) {
-        this.cmbcliente2 = cmbcliente2;
+        this.cmbnombreEditproveedor = cmbcliente2;
     }
 
     public JComboBox<String> getCmbcliente3() {
@@ -226,11 +298,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JDateChooser getjDateChooser2() {
-        return jDateChooser2;
+        return jDatefechaCompra;
     }
 
     public void setjDateChooser2(JDateChooser jDateChooser2) {
-        this.jDateChooser2 = jDateChooser2;
+        this.jDatefechaCompra = jDateChooser2;
     }
 
     public JLabel getjLabel1() {
@@ -586,11 +658,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JTextField getjTextField2() {
-        return jTextField2;
+        return txtpreciocompra;
     }
 
     public void setjTextField2(JTextField jTextField2) {
-        this.jTextField2 = jTextField2;
+        this.txtpreciocompra = jTextField2;
     }
 
     public JLabel getLblPollo1() {
@@ -706,11 +778,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JTextField getTxtdireccioncliente() {
-        return txtdireccioncliente;
+        return txtdireccionproveedor;
     }
 
     public void setTxtdireccioncliente(JTextField txtdireccioncliente) {
-        this.txtdireccioncliente = txtdireccioncliente;
+        this.txtdireccionproveedor = txtdireccioncliente;
     }
 
     public JTextField getTxtdireccioncliente1() {
@@ -722,11 +794,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JTextField getTxtdireccioncliente2() {
-        return txtdireccioncliente2;
+        return txtdireccionEditproveedor;
     }
 
     public void setTxtdireccioncliente2(JTextField txtdireccioncliente2) {
-        this.txtdireccioncliente2 = txtdireccioncliente2;
+        this.txtdireccionEditproveedor = txtdireccioncliente2;
     }
 
     public JTextField getTxtdireccioncliente3() {
@@ -738,11 +810,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JTextField getTxtnombrecliente() {
-        return txtnombrecliente;
+        return txtnombreproveedor;
     }
 
     public void setTxtnombrecliente(JTextField txtnombrecliente) {
-        this.txtnombrecliente = txtnombrecliente;
+        this.txtnombreproveedor = txtnombrecliente;
     }
 
     public JTextField getTxtnombrecliente1() {
@@ -754,11 +826,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JTextField getTxtnombrecliente2() {
-        return txtnombrecliente2;
+        return txtnombreEditproveedor;
     }
 
     public void setTxtnombrecliente2(JTextField txtnombrecliente2) {
-        this.txtnombrecliente2 = txtnombrecliente2;
+        this.txtnombreEditproveedor = txtnombrecliente2;
     }
 
     public JTextField getTxtnombrecliente3() {
@@ -778,19 +850,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JTextPane getTxtobservacionescliente1() {
-        return txtobservacionescliente1;
+        return txtobservacionescompra;
     }
 
     public void setTxtobservacionescliente1(JTextPane txtobservacionescliente1) {
-        this.txtobservacionescliente1 = txtobservacionescliente1;
+        this.txtobservacionescompra = txtobservacionescliente1;
     }
 
     public JTextField getTxttelefonocliente() {
-        return txttelefonocliente;
+        return txttelefonoproveedor;
     }
 
     public void setTxttelefonocliente(JTextField txttelefonocliente) {
-        this.txttelefonocliente = txttelefonocliente;
+        this.txttelefonoproveedor = txttelefonocliente;
     }
 
     public JTextField getTxttelefonocliente1() {
@@ -802,11 +874,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JTextField getTxttelefonocliente2() {
-        return txttelefonocliente2;
+        return txttelefonoEditproveedor;
     }
 
     public void setTxttelefonocliente2(JTextField txttelefonocliente2) {
-        this.txttelefonocliente2 = txttelefonocliente2;
+        this.txttelefonoEditproveedor = txttelefonocliente2;
     }
 
     public JTextField getTxttelefonocliente3() {
@@ -872,26 +944,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
         registrarProveedor = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtnombrecliente = new javax.swing.JTextField();
+        txtnombreproveedor = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txttelefonocliente = new javax.swing.JTextField();
-        txtdireccioncliente = new javax.swing.JTextField();
-        btnregistrarcliente = new javax.swing.JButton();
+        txttelefonoproveedor = new javax.swing.JTextField();
+        txtdireccionproveedor = new javax.swing.JTextField();
+        btnregistrarproveedor = new javax.swing.JButton();
         lblPollo3 = new javax.swing.JLabel();
         registrarCompra = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        txtobservacionescliente1 = new javax.swing.JTextPane();
-        cmbcliente1 = new javax.swing.JComboBox<>();
+        txtobservacionescompra = new javax.swing.JTextPane();
+        cmbcompraReg = new javax.swing.JComboBox<>();
         jLabel28 = new javax.swing.JLabel();
         lblPollo4 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
-        btnCrearNuevoPedido2 = new javax.swing.JButton();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        btnregistrarcompra = new javax.swing.JButton();
+        jDatefechaCompra = new com.toedter.calendar.JDateChooser();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtpreciocompra = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
+        btnagrProvRegistraraComp = new javax.swing.JButton();
         registrarVenta = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtobservacionescliente = new javax.swing.JTextPane();
@@ -908,14 +981,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         editarProveedor = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        txtnombrecliente2 = new javax.swing.JTextField();
+        txtnombreEditproveedor = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        txttelefonocliente2 = new javax.swing.JTextField();
-        txtdireccioncliente2 = new javax.swing.JTextField();
-        btnregistrarcliente2 = new javax.swing.JButton();
+        txttelefonoEditproveedor = new javax.swing.JTextField();
+        txtdireccionEditproveedor = new javax.swing.JTextField();
+        btnEditproveedor = new javax.swing.JButton();
         lblPollo6 = new javax.swing.JLabel();
-        cmbcliente2 = new javax.swing.JComboBox<>();
+        cmbnombreEditproveedor = new javax.swing.JComboBox<>();
         jLabel35 = new javax.swing.JLabel();
         editarCliente = new javax.swing.JPanel();
         jLabel36 = new javax.swing.JLabel();
@@ -1111,7 +1184,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel3.setText("Nombre:");
         registrarProveedor.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 189, -1, -1));
-        registrarProveedor.add(txtnombrecliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 189, 480, 32));
+        registrarProveedor.add(txtnombreproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 189, 480, 32));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel4.setText("Teléfono:");
@@ -1120,19 +1193,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel5.setText("Direccion");
         registrarProveedor.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 398, -1, -1));
-        registrarProveedor.add(txttelefonocliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 290, 480, 32));
-        registrarProveedor.add(txtdireccioncliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 398, 480, 32));
+        registrarProveedor.add(txttelefonoproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 290, 480, 32));
+        registrarProveedor.add(txtdireccionproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 398, 480, 32));
 
-        btnregistrarcliente.setBackground(new java.awt.Color(245, 121, 0));
-        btnregistrarcliente.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnregistrarcliente.setForeground(new java.awt.Color(255, 255, 255));
-        btnregistrarcliente.setText("Registrar");
-        btnregistrarcliente.addActionListener(new java.awt.event.ActionListener() {
+        btnregistrarproveedor.setBackground(new java.awt.Color(245, 121, 0));
+        btnregistrarproveedor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnregistrarproveedor.setForeground(new java.awt.Color(255, 255, 255));
+        btnregistrarproveedor.setText("Registrar");
+        btnregistrarproveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnregistrarclienteActionPerformed(evt);
+                btnregistrarproveedorActionPerformed(evt);
             }
         });
-        registrarProveedor.add(btnregistrarcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 136, -1));
+        registrarProveedor.add(btnregistrarproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 480, 136, -1));
 
         lblPollo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         registrarProveedor.add(lblPollo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 100, -1));
@@ -1143,11 +1216,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         registrarCompra.setPreferredSize(new java.awt.Dimension(630, 530));
         registrarCompra.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane4.setViewportView(txtobservacionescliente1);
+        jScrollPane4.setViewportView(txtobservacionescompra);
 
         registrarCompra.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 600, 160));
 
-        registrarCompra.add(cmbcliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 320, 30));
+        registrarCompra.add(cmbcompraReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 320, 30));
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel28.setText("Observaciones:");
@@ -1160,12 +1233,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel29.setText("Registrar Compra");
         registrarCompra.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, 48));
 
-        btnCrearNuevoPedido2.setBackground(new java.awt.Color(245, 121, 0));
-        btnCrearNuevoPedido2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnCrearNuevoPedido2.setForeground(new java.awt.Color(255, 255, 255));
-        btnCrearNuevoPedido2.setText("Agregar Proveedor");
-        registrarCompra.add(btnCrearNuevoPedido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 170, 30));
-        registrarCompra.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 450, 30));
+        btnregistrarcompra.setBackground(new java.awt.Color(245, 121, 0));
+        btnregistrarcompra.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnregistrarcompra.setForeground(new java.awt.Color(255, 255, 255));
+        btnregistrarcompra.setText("Registrar Compra");
+        btnregistrarcompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrarcompraActionPerformed(evt);
+            }
+        });
+        registrarCompra.add(btnregistrarcompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 170, 30));
+        registrarCompra.add(jDatefechaCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 450, 30));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel30.setText("Proveedor:");
@@ -1174,11 +1252,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel31.setText("Fecha Compra:");
         registrarCompra.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
-        registrarCompra.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 450, 30));
+        registrarCompra.add(txtpreciocompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 450, 30));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel32.setText("Precio Compra:");
         registrarCompra.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+
+        btnagrProvRegistraraComp.setBackground(new java.awt.Color(245, 121, 0));
+        btnagrProvRegistraraComp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnagrProvRegistraraComp.setForeground(new java.awt.Color(255, 255, 255));
+        btnagrProvRegistraraComp.setText("Agregar Proveedor");
+        registrarCompra.add(btnagrProvRegistraraComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 170, 30));
 
         pnlCards.add(registrarCompra, "REG_COMPRA");
 
@@ -1236,7 +1320,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel17.setText("Nombre:");
         editarProveedor.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
-        editarProveedor.add(txtnombrecliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 480, 32));
+        editarProveedor.add(txtnombreEditproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 480, 32));
 
         jLabel33.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel33.setText("Teléfono:");
@@ -1245,24 +1329,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel34.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel34.setText("Direccion");
         editarProveedor.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
-        editarProveedor.add(txttelefonocliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 480, 32));
-        editarProveedor.add(txtdireccioncliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 480, 32));
+        editarProveedor.add(txttelefonoEditproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 480, 32));
+        editarProveedor.add(txtdireccionEditproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 480, 32));
 
-        btnregistrarcliente2.setBackground(new java.awt.Color(245, 121, 0));
-        btnregistrarcliente2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        btnregistrarcliente2.setForeground(new java.awt.Color(255, 255, 255));
-        btnregistrarcliente2.setText("Editar");
-        btnregistrarcliente2.addActionListener(new java.awt.event.ActionListener() {
+        btnEditproveedor.setBackground(new java.awt.Color(245, 121, 0));
+        btnEditproveedor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        btnEditproveedor.setForeground(new java.awt.Color(255, 255, 255));
+        btnEditproveedor.setText("Editar");
+        btnEditproveedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnregistrarcliente2ActionPerformed(evt);
+                btnEditproveedorActionPerformed(evt);
             }
         });
-        editarProveedor.add(btnregistrarcliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 136, -1));
+        editarProveedor.add(btnEditproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 136, -1));
 
         lblPollo6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         editarProveedor.add(lblPollo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 100, -1));
 
-        editarProveedor.add(cmbcliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 480, 30));
+        cmbnombreEditproveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbnombreEditproveedorActionPerformed(evt);
+            }
+        });
+        editarProveedor.add(cmbnombreEditproveedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 480, 30));
 
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel35.setText("Proveedor:");
@@ -1330,7 +1419,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pnlCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sideBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         getContentPane().add(background, java.awt.BorderLayout.PAGE_END);
@@ -1338,28 +1427,84 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnregistrarclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarclienteActionPerformed
+    private void btnregistrarproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarproveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnregistrarclienteActionPerformed
+    }//GEN-LAST:event_btnregistrarproveedorActionPerformed
 
     private void btnregistrarcliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarcliente1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnregistrarcliente1ActionPerformed
 
-    private void btnregistrarcliente2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarcliente2ActionPerformed
+    private void btnEditproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditproveedorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnregistrarcliente2ActionPerformed
+    }//GEN-LAST:event_btnEditproveedorActionPerformed
 
     private void btnregistrarcliente3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarcliente3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnregistrarcliente3ActionPerformed
+
+    private void cmbnombreEditproveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbnombreEditproveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbnombreEditproveedorActionPerformed
+
+    private void btnregistrarcompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarcompraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnregistrarcompraActionPerformed
+
+    public JButton getBtnagrProvRegistraraComp() {
+        return btnagrProvRegistraraComp;
+    }
+
+    public void setBtnagrProvRegistraraComp(JButton btnagrProvRegistraraComp) {
+        this.btnagrProvRegistraraComp = btnagrProvRegistraraComp;
+    }
+
+    public JButton getBtnregistrarcompra() {
+        return btnregistrarcompra;
+    }
+
+    public void setBtnregistrarcompra(JButton btnregistrarcompra) {
+        this.btnregistrarcompra = btnregistrarcompra;
+    }
+
+    public JComboBox<String> getCmbcompraReg() {
+        return cmbcompraReg;
+    }
+
+    public void setCmbcompraReg(JComboBox<String> cmbcompraReg) {
+        this.cmbcompraReg = cmbcompraReg;
+    }
+
+    public JDateChooser getjDatefechaCompra() {
+        return jDatefechaCompra;
+    }
+
+    public void setjDatefechaCompra(JDateChooser jDatefechaCompra) {
+        this.jDatefechaCompra = jDatefechaCompra;
+    }
+
+    public JTextPane getTxtobservacionescompra() {
+        return txtobservacionescompra;
+    }
+
+    public void setTxtobservacionescompra(JTextPane txtobservacionescompra) {
+        this.txtobservacionescompra = txtobservacionescompra;
+    }
+
+    public JTextField getTxtpreciocompra() {
+        return txtpreciocompra;
+    }
+
+    public void setTxtpreciocompra(JTextField txtpreciocompra) {
+        this.txtpreciocompra = txtpreciocompra;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JButton btnCrearNuevoPedido;
     private javax.swing.JButton btnCrearNuevoPedido1;
-    private javax.swing.JButton btnCrearNuevoPedido2;
+    private javax.swing.JButton btnEditproveedor;
     private javax.swing.JButton btnSdEditClient;
     private javax.swing.JButton btnSdEditProv;
     private javax.swing.JButton btnSdInicio;
@@ -1367,18 +1512,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnSdRegCompra;
     private javax.swing.JButton btnSdRegProv;
     private javax.swing.JButton btnSdRegVenta;
-    private javax.swing.JButton btnregistrarcliente;
+    private javax.swing.JButton btnagrProvRegistraraComp;
     private javax.swing.JButton btnregistrarcliente1;
-    private javax.swing.JButton btnregistrarcliente2;
     private javax.swing.JButton btnregistrarcliente3;
+    private javax.swing.JButton btnregistrarcompra;
+    private javax.swing.JButton btnregistrarproveedor;
     private javax.swing.JComboBox<String> cmbcliente;
-    private javax.swing.JComboBox<String> cmbcliente1;
-    private javax.swing.JComboBox<String> cmbcliente2;
     private javax.swing.JComboBox<String> cmbcliente3;
+    private javax.swing.JComboBox<String> cmbcompraReg;
+    private javax.swing.JComboBox<String> cmbnombreEditproveedor;
     private javax.swing.JPanel editarCliente;
     private javax.swing.JPanel editarProveedor;
     private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDatefechaCompra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1423,7 +1569,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblPollo1;
     private javax.swing.JLabel lblPollo2;
     private javax.swing.JLabel lblPollo3;
@@ -1438,20 +1583,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel registrarProveedor;
     private javax.swing.JPanel registrarVenta;
     private javax.swing.JPanel sideBar;
-    private javax.swing.JTextField txtdireccioncliente;
+    private javax.swing.JTextField txtdireccionEditproveedor;
     private javax.swing.JTextField txtdireccioncliente1;
-    private javax.swing.JTextField txtdireccioncliente2;
     private javax.swing.JTextField txtdireccioncliente3;
-    private javax.swing.JTextField txtnombrecliente;
+    private javax.swing.JTextField txtdireccionproveedor;
+    private javax.swing.JTextField txtnombreEditproveedor;
     private javax.swing.JTextField txtnombrecliente1;
-    private javax.swing.JTextField txtnombrecliente2;
     private javax.swing.JTextField txtnombrecliente3;
+    private javax.swing.JTextField txtnombreproveedor;
     private javax.swing.JTextPane txtobservacionescliente;
-    private javax.swing.JTextPane txtobservacionescliente1;
-    private javax.swing.JTextField txttelefonocliente;
+    private javax.swing.JTextPane txtobservacionescompra;
+    private javax.swing.JTextField txtpreciocompra;
+    private javax.swing.JTextField txttelefonoEditproveedor;
     private javax.swing.JTextField txttelefonocliente1;
-    private javax.swing.JTextField txttelefonocliente2;
     private javax.swing.JTextField txttelefonocliente3;
+    private javax.swing.JTextField txttelefonoproveedor;
     private javax.swing.JPanel vistaInicio;
     // End of variables declaration//GEN-END:variables
 }
