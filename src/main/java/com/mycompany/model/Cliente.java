@@ -25,6 +25,4 @@ public class Cliente extends Persona {
     public String toString() {
         return "Cliente\nID Cliente: " + idCliente + super.toString();
     }
-    
-    
 }
