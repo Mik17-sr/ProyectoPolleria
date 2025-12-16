@@ -1,7 +1,7 @@
 package com.mycompany.main;
 
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
-import com.mycompany.controller.controlador1;
+import com.mycompany.controller.Controller;
 import javax.swing.SwingUtilities;
 
 public class Main {
@@ -10,7 +10,8 @@ public class Main {
     
     SwingUtilities.invokeLater(() -> {
         try {
-            controlador1 cont=new controlador1();
+            Controller cont = new Controller();
+            cont.iniciar();
           
         } catch (Exception e) {
             e.printStackTrace();

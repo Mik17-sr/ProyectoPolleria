@@ -17,17 +17,40 @@ import javax.swing.JTextPane;
  * @author Miguel
  */
 public class FrmPrincipal extends javax.swing.JFrame {
-    private CardLayout card;
-
-    public CardLayout getCard() {
-        return card;
-    }
-
-    public void setCard(CardLayout card) {
-        this.card = card;
-    }
+    
+    private CardLayout cardLayout;
+    
+    public static final String CARD_INICIO = "INICIO";
+    public static final String CARD_REG_CLIENT = "REG_CLIENT";
+    public static final String CARD_REG_PROV = "REG_PROV";
+    public static final String CARD_REG_COMPRA = "REG_COMPRA";
+    public static final String CARD_REG_VENTA = "REG_VENTA";
+    public static final String CARD_EDIT_PROV = "EDIT_PROV";
+    public static final String CARD_EDIT_CLIENT = "EDIT_CLIENT";
+    
     public FrmPrincipal() {
         initComponents();
+        
+        cardLayout = (CardLayout) pnlCards.getLayout();
+    }
+    
+    public void mostrarCard(String nombreCard) {
+        System.out.println("Mostrando card: " + nombreCard);
+        cardLayout.show(pnlCards, nombreCard);
+        pnlCards.revalidate();
+        pnlCards.repaint();
+    }
+
+    public CardLayout getCardLayout() {
+        return cardLayout;
+    }
+
+    public void setCardLayout(CardLayout cardLayout) {
+        this.cardLayout = cardLayout;
+    }
+
+    public JPanel getBackgrounda() {
+        return background;
     }
 
     public void setBackground(JPanel background) {
@@ -56,6 +79,62 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     public void setBtnCrearNuevoPedido2(JButton btnCrearNuevoPedido2) {
         this.btnCrearNuevoPedido2 = btnCrearNuevoPedido2;
+    }
+
+    public JButton getBtnSdEditClient() {
+        return btnSdEditClient;
+    }
+
+    public void setBtnSdEditClient(JButton btnSdEditClient) {
+        this.btnSdEditClient = btnSdEditClient;
+    }
+
+    public JButton getBtnSdEditProv() {
+        return btnSdEditProv;
+    }
+
+    public void setBtnSdEditProv(JButton btnSdEditProv) {
+        this.btnSdEditProv = btnSdEditProv;
+    }
+
+    public JButton getBtnSdInicio() {
+        return btnSdInicio;
+    }
+
+    public void setBtnSdInicio(JButton btnSdInicio) {
+        this.btnSdInicio = btnSdInicio;
+    }
+
+    public JButton getBtnSdRegClient() {
+        return btnSdRegClient;
+    }
+
+    public void setBtnSdRegClient(JButton btnSdRegClient) {
+        this.btnSdRegClient = btnSdRegClient;
+    }
+
+    public JButton getBtnSdRegCompra() {
+        return btnSdRegCompra;
+    }
+
+    public void setBtnSdRegCompra(JButton btnSdRegCompra) {
+        this.btnSdRegCompra = btnSdRegCompra;
+    }
+
+    public JButton getBtnSdRegProv() {
+        return btnSdRegProv;
+    }
+
+    public void setBtnSdRegProv(JButton btnSdRegProv) {
+        this.btnSdRegProv = btnSdRegProv;
+    }
+
+    public JButton getBtnSdRegVenta() {
+        return btnSdRegVenta;
+    }
+
+    public void setBtnSdRegVenta(JButton btnSdRegVenta) {
+        this.btnSdRegVenta = btnSdRegVenta;
     }
 
     public JButton getBtnregistrarcliente() {
@@ -138,62 +217,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.editarProveedor = editarProveedor;
     }
 
-    public JButton getjButton1() {
-        return btniniciosidebar;
-    }
-
-    public void setjButton1(JButton jButton1) {
-        this.btniniciosidebar = jButton1;
-    }
-
-    public JButton getjButton2() {
-        return btnregistrarclientesidebar;
-    }
-
-    public void setjButton2(JButton jButton2) {
-        this.btnregistrarclientesidebar = jButton2;
-    }
-
-    public JButton getjButton3() {
-        return btnregistrarproveedorsidebar;
-    }
-
-    public void setjButton3(JButton jButton3) {
-        this.btnregistrarproveedorsidebar = jButton3;
-    }
-
-    public JButton getjButton5() {
-        return btneditarproveedorsidebar;
-    }
-
-    public void setjButton5(JButton jButton5) {
-        this.btneditarproveedorsidebar = jButton5;
-    }
-
-    public JButton getjButton6() {
-        return btneditarclientesidebar;
-    }
-
-    public void setjButton6(JButton jButton6) {
-        this.btneditarclientesidebar = jButton6;
-    }
-
-    public JButton getjButton7() {
-        return btnregistrarventasidebar;
-    }
-
-    public void setjButton7(JButton jButton7) {
-        this.btnregistrarventasidebar = jButton7;
-    }
-
-    public JButton getjButton8() {
-        return btnregistrarcomprasidebar;
-    }
-
-    public void setjButton8(JButton jButton8) {
-        this.btnregistrarcomprasidebar = jButton8;
-    }
-
     public JDateChooser getjDateChooser1() {
         return jDateChooser1;
     }
@@ -258,14 +281,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.jLabel14 = jLabel14;
     }
 
-    public JLabel getjLabel15() {
-        return lblPollo4;
-    }
-
-    public void setjLabel15(JLabel jLabel15) {
-        this.lblPollo4 = jLabel15;
-    }
-
     public JLabel getjLabel16() {
         return jLabel16;
     }
@@ -304,14 +319,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     public void setjLabel2(JLabel jLabel2) {
         this.jLabel2 = jLabel2;
-    }
-
-    public JLabel getjLabel20() {
-        return lblPollo1;
-    }
-
-    public void setjLabel20(JLabel jLabel20) {
-        this.lblPollo1 = jLabel20;
     }
 
     public JLabel getjLabel21() {
@@ -514,14 +521,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.jLabel7 = jLabel7;
     }
 
-    public JLabel getjLabel8() {
-        return lblPollo5;
-    }
-
-    public void setjLabel8(JLabel jLabel8) {
-        this.lblPollo5 = jLabel8;
-    }
-
     public JLabel getjLabel9() {
         return jLabel9;
     }
@@ -594,36 +593,60 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.jTextField2 = jTextField2;
     }
 
-    public JLabel getLblImg() {
-        return lblPollo3;
+    public JLabel getLblPollo1() {
+        return lblPollo1;
     }
 
-    public void setLblImg(JLabel lblImg) {
-        this.lblPollo3 = lblImg;
+    public void setLblPollo1(JLabel lblPollo1) {
+        this.lblPollo1 = lblPollo1;
     }
 
-    public JLabel getLblImg1() {
+    public JLabel getLblPollo2() {
         return lblPollo2;
     }
 
-    public void setLblImg1(JLabel lblImg1) {
-        this.lblPollo2 = lblImg1;
+    public void setLblPollo2(JLabel lblPollo2) {
+        this.lblPollo2 = lblPollo2;
     }
 
-    public JLabel getLblImg2() {
+    public JLabel getLblPollo3() {
+        return lblPollo3;
+    }
+
+    public void setLblPollo3(JLabel lblPollo3) {
+        this.lblPollo3 = lblPollo3;
+    }
+
+    public JLabel getLblPollo4() {
+        return lblPollo4;
+    }
+
+    public void setLblPollo4(JLabel lblPollo4) {
+        this.lblPollo4 = lblPollo4;
+    }
+
+    public JLabel getLblPollo5() {
+        return lblPollo5;
+    }
+
+    public void setLblPollo5(JLabel lblPollo5) {
+        this.lblPollo5 = lblPollo5;
+    }
+
+    public JLabel getLblPollo6() {
         return lblPollo6;
     }
 
-    public void setLblImg2(JLabel lblImg2) {
-        this.lblPollo6 = lblImg2;
+    public void setLblPollo6(JLabel lblPollo6) {
+        this.lblPollo6 = lblPollo6;
     }
 
-    public JLabel getLblImg3() {
+    public JLabel getLblPollo7() {
         return lblPollo7;
     }
 
-    public void setLblImg3(JLabel lblImg3) {
-        this.lblPollo7 = lblImg3;
+    public void setLblPollo7(JLabel lblPollo7) {
+        this.lblPollo7 = lblPollo7;
     }
 
     public PanelRound getPanelRound1() {
@@ -802,117 +825,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.vistaInicio = vistaInicio;
     }
 
-    public JButton getBtneditarclientesidebar() {
-        return btneditarclientesidebar;
-    }
-
-    public void setBtneditarclientesidebar(JButton btneditarclientesidebar) {
-        this.btneditarclientesidebar = btneditarclientesidebar;
-    }
-
-    public JButton getBtneditarproveedorsidebar() {
-        return btneditarproveedorsidebar;
-    }
-
-    public void setBtneditarproveedorsidebar(JButton btneditarproveedorsidebar) {
-        this.btneditarproveedorsidebar = btneditarproveedorsidebar;
-    }
-
-    public JButton getBtniniciosidebar() {
-        return btniniciosidebar;
-    }
-
-    public void setBtniniciosidebar(JButton btniniciosidebar) {
-        this.btniniciosidebar = btniniciosidebar;
-    }
-
-    public JButton getBtnregistrarclientesidebar() {
-        return btnregistrarclientesidebar;
-    }
-
-    public void setBtnregistrarclientesidebar(JButton btnregistrarclientesidebar) {
-        this.btnregistrarclientesidebar = btnregistrarclientesidebar;
-    }
-
-    public JButton getBtnregistrarcomprasidebar() {
-        return btnregistrarcomprasidebar;
-    }
-
-    public void setBtnregistrarcomprasidebar(JButton btnregistrarcomprasidebar) {
-        this.btnregistrarcomprasidebar = btnregistrarcomprasidebar;
-    }
-
-    public JButton getBtnregistrarproveedorsidebar() {
-        return btnregistrarproveedorsidebar;
-    }
-
-    public void setBtnregistrarproveedorsidebar(JButton btnregistrarproveedorsidebar) {
-        this.btnregistrarproveedorsidebar = btnregistrarproveedorsidebar;
-    }
-
-    public JButton getBtnregistrarventasidebar() {
-        return btnregistrarventasidebar;
-    }
-
-    public void setBtnregistrarventasidebar(JButton btnregistrarventasidebar) {
-        this.btnregistrarventasidebar = btnregistrarventasidebar;
-    }
-
-    public JLabel getLblPollo1() {
-        return lblPollo1;
-    }
-
-    public void setLblPollo1(JLabel lblPollo1) {
-        this.lblPollo1 = lblPollo1;
-    }
-
-    public JLabel getLblPollo2() {
-        return lblPollo2;
-    }
-
-    public void setLblPollo2(JLabel lblPollo2) {
-        this.lblPollo2 = lblPollo2;
-    }
-
-    public JLabel getLblPollo3() {
-        return lblPollo3;
-    }
-
-    public void setLblPollo3(JLabel lblPollo3) {
-        this.lblPollo3 = lblPollo3;
-    }
-
-    public JLabel getLblPollo4() {
-        return lblPollo4;
-    }
-
-    public void setLblPollo4(JLabel lblPollo4) {
-        this.lblPollo4 = lblPollo4;
-    }
-
-    public JLabel getLblPollo5() {
-        return lblPollo5;
-    }
-
-    public void setLblPollo5(JLabel lblPollo5) {
-        this.lblPollo5 = lblPollo5;
-    }
-
-    public JLabel getLblPollo6() {
-        return lblPollo6;
-    }
-
-    public void setLblPollo6(JLabel lblPollo6) {
-        this.lblPollo6 = lblPollo6;
-    }
-
-    public JLabel getLblPollo7() {
-        return lblPollo7;
-    }
-
-    public void setLblPollo7(JLabel lblPollo7) {
-        this.lblPollo7 = lblPollo7;
-    }
     
     
     
@@ -922,15 +834,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         background = new javax.swing.JPanel();
         sideBar = new javax.swing.JPanel();
-        btniniciosidebar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        btnregistrarclientesidebar = new javax.swing.JButton();
-        btnregistrarproveedorsidebar = new javax.swing.JButton();
-        btneditarproveedorsidebar = new javax.swing.JButton();
-        btneditarclientesidebar = new javax.swing.JButton();
+        btnSdInicio = new javax.swing.JButton();
+        btnSdRegProv = new javax.swing.JButton();
+        btnSdRegClient = new javax.swing.JButton();
+        btnSdEditProv = new javax.swing.JButton();
+        btnSdEditClient = new javax.swing.JButton();
+        btnSdRegCompra = new javax.swing.JButton();
+        btnSdRegVenta = new javax.swing.JButton();
         lblPollo1 = new javax.swing.JLabel();
-        btnregistrarventasidebar = new javax.swing.JButton();
-        btnregistrarcomprasidebar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         pnlCards = new javax.swing.JPanel();
         vistaInicio = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -1023,42 +935,37 @@ public class FrmPrincipal extends javax.swing.JFrame {
         sideBar.setPreferredSize(new java.awt.Dimension(200, 0));
         sideBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btniniciosidebar.setText("Inicio");
-        btniniciosidebar.setToolTipText("");
-        btniniciosidebar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btniniciosidebarActionPerformed(evt);
-            }
-        });
-        sideBar.add(btniniciosidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 115, 126, -1));
-        sideBar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 6, -1, 103));
+        btnSdInicio.setText("Inicio");
+        btnSdInicio.setToolTipText("");
+        sideBar.add(btnSdInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 115, 126, -1));
 
-        btnregistrarclientesidebar.setText("Registrar Cliente");
-        btnregistrarclientesidebar.setToolTipText("");
-        sideBar.add(btnregistrarclientesidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 181, 126, -1));
+        btnSdRegProv.setText("Registrar Proveedor");
+        btnSdRegProv.setToolTipText("");
+        sideBar.add(btnSdRegProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 148, 126, -1));
 
-        btnregistrarproveedorsidebar.setText("Registrar Proveedor");
-        btnregistrarproveedorsidebar.setToolTipText("");
-        sideBar.add(btnregistrarproveedorsidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 148, 126, -1));
+        btnSdRegClient.setText("Registrar Cliente");
+        btnSdRegClient.setToolTipText("");
+        sideBar.add(btnSdRegClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 181, 126, -1));
 
-        btneditarproveedorsidebar.setText("Editar Proveedor");
-        btneditarproveedorsidebar.setToolTipText("");
-        sideBar.add(btneditarproveedorsidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 214, 126, -1));
+        btnSdEditProv.setText("Editar Proveedor");
+        btnSdEditProv.setToolTipText("");
+        sideBar.add(btnSdEditProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 214, 126, -1));
 
-        btneditarclientesidebar.setText("Editar Cliente");
-        btneditarclientesidebar.setToolTipText("");
-        sideBar.add(btneditarclientesidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 247, 126, -1));
+        btnSdEditClient.setText("Editar Cliente");
+        btnSdEditClient.setToolTipText("");
+        sideBar.add(btnSdEditClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 247, 126, -1));
+
+        btnSdRegCompra.setText("Registrar Compra");
+        btnSdRegCompra.setToolTipText("");
+        sideBar.add(btnSdRegCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 280, -1, -1));
+
+        btnSdRegVenta.setText("Registrar Venta");
+        btnSdRegVenta.setToolTipText("");
+        sideBar.add(btnSdRegVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 313, 126, -1));
 
         lblPollo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         sideBar.add(lblPollo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        btnregistrarventasidebar.setText("Registrar Venta");
-        btnregistrarventasidebar.setToolTipText("");
-        sideBar.add(btnregistrarventasidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 313, 126, -1));
-
-        btnregistrarcomprasidebar.setText("Registrar Compra");
-        btnregistrarcomprasidebar.setToolTipText("");
-        sideBar.add(btnregistrarcomprasidebar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 280, -1, -1));
+        sideBar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 6, -1, 103));
 
         pnlCards.setLayout(new java.awt.CardLayout());
 
@@ -1191,7 +1098,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lblPollo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         registrarCliente.add(lblPollo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 100, -1));
 
-        pnlCards.add(registrarCliente, "REGISTRARCLIENTE");
+        pnlCards.add(registrarCliente, "REG_CLIENT");
 
         registrarProveedor.setMinimumSize(new java.awt.Dimension(630, 530));
         registrarProveedor.setPreferredSize(new java.awt.Dimension(630, 530));
@@ -1230,7 +1137,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lblPollo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         registrarProveedor.add(lblPollo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 100, -1));
 
-        pnlCards.add(registrarProveedor, "REGISTRARPROVEEDOR");
+        pnlCards.add(registrarProveedor, "REG_PROV");
 
         registrarCompra.setMinimumSize(new java.awt.Dimension(630, 530));
         registrarCompra.setPreferredSize(new java.awt.Dimension(630, 530));
@@ -1273,7 +1180,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel32.setText("Precio Compra:");
         registrarCompra.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
-        pnlCards.add(registrarCompra, "REGISTRARCOMPRA");
+        pnlCards.add(registrarCompra, "REG_COMPRA");
 
         registrarVenta.setMinimumSize(new java.awt.Dimension(630, 530));
         registrarVenta.setPreferredSize(new java.awt.Dimension(630, 530));
@@ -1316,7 +1223,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel24.setText("Precio Venta:");
         registrarVenta.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
 
-        pnlCards.add(registrarVenta, "REGISTRARVENTA");
+        pnlCards.add(registrarVenta, "REG_VENTA");
 
         editarProveedor.setMinimumSize(new java.awt.Dimension(630, 530));
         editarProveedor.setPreferredSize(new java.awt.Dimension(630, 530));
@@ -1361,7 +1268,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel35.setText("Proveedor:");
         editarProveedor.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
-        pnlCards.add(editarProveedor, "EDITARPROVEEDOR");
+        pnlCards.add(editarProveedor, "EDIT_PROV");
 
         editarCliente.setMinimumSize(new java.awt.Dimension(630, 530));
         editarCliente.setPreferredSize(new java.awt.Dimension(630, 530));
@@ -1406,7 +1313,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel40.setText("Cliente:");
         editarCliente.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
-        pnlCards.add(editarCliente, "EDITARCLIENTE");
+        pnlCards.add(editarCliente, "EDIT_CLIENT");
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
@@ -1447,27 +1354,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnregistrarcliente3ActionPerformed
 
-    private void btniniciosidebarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btniniciosidebarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btniniciosidebarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JButton btnCrearNuevoPedido;
     private javax.swing.JButton btnCrearNuevoPedido1;
     private javax.swing.JButton btnCrearNuevoPedido2;
-    private javax.swing.JButton btneditarclientesidebar;
-    private javax.swing.JButton btneditarproveedorsidebar;
-    private javax.swing.JButton btniniciosidebar;
+    private javax.swing.JButton btnSdEditClient;
+    private javax.swing.JButton btnSdEditProv;
+    private javax.swing.JButton btnSdInicio;
+    private javax.swing.JButton btnSdRegClient;
+    private javax.swing.JButton btnSdRegCompra;
+    private javax.swing.JButton btnSdRegProv;
+    private javax.swing.JButton btnSdRegVenta;
     private javax.swing.JButton btnregistrarcliente;
     private javax.swing.JButton btnregistrarcliente1;
     private javax.swing.JButton btnregistrarcliente2;
     private javax.swing.JButton btnregistrarcliente3;
-    private javax.swing.JButton btnregistrarclientesidebar;
-    private javax.swing.JButton btnregistrarcomprasidebar;
-    private javax.swing.JButton btnregistrarproveedorsidebar;
-    private javax.swing.JButton btnregistrarventasidebar;
     private javax.swing.JComboBox<String> cmbcliente;
     private javax.swing.JComboBox<String> cmbcliente1;
     private javax.swing.JComboBox<String> cmbcliente2;
