@@ -1,5 +1,6 @@
 package com.mycompany.controller;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
@@ -20,36 +21,40 @@ public class controlador1 implements ActionListener {
         vis.getFrm().getBtneditarproveedorsidebar().addActionListener(this);
         vis.getFrm().getBtneditarclientesidebar().addActionListener(this);
         vis.getFrm().getBtnregistrarcomprasidebar().addActionListener(this);
-        vis.getFrm().getBtnregistrarventasidebar().addActionListener(this);        
+        vis.getFrm().getBtnregistrarventasidebar().addActionListener(this); 
+        
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        CardLayout card = (CardLayout) vis.getFrm().getPnlCards().getLayout();
         if (e.getSource() == vis.getFrm().getBtniniciosidebar()) {
-            JOptionPane.showMessageDialog(null, "Seleccionaste el botón de inicio en el Sidebar");
+            
+            card.show(vis.getFrm().getPnlCards(), "INICIO");
         } 
         else if (e.getSource() == vis.getFrm().getBtnregistrarproveedorsidebar()) {
-            JOptionPane.showMessageDialog(null, "Seleccionaste el botón de registrar proveedor");
+            
             // Aquí iría la lógica para abrir el formulario de registro de proveedor
+            card.show(vis.getFrm().getPnlCards(), "REGISTRARPROVEEDOR");
         }
         else if (e.getSource() == vis.getFrm().getBtnregistrarclientesidebar()) {
-            JOptionPane.showMessageDialog(null, "Seleccionaste el botón de registrar cliente");
+            card.show(vis.getFrm().getPnlCards(), "REGISTRARCLIENTE");
             // Aquí iría la lógica para abrir el formulario de registro de cliente
         }
         else if (e.getSource() == vis.getFrm().getBtneditarproveedorsidebar()) {
-            JOptionPane.showMessageDialog(null, "Seleccionaste el botón de editar proveedor");
+            card.show(vis.getFrm().getPnlCards(), "EDITARPROVEEDOR");
             // Aquí iría la lógica para abrir el formulario de edición de proveedor
         }
         else if (e.getSource() == vis.getFrm().getBtneditarclientesidebar()) {
-            JOptionPane.showMessageDialog(null, "Seleccionaste el botón de editar cliente");
+            card.show(vis.getFrm().getPnlCards(), "EDITARCLIENTE");
             // Aquí iría la lógica para abrir el formulario de edición de cliente
         }
         else if (e.getSource() == vis.getFrm().getBtnregistrarcomprasidebar()) {
-            JOptionPane.showMessageDialog(null, "Seleccionaste el botón de registrar compra");
+            card.show(vis.getFrm().getPnlCards(), "REGISTRARCOMPRA");
             // Aquí iría la lógica para abrir el formulario de registro de compra
         }
         else if (e.getSource() == vis.getFrm().getBtnregistrarventasidebar()) {
-            JOptionPane.showMessageDialog(null, "Seleccionaste el botón de registrar venta");
+            card.show(vis.getFrm().getPnlCards(), "REGISTRARVENTA");
             // Aquí iría la lógica para abrir el formulario de registro de venta
         }
     }
