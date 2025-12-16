@@ -1099,7 +1099,7 @@
                 <Component class="javax.swing.JLabel" name="lblPollo6">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Mis documentos\ME\Trabajo\Proyecto Pollos\ProyPolleria\src\main\resources\img\Pollo.png"/>
+                      <Image iconType="3" name="/img/Pollo.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1255,7 +1255,7 @@
                 <Component class="javax.swing.JLabel" name="lblPollo7">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="C:\Mis documentos\ME\Trabajo\Proyecto Pollos\ProyPolleria\src\main\resources\img\Pollo.png"/>
+                      <Image iconType="3" name="/img/Pollo.png"/>
                     </Property>
                   </Properties>
                   <Constraints>

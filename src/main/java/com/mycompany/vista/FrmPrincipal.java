@@ -1226,7 +1226,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         editarProveedor.add(btnregistrarcliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 136, -1));
 
-        lblPollo6.setIcon(new javax.swing.ImageIcon("C:\\Mis documentos\\ME\\Trabajo\\Proyecto Pollos\\ProyPolleria\\src\\main\\resources\\img\\Pollo.png")); // NOI18N
+        lblPollo6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         editarProveedor.add(lblPollo6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 100, -1));
 
         editarProveedor.add(cmbcliente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 480, 30));
@@ -1271,7 +1271,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         editarCliente.add(btnregistrarcliente3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, 136, -1));
 
-        lblPollo7.setIcon(new javax.swing.ImageIcon("C:\\Mis documentos\\ME\\Trabajo\\Proyecto Pollos\\ProyPolleria\\src\\main\\resources\\img\\Pollo.png")); // NOI18N
+        lblPollo7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         editarCliente.add(lblPollo7, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 100, -1));
 
         editarCliente.add(cmbcliente3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 480, 30));

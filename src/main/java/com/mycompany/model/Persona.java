@@ -1,9 +1,5 @@
 package com.mycompany.model;
 
-/**
- *
- * @author Miguel
- */
 public abstract class Persona {
     protected String nombre;
     protected String telefono;

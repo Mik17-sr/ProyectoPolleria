@@ -2,10 +2,6 @@ package com.mycompany.model;
 
 import java.util.Date;
 
-/**
- *
- * @author Miguel
- */
 public class Compra extends Transaccion{
     private Proveedor proveedor;
 
