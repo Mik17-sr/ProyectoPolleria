@@ -2,6 +2,7 @@ package com.mycompany.vista;
 
 import com.mycompany.forms.PanelRound;
 import com.toedter.calendar.JDateChooser;
+import java.awt.CardLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -16,7 +17,15 @@ import javax.swing.JTextPane;
  * @author Miguel
  */
 public class FrmPrincipal extends javax.swing.JFrame {
+    private CardLayout card;
 
+    public CardLayout getCard() {
+        return card;
+    }
+
+    public void setCard(CardLayout card) {
+        this.card = card;
+    }
     public FrmPrincipal() {
         initComponents();
     }
