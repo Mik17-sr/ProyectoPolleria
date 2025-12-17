@@ -1,6 +1,7 @@
 package com.mycompany.vista;
 
 import com.mycompany.forms.PanelRound;
+import com.mycompany.model.Proveedor;
 import com.toedter.calendar.JDateChooser;
 import java.awt.CardLayout;
 import javax.swing.JButton;
@@ -42,13 +43,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.btnEditproveedor = btnEditproveedor;
     }
 
-    public JComboBox<String> getCmbnombreEditproveedor() {
+    public JComboBox<Proveedor> getCmbnombreEditproveedor() {
         return cmbnombreEditproveedor;
     }
 
-    public void setCmbnombreEditproveedor(JComboBox<String> cmbnombreEditproveedor) {
+    public void setCmbnombreEditproveedor(JComboBox<Proveedor> cmbnombreEditproveedor) {
         this.cmbnombreEditproveedor = cmbnombreEditproveedor;
     }
+
+
 
     public JTextField getTxtdireccionEditproveedor() {
         return txtdireccionEditproveedor;
@@ -168,7 +171,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public void setBtnSdEditProv(JButton btnSdEditProv) {
         this.btnSdEditProv = btnSdEditProv;
     }
-
+    
     public JButton getBtnSdInicio() {
         return btnSdInicio;
     }
@@ -257,13 +260,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.cmbcompraReg = cmbcliente1;
     }
 
-    public JComboBox<String> getCmbcliente2() {
-        return cmbnombreEditproveedor;
-    }
 
-    public void setCmbcliente2(JComboBox<String> cmbcliente2) {
-        this.cmbnombreEditproveedor = cmbcliente2;
-    }
 
     public JComboBox<String> getCmbcliente3() {
         return cmbcliente3;
@@ -1520,7 +1517,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbcliente;
     private javax.swing.JComboBox<String> cmbcliente3;
     private javax.swing.JComboBox<String> cmbcompraReg;
-    private javax.swing.JComboBox<String> cmbnombreEditproveedor;
+    private javax.swing.JComboBox<Proveedor> cmbnombreEditproveedor;
     private javax.swing.JPanel editarCliente;
     private javax.swing.JPanel editarProveedor;
     private com.toedter.calendar.JDateChooser jDateChooser1;
