@@ -252,13 +252,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.cmbcliente = cmbcliente;
     }
 
-    public JComboBox<String> getCmbcliente1() {
-        return cmbcompraReg;
-    }
-
-    public void setCmbcliente1(JComboBox<String> cmbcliente1) {
-        this.cmbcompraReg = cmbcliente1;
-    }
 
 
 
@@ -1007,31 +1000,31 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         btnSdInicio.setText("Inicio");
         btnSdInicio.setToolTipText("");
-        sideBar.add(btnSdInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 115, 126, -1));
+        sideBar.add(btnSdInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 115, 180, -1));
 
         btnSdRegProv.setText("Registrar Proveedor");
         btnSdRegProv.setToolTipText("");
-        sideBar.add(btnSdRegProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 148, 126, -1));
+        sideBar.add(btnSdRegProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 148, 180, -1));
 
         btnSdRegClient.setText("Registrar Cliente");
         btnSdRegClient.setToolTipText("");
-        sideBar.add(btnSdRegClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 181, 126, -1));
+        sideBar.add(btnSdRegClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 181, 180, -1));
 
         btnSdEditProv.setText("Editar Proveedor");
         btnSdEditProv.setToolTipText("");
-        sideBar.add(btnSdEditProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 214, 126, -1));
+        sideBar.add(btnSdEditProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 214, 180, -1));
 
         btnSdEditClient.setText("Editar Cliente");
         btnSdEditClient.setToolTipText("");
-        sideBar.add(btnSdEditClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 247, 126, -1));
+        sideBar.add(btnSdEditClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 247, 180, -1));
 
         btnSdRegCompra.setText("Registrar Compra");
         btnSdRegCompra.setToolTipText("");
-        sideBar.add(btnSdRegCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 280, -1, -1));
+        sideBar.add(btnSdRegCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 280, 180, -1));
 
         btnSdRegVenta.setText("Registrar Venta");
         btnSdRegVenta.setToolTipText("");
-        sideBar.add(btnSdRegVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 313, 126, -1));
+        sideBar.add(btnSdRegVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 313, 180, -1));
 
         lblPollo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         sideBar.add(lblPollo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
@@ -1215,13 +1208,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jScrollPane4.setViewportView(txtobservacionescompra);
 
-        registrarCompra.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 600, 160));
+        registrarCompra.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 600, 80));
 
         registrarCompra.add(cmbcompraReg, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 320, 30));
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel28.setText("Observaciones:");
-        registrarCompra.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+        registrarCompra.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
 
         lblPollo4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         registrarCompra.add(lblPollo4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
@@ -1239,21 +1232,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 btnregistrarcompraActionPerformed(evt);
             }
         });
-        registrarCompra.add(btnregistrarcompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 540, 170, 30));
+        registrarCompra.add(btnregistrarcompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 170, 30));
         registrarCompra.add(jDatefechaCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 450, 30));
 
         jLabel30.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel30.setText("Proveedor:");
-        registrarCompra.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+        registrarCompra.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel31.setText("Fecha Compra:");
-        registrarCompra.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+        registrarCompra.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
         registrarCompra.add(txtpreciocompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 450, 30));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel32.setText("Precio Compra:");
-        registrarCompra.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+        registrarCompra.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, -1, -1));
 
         btnagrProvRegistraraComp.setBackground(new java.awt.Color(245, 121, 0));
         btnagrProvRegistraraComp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -1406,7 +1399,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlCards, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1464,13 +1457,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.btnregistrarcompra = btnregistrarcompra;
     }
 
-    public JComboBox<String> getCmbcompraReg() {
+    public JComboBox<Proveedor> getCmbcompraReg() {
         return cmbcompraReg;
     }
 
-    public void setCmbcompraReg(JComboBox<String> cmbcompraReg) {
+    public void setCmbcompraReg(JComboBox<Proveedor> cmbcompraReg) {
         this.cmbcompraReg = cmbcompraReg;
     }
+
+
 
     public JDateChooser getjDatefechaCompra() {
         return jDatefechaCompra;
@@ -1516,7 +1511,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnregistrarproveedor;
     private javax.swing.JComboBox<String> cmbcliente;
     private javax.swing.JComboBox<String> cmbcliente3;
-    private javax.swing.JComboBox<String> cmbcompraReg;
+    private javax.swing.JComboBox<Proveedor> cmbcompraReg;
     private javax.swing.JComboBox<Proveedor> cmbnombreEditproveedor;
     private javax.swing.JPanel editarCliente;
     private javax.swing.JPanel editarProveedor;
