@@ -36,9 +36,7 @@ public class ProveedorController implements ActionListener {
             String direccion = frm.getTxtdireccionproveedor().getText();
             registrar(nombre, telefono, direccion);
         }
-        if (e.getSource() == frm.getCmbnombreEditproveedor()) {
-            //Proveedor[] lista = consulta();
-        }
+        
         if (e.getSource() == frm.getBtnEditproveedor()) {
             Proveedor prov = (Proveedor) frm.getCmbnombreEditproveedor().getSelectedItem();
             int idprovedor = prov.getIdproveedor();

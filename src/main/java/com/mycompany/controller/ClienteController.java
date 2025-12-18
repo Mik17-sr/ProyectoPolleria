@@ -66,6 +66,11 @@ public class ClienteController implements ActionListener{
             listarCombo();
             habilitarBotonEdit();
         });
+        frm.getBtnSdRegVenta().addActionListener(e -> {
+            cargarClientes();
+            listarComboVentas();
+            habilitarBotonRegVenta();
+        });
     }
     
     private void cargarClientes(){
@@ -75,6 +80,14 @@ public class ClienteController implements ActionListener{
     private void habilitarBotonEdit(){
         if(!clientes.isEmpty() && frm.getCmbCliente().getSelectedIndex() != 0){
             frm.getBtnEditClient().setEnabled(true);
+        }else{
+            frm.getBtnEditClient().setEnabled(false);
+        }
+    }
+    
+    private void habilitarBotonRegVenta(){
+        if(!clientes.isEmpty() && frm.getCmbRegVentaClient().getSelectedIndex() != 0){
+            frm.getBtnRegistrarVenta().setEnabled(true);
         }else{
             frm.getBtnEditClient().setEnabled(false);
         }
@@ -92,11 +105,24 @@ public class ClienteController implements ActionListener{
             }
             frm.getCmbCliente().setEnabled(true);
         }
-        
         frm.getCmbCliente().setModel(model);
-        if(!clientes.isEmpty()) {
-            frm.getCmbCliente().setSelectedIndex(0);
+        frm.getCmbCliente().setSelectedIndex(0);
+    }
+    
+    private void listarComboVentas(){
+        DefaultComboBoxModel<Object> model = new DefaultComboBoxModel<>();
+        if(clientes.isEmpty()){
+            model.addElement("No hay clientes para elegir");
+            frm.getCmbRegVentaClient().setEnabled(false);
+        }else{
+            model.addElement("Seleccione un cliente");
+            for(Cliente c : clientes){
+                model.addElement(c);
+            }
+            frm.getCmbRegVentaClient().setEnabled(true);
         }
+        frm.getCmbRegVentaClient().setModel(model);
+        frm.getCmbRegVentaClient().setSelectedIndex(0);
     }
 
     @Override

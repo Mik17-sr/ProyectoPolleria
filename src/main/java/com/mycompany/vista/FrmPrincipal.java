@@ -249,13 +249,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.btnEditClient = btnEditClient;
     }
 
-    public JComboBox<String> getCmbcliente() {
-        return cmbcliente;
+    public JComboBox<Object> getCmbRegVentaClient() {
+        return cmbRegVentaClient;
     }
 
-    public void setCmbcliente(JComboBox<String> cmbcliente) {
-        this.cmbcliente = cmbcliente;
+    public void setCmbRegVentaClient(JComboBox<Object> cmbRegVentaClient) {
+        this.cmbRegVentaClient = cmbRegVentaClient;
     }
+    
+    
 
     public JComboBox<Proveedor> getCmbcompraReg() {
         return cmbcompraReg;
@@ -968,7 +970,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         registrarVenta = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtobservacionescliente = new javax.swing.JTextPane();
-        cmbcliente = new javax.swing.JComboBox<>();
+        cmbRegVentaClient = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         lblPollo5 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -1270,7 +1272,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         registrarVenta.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 600, 160));
 
-        registrarVenta.add(cmbcliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 380, 30));
+        registrarVenta.add(cmbRegVentaClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 380, 30));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel19.setText("Observaciones:");
@@ -1517,7 +1519,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnregistrarcompra;
     private javax.swing.JButton btnregistrarproveedor;
     private javax.swing.JComboBox<Object> cmbCliente;
-    private javax.swing.JComboBox<String> cmbcliente;
+    private javax.swing.JComboBox<Object> cmbRegVentaClient;
     private javax.swing.JComboBox<Proveedor> cmbcompraReg;
     private javax.swing.JComboBox<Proveedor> cmbnombreEditproveedor;
     private javax.swing.JPanel editarCliente;
