@@ -119,6 +119,15 @@ public class ProveedorController implements ActionListener {
         List<Proveedor> lista = ob.listarTodos();
         if(lista.isEmpty()){
             frm.getCmbnombreEditproveedor().setEnabled(false);
+            frm.getBtnEditproveedor().setEnabled(false);
+            PlaceholderUtil.placeholder(frm.getTxtnombreEditproveedor(), "No hay proveedores registrados");
+            PlaceholderUtil.placeholder(frm.getTxttelefonoEditproveedor(), "No hay proveedores registrados");
+            PlaceholderUtil.placeholder(frm.getTxtdireccionEditproveedor(), "No hay proveedores registrados");
+           
+        }
+        else{
+            frm.getCmbnombreEditproveedor().setEnabled(true);
+            frm.getBtnEditproveedor().setEnabled(true);
         }
         lista.sort(Comparator.comparing(
                 p -> p.getNombre().toLowerCase()

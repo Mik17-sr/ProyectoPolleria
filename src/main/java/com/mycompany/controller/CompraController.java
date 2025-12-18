@@ -68,23 +68,40 @@ public class CompraController implements ActionListener {
         DefaultComboBoxModel<Proveedor> modelo = new DefaultComboBoxModel<>();
         proveedorDAO ob = new proveedorDAO();
 
-        Proveedor dummy = new Proveedor();
-        dummy.setIdproveedor(-1);
-        dummy.setNombre("Seleccione proveedor...");
-        modelo.addElement(dummy);
+        try {
+            List<Proveedor> lista = ob.listarTodos();
+            Proveedor dummy = new Proveedor();
 
-        List<Proveedor> lista = ob.listarTodos();
+            if (lista == null || lista.isEmpty()) {
+                frm.getCmbcompraReg().setEnabled(false);
+                frm.getBtnregistrarcompra().setEnabled(false);
+                dummy.setIdproveedor(-1);
+                dummy.setNombre("No hay proveedores registrados");
+            } else {
+                frm.getCmbcompraReg().setEnabled(true);
+                frm.getBtnregistrarcompra().setEnabled(true);
+                dummy.setIdproveedor(-1);
+                dummy.setNombre("Seleccione proveedor...");
 
-        lista.sort(Comparator.comparing(
-                p -> p.getNombre().toLowerCase()
-        ));
+                // Ordenar alfabéticamente ignorando mayúsculas
+                lista.sort(Comparator.comparing(Proveedor::getNombre, String.CASE_INSENSITIVE_ORDER));
+            }
 
-        for (Proveedor p : lista) {
-            modelo.addElement(p);
+            // Agregar primero el marcador de posición
+            modelo.addElement(dummy);
+
+            // Agregar el resto de la lista si no está vacía
+            if (lista != null) {
+                lista.forEach(modelo::addElement);
+            }
+
+            frm.getCmbcompraReg().setModel(modelo);
+            frm.getCmbcompraReg().setSelectedIndex(0);
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar proveedores: " + e.getMessage());
+            // Aquí podrías mostrar un JOptionPane de error
         }
-
-        frm.getCmbcompraReg().setModel(modelo);
-        frm.getCmbcompraReg().setSelectedIndex(0);
     }
 
     @Override
@@ -92,18 +109,18 @@ public class CompraController implements ActionListener {
     ) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
     public void setFechaHoy() {
-        JDateChooser dateChooser= frm.getjDatefechaCompra();
+        JDateChooser dateChooser = frm.getjDatefechaCompra();
         dateChooser.setDate(new Date());
     }
-    
+
     private void rellenarcasillas() {
         PlaceholderUtil.placeholder(frm.getTxtobservacionescompra(), "No es obligatorio ");
         PlaceholderUtil.placeholder(frm.getTxtpreciocompra(), "Obligatorio");
     }
 
     private void redirigir() {
-        
+
     }
 }
