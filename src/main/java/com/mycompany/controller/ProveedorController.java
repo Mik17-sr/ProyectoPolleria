@@ -2,6 +2,7 @@ package com.mycompany.controller;
 
 import com.mycompany.DAO.proveedorDAO;
 import com.mycompany.Utility.PlaceholderUtil;
+import com.mycompany.Utility.utility;
 import com.mycompany.model.Proveedor;
 import com.mycompany.vista.FrmPrincipal;
 import java.awt.event.ActionEvent;
@@ -21,7 +22,7 @@ public class ProveedorController implements ActionListener {
         ob = new proveedorDAO();
         this.frm = frm;
         rellenarcasillas();
-        rellenarcombox();
+        utility.rellenarcombox(frm);
         frm.getBtnregistrarproveedor().addActionListener(this);
         frm.getBtnEditproveedor().addActionListener(this);
         frm.getCmbnombreEditproveedor().addActionListener(e -> cargarProveedorSeleccionado());
@@ -78,7 +79,7 @@ public class ProveedorController implements ActionListener {
         frm.getTxtnombreproveedor().setText("");
         frm.getTxttelefonoproveedor().setText("");
         frm.getTxtdireccionproveedor().setText("");
-        rellenarcombox();
+        utility.rellenarcombox(frm);
     }
 
     private void actualizar(int idprovedor, String nombre, String telefono, String direccion) {
@@ -97,7 +98,7 @@ public class ProveedorController implements ActionListener {
             frm.getTxtnombreEditproveedor().setText("");
             frm.getTxttelefonoEditproveedor().setText("");
             frm.getTxtdireccionEditproveedor().setText("");
-            rellenarcombox();
+            utility.rellenarcombox(frm);
         }
     }
 

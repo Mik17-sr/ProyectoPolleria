@@ -37,6 +37,8 @@ public class utility {
             } else {
                 frm.getCmbcompraReg().setEnabled(true);
                 frm.getBtnregistrarcompra().setEnabled(true);
+                frm.getCmbnombreEditproveedor().setEnabled(true);
+                frm.getBtnEditproveedor().setEnabled(true);
                 dummy.setIdproveedor(-1);
                 dummy.setNombre("Seleccione proveedor...");
 
@@ -54,6 +56,9 @@ public class utility {
 
             frm.getCmbcompraReg().setModel(modelo);
             frm.getCmbcompraReg().setSelectedIndex(0);
+
+            frm.getCmbnombreEditproveedor().setModel(modelo);
+            frm.getCmbnombreEditproveedor().setSelectedIndex(0);
 
         } catch (Exception e) {
             System.err.println("Error al cargar proveedores: " + e.getMessage());

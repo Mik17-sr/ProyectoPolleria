@@ -3,6 +3,7 @@ package com.mycompany.controller;
 import com.mycompany.DAO.CompraDAO;
 import com.mycompany.DAO.proveedorDAO;
 import com.mycompany.Utility.PlaceholderUtil;
+import com.mycompany.Utility.utility;
 import com.mycompany.Utility.validacion;
 import com.mycompany.model.Compra;
 import com.mycompany.model.Proveedor;
@@ -26,7 +27,7 @@ public class CompraController implements ActionListener {
         ob = new CompraDAO();
         frm.getBtnregistrarcompra().addActionListener(e -> registrar());
         frm.getBtnagrProvRegistraraComp().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_REG_PROV));
-        rellenarcombox();
+        utility.rellenarcombox(frm);
         setFechaHoy();
         rellenarcasillas();
     }
@@ -41,17 +42,17 @@ public class CompraController implements ActionListener {
             }
             Date fechaUtil = frm.getjDatefechaCompra().getDate();
             java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
-/*
-            if (frm.getTxtpreciocompra().getText() == null || !validacion.esDouble(frm.getTxtpreciocompra().getText())) {
-                JOptionPane.showMessageDialog(null, "Valor de precio no aceptado");
-                return;
-            }
-            double precio = Double.parseDouble(frm.getTxtpreciocompra().getText());
+
+//            if (frm.getTxtpreciocompra().getText() == null || !validacion.esDouble(frm.getTxtpreciocompra().getText())) {
+//                JOptionPane.showMessageDialog(null, "Valor de precio no aceptado");
+//                return;
+//            }
+            double precio = ((Number) frm.getTxtPrecioVenta().getValue()).doubleValue();
             if (precio < 0) {
                 JOptionPane.showMessageDialog(null, "Precio no valido");
                 return;
             }
-*/
+
 
             String observaciones = frm.getTxtobservacionescompra().getText();
             //Compra compra = new Compra(prov, 0, precio, fechaSql, observaciones);
@@ -60,6 +61,7 @@ public class CompraController implements ActionListener {
             setFechaHoy();
             frm.getCmbcompraReg().setSelectedIndex(0);
             rellenarcasillas();
+            utility.rellenarcombox(frm);
         } else {
             return;
         }
