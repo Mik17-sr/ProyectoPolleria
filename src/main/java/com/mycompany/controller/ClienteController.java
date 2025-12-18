@@ -1,5 +1,6 @@
 package com.mycompany.controller;
 
+import com.mycompany.Utility.PlaceholderUtil;
 import com.mycompany.vista.FrmPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +34,7 @@ public class ClienteController implements ActionListener{
         frm.getCmbCliente().addActionListener(this);
         frm.getBtnAddVenta().addActionListener(this);
         frm.getBtnRegistrarVenta().addActionListener(this);
+        rellenarcasillas();
         initEventos();
     }
 
@@ -185,5 +187,11 @@ public class ClienteController implements ActionListener{
             CardLayout card = (CardLayout) frm.getPnlCards().getLayout();
             card.show(frm.getPnlCards(), "REG_CLIENT");
         }
+    }
+    
+    private void rellenarcasillas() {
+        PlaceholderUtil.placeholder(frm.getTxtNombreCliente(), "Nombre (Obligatorio)");
+        PlaceholderUtil.placeholder(frm.getTxtTelefonoCliente(), "Telefono (Opcional)");
+        PlaceholderUtil.placeholder(frm.getTxtDireccionCliente(), "Direccion (Opcional)");
     }
 }

@@ -37,7 +37,7 @@ public class ProveedorController implements ActionListener {
             registrar(nombre, telefono, direccion);
         }
         if (e.getSource() == frm.getCmbnombreEditproveedor()) {
-            Proveedor[] lista = consulta();
+            //Proveedor[] lista = consulta();
         }
         if (e.getSource() == frm.getBtnEditproveedor()) {
             Proveedor prov = (Proveedor) frm.getCmbnombreEditproveedor().getSelectedItem();
@@ -86,10 +86,9 @@ public class ProveedorController implements ActionListener {
     }
 
     private void rellenarcasillas() {
-        PlaceholderUtil.placeholder(frm.getTxtnombreproveedor(), "Nombre obligatorio");
-        PlaceholderUtil.placeholder(frm.getTxttelefonoproveedor(), "Telefono Opcional");
-        PlaceholderUtil.placeholder(frm.getTxtdireccionproveedor(), "Direccion Opcional");
-
+        PlaceholderUtil.placeholder(frm.getTxtnombreproveedor(), "Nombre (Obligatorio)");
+        PlaceholderUtil.placeholder(frm.getTxttelefonoproveedor(), "Telefono (Opcional)");
+        PlaceholderUtil.placeholder(frm.getTxtdireccionproveedor(), "Direccion (Opcional)");
     }
 
     private void rellenarcombox() {

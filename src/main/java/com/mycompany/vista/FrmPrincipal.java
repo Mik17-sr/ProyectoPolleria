@@ -1,6 +1,7 @@
 package com.mycompany.vista;
 
 import com.mycompany.forms.PanelRound;
+import com.mycompany.model.Proveedor;
 import com.toedter.calendar.JDateChooser;
 import java.awt.CardLayout;
 import javax.swing.JButton;
@@ -42,11 +43,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.btnEditproveedor = btnEditproveedor;
     }
 
-    public JComboBox<String> getCmbnombreEditproveedor() {
+    public JComboBox<Proveedor> getCmbnombreEditproveedor() {
         return cmbnombreEditproveedor;
     }
 
-    public void setCmbnombreEditproveedor(JComboBox<String> cmbnombreEditproveedor) {
+    public void setCmbnombreEditproveedor(JComboBox<Proveedor> cmbnombreEditproveedor) {
         this.cmbnombreEditproveedor = cmbnombreEditproveedor;
     }
 
@@ -256,20 +257,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.cmbcliente = cmbcliente;
     }
 
-    public JComboBox<String> getCmbcliente1() {
+    public JComboBox<Proveedor> getCmbcompraReg() {
         return cmbcompraReg;
     }
 
-    public void setCmbcliente1(JComboBox<String> cmbcliente1) {
-        this.cmbcompraReg = cmbcliente1;
-    }
-
-    public JComboBox<String> getCmbcliente2() {
-        return cmbnombreEditproveedor;
-    }
-
-    public void setCmbcliente2(JComboBox<String> cmbcliente2) {
-        this.cmbnombreEditproveedor = cmbcliente2;
+    public void setCmbcompraReg(JComboBox<Proveedor> cmbcompraReg) {
+        this.cmbcompraReg = cmbcompraReg;
     }
 
     public JComboBox<Object> getCmbCliente() {
@@ -1479,13 +1472,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.btnregistrarcompra = btnregistrarcompra;
     }
 
-    public JComboBox<String> getCmbcompraReg() {
-        return cmbcompraReg;
-    }
-
-    public void setCmbcompraReg(JComboBox<String> cmbcompraReg) {
-        this.cmbcompraReg = cmbcompraReg;
-    }
 
     public JDateChooser getjDatefechaCompra() {
         return jDatefechaCompra;
@@ -1532,8 +1518,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnregistrarproveedor;
     private javax.swing.JComboBox<Object> cmbCliente;
     private javax.swing.JComboBox<String> cmbcliente;
-    private javax.swing.JComboBox<String> cmbcompraReg;
-    private javax.swing.JComboBox<String> cmbnombreEditproveedor;
+    private javax.swing.JComboBox<Proveedor> cmbcompraReg;
+    private javax.swing.JComboBox<Proveedor> cmbnombreEditproveedor;
     private javax.swing.JPanel editarCliente;
     private javax.swing.JPanel editarProveedor;
     private com.toedter.calendar.JDateChooser jDateChooser1;
