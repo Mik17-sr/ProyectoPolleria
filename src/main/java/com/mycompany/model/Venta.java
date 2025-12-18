@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Venta extends Transaccion {
     private Cliente cliente;
+    private String observacion;
 
     public Venta() {
         super();
@@ -23,10 +24,16 @@ public class Venta extends Transaccion {
         this.cliente = cliente;
     }
 
+    public String getObservacion() {
+        return observacion;
+    }
+
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
+    }
+    
     @Override
     public String toString() {
         return "Venta:" + super.toString() + "\nCliente: " +  cliente;
-    }
-    
-    
+    }   
 }

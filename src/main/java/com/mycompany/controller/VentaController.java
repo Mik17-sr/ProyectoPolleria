@@ -7,6 +7,7 @@ import com.mycompany.vista.FrmPrincipal;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import com.mycompany.model.Venta;
+import com.mycompany.model.VentaDAO;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
@@ -21,6 +22,7 @@ public class VentaController implements ActionListener {
     private FrmPrincipal frm;
     private List<Cliente> clientes;
     private ClienteDAO clDAO;
+    private VentaDAO vtDAO;
 
     public VentaController() {
         super();
@@ -30,6 +32,7 @@ public class VentaController implements ActionListener {
         this.frm = frm;
         this.clientes = new ArrayList<>();
         this.clDAO = new ClienteDAO();
+        this.vtDAO = new VentaDAO();
         frm.getBtnAddVenta().addActionListener(this);
         frm.getBtnRegistrarVenta().addActionListener(this);
         frm.getCmbRegVentaClient().addActionListener(this);
@@ -93,7 +96,7 @@ public class VentaController implements ActionListener {
     }
     
     private void rellenarcasillas() {
-        PlaceholderUtil.placeholder(frm.getTxtObservacionesVenta(), "No es obligatorio");
+        PlaceholderUtil.placeholder(frm.getTxtObservacionesVenta(), "Digite las observaciones de la venta (Opcional)");
     }
     
     public void setFechaHoy() {
@@ -119,8 +122,9 @@ public class VentaController implements ActionListener {
         }
         
         if(e.getSource().equals(frm.getBtnRegistrarVenta())){
-            Cliente selected = (Cliente) frm.getCmbCliente().getSelectedItem();
+            Cliente selected = (Cliente) frm.getCmbRegVentaClient().getSelectedItem();
             Venta venta = new Venta();   
+            System.out.println(selected);
             venta.setCliente(selected);
             Date fecha = frm.getDateFechaVenta().getDate();
             if(fecha != null){
@@ -129,9 +133,35 @@ public class VentaController implements ActionListener {
                 mostrarAlerta("Debe ingresar una fecha válida", "Fecha Venta");
                 return;
             }
-            venta.setPrecio(0);
+            double precioVenta = ((Number) frm.getTxtPrecioVenta().getValue()).doubleValue();
+            if(precioVenta > 0){
+                venta.setPrecio(precioVenta);
+            }else{
+                mostrarAlerta("Debe ingresar un precio de venta válido", "Precio Venta");
+            }
             
+            if(frm.getTxtObservacionesVenta().getText().equals("Digite las observaciones de la venta (Opcional)")){
+                venta.setObservacion("");
+            }else{
+                venta.setObservacion(frm.getTxtObservacionesVenta().getText());
+            }
             
+            int opcion = JOptionPane.showConfirmDialog(
+                frm, 
+                "¿Está seguro de Registrar la venta ?",
+                "Confirmación de registro",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE
+            );
+            if(opcion == JOptionPane.YES_OPTION){
+                if(vtDAO.create(venta)){
+                    JOptionPane.showMessageDialog(frm, "Venta por: " + venta.getPrecio() + "\nRegistrada Correctamente", "Venta", JOptionPane.INFORMATION_MESSAGE);
+                    frm.getCmbRegVentaClient().setSelectedIndex(0);
+                    resetTextFields(frm.getRegistrarVenta());
+                }
+            }else{
+                return;
+            }
             
         }
         

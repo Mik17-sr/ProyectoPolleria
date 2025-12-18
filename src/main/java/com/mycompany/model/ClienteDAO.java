@@ -38,6 +38,7 @@ public class ClienteDAO implements DAO<Cliente>{
 
     @Override
     public boolean delete(Cliente object) {
+        // Metodo no usado
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -67,6 +68,7 @@ public class ClienteDAO implements DAO<Cliente>{
 
     @Override
     public Cliente read(Cliente object) {
+        // Metodo no usado
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
