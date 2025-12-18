@@ -23,6 +23,6 @@ public class Cliente extends Persona {
 
     @Override
     public String toString() {
-        return "Cliente\nID Cliente: " + idCliente + super.toString();
+        return nombre;
     }
 }

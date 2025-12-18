@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.util.Date;
 
 public class ProveedorController implements ActionListener {
-
     private FrmPrincipal frm;
 
     public ProveedorController(FrmPrincipal frm) {
@@ -31,7 +30,7 @@ public class ProveedorController implements ActionListener {
             String direccion = frm.getTxtdireccionproveedor().getText();
             registrar(nombre, telefono, direccion);
         }
-        //Rellena los formularios en base al combox
+
         if (e.getSource() == frm.getCmbnombreEditproveedor()) {
             Proveedor[] lista = consulta();
         }

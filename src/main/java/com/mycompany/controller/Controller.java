@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 public class Controller {
     private FrmPrincipal frm;
 
+
     public Controller(){
         this.frm = new FrmPrincipal();
         initEventos();
