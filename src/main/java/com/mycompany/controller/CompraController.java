@@ -41,7 +41,7 @@ public class CompraController implements ActionListener {
             }
             Date fechaUtil = frm.getjDatefechaCompra().getDate();
             java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
-
+/*
             if (frm.getTxtpreciocompra().getText() == null || !validacion.esDouble(frm.getTxtpreciocompra().getText())) {
                 JOptionPane.showMessageDialog(null, "Valor de precio no aceptado");
                 return;
@@ -51,11 +51,12 @@ public class CompraController implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Precio no valido");
                 return;
             }
+*/
 
             String observaciones = frm.getTxtobservacionescompra().getText();
-            Compra compra = new Compra(prov, 0, precio, fechaSql, observaciones);
+            //Compra compra = new Compra(prov, 0, precio, fechaSql, observaciones);
 
-            ob.guardar(compra);
+//            ob.guardar(compra);
             setFechaHoy();
             frm.getCmbcompraReg().setSelectedIndex(0);
             rellenarcasillas();
@@ -117,7 +118,6 @@ public class CompraController implements ActionListener {
 
     private void rellenarcasillas() {
         PlaceholderUtil.placeholder(frm.getTxtobservacionescompra(), "No es obligatorio ");
-        PlaceholderUtil.placeholder(frm.getTxtpreciocompra(), "Obligatorio");
     }
 
     private void redirigir() {

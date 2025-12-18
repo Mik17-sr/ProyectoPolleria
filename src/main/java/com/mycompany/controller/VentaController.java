@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class VentaController implements ActionListener {
@@ -92,12 +93,15 @@ public class VentaController implements ActionListener {
     }
     
     private void rellenarcasillas() {
-        PlaceholderUtil.placeholder(frm.getTxtPrecioVenta(), "Obligatorio");
         PlaceholderUtil.placeholder(frm.getTxtObservacionesVenta(), "No es obligatorio");
     }
     
     public void setFechaHoy() {
         frm.getDateFechaVenta().setDate(new Date());
+    }
+    
+    public void mostrarAlerta(String alerta, String campo){
+        JOptionPane.showMessageDialog(frm, alerta, campo, JOptionPane.WARNING_MESSAGE);
     }
 
     @Override
@@ -118,6 +122,17 @@ public class VentaController implements ActionListener {
             Cliente selected = (Cliente) frm.getCmbCliente().getSelectedItem();
             Venta venta = new Venta();   
             venta.setCliente(selected);
+            Date fecha = frm.getDateFechaVenta().getDate();
+            if(fecha != null){
+                venta.setFecha(fecha);
+            }else{
+                mostrarAlerta("Debe ingresar una fecha válida", "Fecha Venta");
+                return;
+            }
+            venta.setPrecio(0);
+            
+            
+            
         }
         
         if(e.getSource().equals(frm.getBtnAddVenta())){

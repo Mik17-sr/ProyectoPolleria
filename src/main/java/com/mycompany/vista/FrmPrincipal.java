@@ -4,14 +4,19 @@ import com.mycompany.forms.PanelRound;
 import com.mycompany.model.Proveedor;
 import com.toedter.calendar.JDateChooser;
 import java.awt.CardLayout;
+import java.text.NumberFormat;
+import java.util.Locale;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
+import javax.swing.text.DefaultFormatterFactory;
+import javax.swing.text.NumberFormatter;
 
 /**
  *
@@ -31,9 +36,24 @@ public class FrmPrincipal extends javax.swing.JFrame {
     
     public FrmPrincipal() {
         initComponents();
-        
+        NumberFormat formatoCOP = NumberFormat.getCurrencyInstance(new Locale("es", "CO"));
+        formatoCOP.setMaximumFractionDigits(0);
+
+        NumberFormatter formatter = new NumberFormatter(formatoCOP);
+        formatter.setAllowsInvalid(false); 
+        formatter.setMinimum(0);           
+        DefaultFormatterFactory factory =
+            new DefaultFormatterFactory(formatter);
+
+        txtPrecioVenta.setFormatterFactory(factory);
+        txtPrecioCompra.setFormatterFactory(factory);
+
+        txtPrecioVenta.setValue(0);
+        txtPrecioCompra.setValue(0);
+
         cardLayout = (CardLayout) pnlCards.getLayout();
     }
+
 
     public JButton getBtnEditproveedor() {
         return btnEditproveedor;
@@ -647,24 +667,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
         return jTable2;
     }
 
-    public void setjTable2(JTable jTable2) {
-        this.jTable2 = jTable2;
+    public JFormattedTextField getTxtPrecioCompra() {
+        return txtPrecioCompra;
     }
 
-    public JTextField getTxtPrecioVenta() {
+    public void setTxtPrecioCompra(JFormattedTextField txtPrecioCompra) {
+        this.txtPrecioCompra = txtPrecioCompra;
+    }
+
+    public JFormattedTextField getTxtPrecioVenta() {
         return txtPrecioVenta;
     }
 
-    public void setTxtPrecioVenta(JTextField txtPrecioVenta) {
+    public void setTxtPrecioVenta(JFormattedTextField txtPrecioVenta) {
         this.txtPrecioVenta = txtPrecioVenta;
-    }
-
-    public JTextField getjTextField2() {
-        return txtpreciocompra;
-    }
-
-    public void setjTextField2(JTextField jTextField2) {
-        this.txtpreciocompra = jTextField2;
     }
 
     public JLabel getLblPollo1() {
@@ -964,9 +980,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jDatefechaCompra = new com.toedter.calendar.JDateChooser();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        txtpreciocompra = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         btnagrProvRegistraraComp = new javax.swing.JButton();
+        txtPrecioCompra = new javax.swing.JFormattedTextField();
         registrarVenta = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtObservacionesVenta = new javax.swing.JTextPane();
@@ -978,9 +994,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         dateFechaVenta = new com.toedter.calendar.JDateChooser();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        txtPrecioVenta = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         btnRegistrarVenta = new javax.swing.JButton();
+        txtPrecioVenta = new javax.swing.JFormattedTextField();
         editarProveedor = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -1250,7 +1266,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel31.setText("Fecha Compra:");
         registrarCompra.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
-        registrarCompra.add(txtpreciocompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 450, 30));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel32.setText("Precio Compra:");
@@ -1261,6 +1276,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnagrProvRegistraraComp.setForeground(new java.awt.Color(255, 255, 255));
         btnagrProvRegistraraComp.setText("Agregar Proveedor");
         registrarCompra.add(btnagrProvRegistraraComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 170, 30));
+
+        txtPrecioCompra.setColumns(10);
+        registrarCompra.add(txtPrecioCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 460, 30));
 
         pnlCards.add(registrarCompra, "REG_COMPRA");
 
@@ -1299,7 +1317,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel23.setText("Fecha Venta:");
         registrarVenta.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
-        registrarVenta.add(txtPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 470, 30));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel24.setText("Precio Venta:");
@@ -1315,6 +1332,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
         registrarVenta.add(btnRegistrarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 170, 30));
+
+        txtPrecioVenta.setColumns(10);
+        registrarVenta.add(txtPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 460, 30));
 
         pnlCards.add(registrarVenta, "REG_VENTA");
 
@@ -1491,15 +1511,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.txtobservacionescompra = txtobservacionescompra;
     }
 
-    public JTextField getTxtpreciocompra() {
-        return txtpreciocompra;
-    }
-
-    public void setTxtpreciocompra(JTextField txtpreciocompra) {
-        this.txtpreciocompra = txtpreciocompra;
-    }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel background;
     private javax.swing.JButton btnAddVenta;
@@ -1589,14 +1600,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtEditTelefonoCliente;
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextPane txtObservacionesVenta;
-    private javax.swing.JTextField txtPrecioVenta;
+    private javax.swing.JFormattedTextField txtPrecioCompra;
+    private javax.swing.JFormattedTextField txtPrecioVenta;
     private javax.swing.JTextField txtTelefonoCliente;
     private javax.swing.JTextField txtdireccionEditproveedor;
     private javax.swing.JTextField txtdireccionproveedor;
     private javax.swing.JTextField txtnombreEditproveedor;
     private javax.swing.JTextField txtnombreproveedor;
     private javax.swing.JTextPane txtobservacionescompra;
-    private javax.swing.JTextField txtpreciocompra;
     private javax.swing.JTextField txttelefonoEditproveedor;
     private javax.swing.JTextField txttelefonoproveedor;
     private javax.swing.JPanel vistaInicio;
