@@ -117,7 +117,9 @@ public class ProveedorController implements ActionListener {
         modelo.addElement(dummy);
 
         List<Proveedor> lista = ob.listarTodos();
-
+        if(lista.isEmpty()){
+            frm.getCmbnombreEditproveedor().setEnabled(false);
+        }
         lista.sort(Comparator.comparing(
                 p -> p.getNombre().toLowerCase()
         ));
@@ -128,6 +130,9 @@ public class ProveedorController implements ActionListener {
 
         frm.getCmbnombreEditproveedor().setModel(modelo);
         frm.getCmbnombreEditproveedor().setSelectedIndex(0);
+        
+        frm.getCmbcompraReg().setModel(modelo);
+        frm.getCmbcompraReg().setSelectedIndex(0);
     }
 
     private void cargarProveedorSeleccionado() {
