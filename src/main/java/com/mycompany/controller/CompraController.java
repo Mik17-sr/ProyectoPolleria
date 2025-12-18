@@ -47,7 +47,8 @@ public class CompraController implements ActionListener {
 //                JOptionPane.showMessageDialog(null, "Valor de precio no aceptado");
 //                return;
 //            }
-            double precio = ((Number) frm.getTxtPrecioVenta().getValue()).doubleValue();
+            double precio = ((Number) frm.getTxtPrecioCompra().getValue()).doubleValue();
+            
             if (precio < 0) {
                 JOptionPane.showMessageDialog(null, "Precio no valido");
                 return;
@@ -55,9 +56,9 @@ public class CompraController implements ActionListener {
 
 
             String observaciones = frm.getTxtobservacionescompra().getText();
-            //Compra compra = new Compra(prov, 0, precio, fechaSql, observaciones);
-
-//            ob.guardar(compra);
+            System.out.print(precio);
+            Compra compra = new Compra(prov, 0, precio, fechaSql, observaciones);
+            ob.guardar(compra);
             setFechaHoy();
             frm.getCmbcompraReg().setSelectedIndex(0);
             rellenarcasillas();
