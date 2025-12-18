@@ -32,10 +32,8 @@ public class ClienteController implements ActionListener{
         frm.getBtnRegistrarCliente().addActionListener(this);
         frm.getBtnEditClient().addActionListener(this);
         frm.getCmbCliente().addActionListener(this);
-        frm.getBtnAddVenta().addActionListener(this);
-        frm.getBtnRegistrarVenta().addActionListener(this);
-        rellenarcasillas();
         initEventos();
+        rellenarcasillas();
     }
 
     public FrmPrincipal getFrm() {
@@ -66,11 +64,6 @@ public class ClienteController implements ActionListener{
             listarCombo();
             habilitarBotonEdit();
         });
-        frm.getBtnSdRegVenta().addActionListener(e -> {
-            cargarClientes();
-            listarComboVentas();
-            habilitarBotonRegVenta();
-        });
     }
     
     private void cargarClientes(){
@@ -80,14 +73,6 @@ public class ClienteController implements ActionListener{
     private void habilitarBotonEdit(){
         if(!clientes.isEmpty() && frm.getCmbCliente().getSelectedIndex() != 0){
             frm.getBtnEditClient().setEnabled(true);
-        }else{
-            frm.getBtnEditClient().setEnabled(false);
-        }
-    }
-    
-    private void habilitarBotonRegVenta(){
-        if(!clientes.isEmpty() && frm.getCmbRegVentaClient().getSelectedIndex() != 0){
-            frm.getBtnRegistrarVenta().setEnabled(true);
         }else{
             frm.getBtnEditClient().setEnabled(false);
         }
@@ -108,36 +93,36 @@ public class ClienteController implements ActionListener{
         frm.getCmbCliente().setModel(model);
         frm.getCmbCliente().setSelectedIndex(0);
     }
-    
-    private void listarComboVentas(){
-        DefaultComboBoxModel<Object> model = new DefaultComboBoxModel<>();
-        if(clientes.isEmpty()){
-            model.addElement("No hay clientes para elegir");
-            frm.getCmbRegVentaClient().setEnabled(false);
-        }else{
-            model.addElement("Seleccione un cliente");
-            for(Cliente c : clientes){
-                model.addElement(c);
-            }
-            frm.getCmbRegVentaClient().setEnabled(true);
-        }
-        frm.getCmbRegVentaClient().setModel(model);
-        frm.getCmbRegVentaClient().setSelectedIndex(0);
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(frm.getBtnRegistrarCliente())){
             Cliente client = new Cliente();
-            client.setNombre(frm.getTxtNombreCliente().getText());
-            String telefono = frm.getTxtTelefonoCliente().getText();
-            if(telefono.matches("\\d+")){
-                client.setTelefono(telefono);
+            String nombre = frm.getTxtNombreCliente().getText();
+            if(nombre.equals("Nombre (Obligatorio)")){
+                mostrarAlerta("Debe ingresar el nombre", "Nombre");
+                return;
             }else{
+                client.setNombre(nombre);
+            }
+            
+            String telefono = frm.getTxtTelefonoCliente().getText();
+            if (telefono.isEmpty() || telefono.equals("Telefono (Opcional)")) {
+                client.setTelefono("");
+            }else if (telefono.matches("\\d+")) {
+                client.setTelefono(telefono);
+            }else {
                 mostrarAlerta("El teléfono solo debe contener números", "Teléfono");
                 return;
             }
-            client.setDireccion(frm.getTxtDireccionCliente().getText());
+            
+            String direccion = frm.getTxtDireccionCliente().getText();
+            if(direccion.equals("Direccion (Opcional)")){
+                client.setDireccion("");
+            }else{
+                client.setDireccion(frm.getTxtDireccionCliente().getText());
+            }
+            
             int opcion = JOptionPane.showConfirmDialog(
                 frm, 
                 "¿Está seguro de registrar al Cliente: " + client.getNombre() + "?",
@@ -203,15 +188,6 @@ public class ClienteController implements ActionListener{
             }else{
                 return;
             }
-        }
-        
-        if(e.getSource().equals(frm.getBtnRegistrarVenta())){
-            
-        }
-        
-        if(e.getSource().equals(frm.getBtnAddVenta())){
-            CardLayout card = (CardLayout) frm.getPnlCards().getLayout();
-            card.show(frm.getPnlCards(), "REG_CLIENT");
         }
     }
     
