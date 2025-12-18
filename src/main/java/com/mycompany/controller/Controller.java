@@ -1,5 +1,6 @@
 package com.mycompany.controller;
 
+import com.mycompany.model.Compra;
 import com.mycompany.vista.FrmPrincipal;
 import javax.swing.JFrame;
 
@@ -12,6 +13,7 @@ public class Controller {
         initEventos();
         new ProveedorController(frm);
         new ClienteController(frm);
+        new CompraController(frm);
     }
     
     public Controller(FrmPrincipal frm) {

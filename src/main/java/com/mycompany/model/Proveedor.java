@@ -1,6 +1,7 @@
 package com.mycompany.model;
 
 public class Proveedor extends Persona {
+
     private int idproveedor;
 
     public Proveedor() {
@@ -21,8 +22,7 @@ public class Proveedor extends Persona {
         this.idproveedor = idproveedor;
     }
 
-    @Override
     public String toString() {
-        return "Proveedor\n ID proveedor: " + idproveedor + super.toString();
+        return getNombre();
     }
 }
