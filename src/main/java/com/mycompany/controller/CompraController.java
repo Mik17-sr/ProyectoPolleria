@@ -100,6 +100,5 @@ public class CompraController implements ActionListener {
     private void rellenarcasillas() {
         PlaceholderUtil.placeholder(frm.getTxtobservacionescompra(), "No es obligatorio ");
         PlaceholderUtil.placeholder(frm.getTxtpreciocompra(), "Obligatorio");
-
     }
 }

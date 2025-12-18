@@ -14,6 +14,7 @@ public class Controller {
         new ProveedorController(frm);
         new ClienteController(frm);
         new CompraController(frm);
+        new VentaController(frm);
     }
     
     public Controller(FrmPrincipal frm) {

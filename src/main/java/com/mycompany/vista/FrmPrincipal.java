@@ -291,12 +291,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.editarProveedor = editarProveedor;
     }
 
-    public JDateChooser getjDateChooser1() {
-        return jDateChooser1;
+    public JDateChooser getDateFechaVenta() {
+        return dateFechaVenta;
     }
 
-    public void setjDateChooser1(JDateChooser jDateChooser1) {
-        this.jDateChooser1 = jDateChooser1;
+    public void setDateFechaVenta(JDateChooser dateFechaVenta) {
+        this.dateFechaVenta = dateFechaVenta;
     }
 
     public JDateChooser getjDateChooser2() {
@@ -651,12 +651,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.jTable2 = jTable2;
     }
 
-    public JTextField getjTextField1() {
-        return jTextField1;
+    public JTextField getTxtPrecioVenta() {
+        return txtPrecioVenta;
     }
 
-    public void setjTextField1(JTextField jTextField1) {
-        this.jTextField1 = jTextField1;
+    public void setTxtPrecioVenta(JTextField txtPrecioVenta) {
+        this.txtPrecioVenta = txtPrecioVenta;
     }
 
     public JTextField getjTextField2() {
@@ -843,14 +843,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.txtEditNameCliente = txtEditNameCliente;
     }
 
-    public JTextPane getTxtobservacionescliente() {
-        return txtobservacionescliente;
+    public JTextPane getTxtObservacionesVenta() {
+        return txtObservacionesVenta;
     }
 
-    public void setTxtobservacionescliente(JTextPane txtobservacionescliente) {
-        this.txtobservacionescliente = txtobservacionescliente;
+    public void setTxtObservacionesVenta(JTextPane txtObservacionesVenta) {
+        this.txtObservacionesVenta = txtObservacionesVenta;
     }
-
+    
     public JTextPane getTxtobservacionescliente1() {
         return txtobservacionescompra;
     }
@@ -969,16 +969,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnagrProvRegistraraComp = new javax.swing.JButton();
         registrarVenta = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        txtobservacionescliente = new javax.swing.JTextPane();
+        txtObservacionesVenta = new javax.swing.JTextPane();
         cmbRegVentaClient = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
         lblPollo5 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         btnAddVenta = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dateFechaVenta = new com.toedter.calendar.JDateChooser();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtPrecioVenta = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         btnRegistrarVenta = new javax.swing.JButton();
         editarProveedor = new javax.swing.JPanel();
@@ -1268,7 +1268,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         registrarVenta.setPreferredSize(new java.awt.Dimension(630, 530));
         registrarVenta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane3.setViewportView(txtobservacionescliente);
+        jScrollPane3.setViewportView(txtObservacionesVenta);
 
         registrarVenta.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 600, 160));
 
@@ -1290,7 +1290,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnAddVenta.setForeground(new java.awt.Color(255, 255, 255));
         btnAddVenta.setText("Agregar Cliente");
         registrarVenta.add(btnAddVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 150, 30));
-        registrarVenta.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 470, 30));
+        registrarVenta.add(dateFechaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 470, 30));
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel22.setText("Cliente:");
@@ -1299,7 +1299,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel23.setText("Fecha Venta:");
         registrarVenta.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
-        registrarVenta.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 470, 30));
+        registrarVenta.add(txtPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 470, 30));
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel24.setText("Precio Venta:");
@@ -1522,9 +1522,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<Object> cmbRegVentaClient;
     private javax.swing.JComboBox<Proveedor> cmbcompraReg;
     private javax.swing.JComboBox<Proveedor> cmbnombreEditproveedor;
+    private com.toedter.calendar.JDateChooser dateFechaVenta;
     private javax.swing.JPanel editarCliente;
     private javax.swing.JPanel editarProveedor;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDatefechaCompra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1569,7 +1569,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblPollo1;
     private javax.swing.JLabel lblPollo2;
     private javax.swing.JLabel lblPollo3;
@@ -1589,12 +1588,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtEditNameCliente;
     private javax.swing.JTextField txtEditTelefonoCliente;
     private javax.swing.JTextField txtNombreCliente;
+    private javax.swing.JTextPane txtObservacionesVenta;
+    private javax.swing.JTextField txtPrecioVenta;
     private javax.swing.JTextField txtTelefonoCliente;
     private javax.swing.JTextField txtdireccionEditproveedor;
     private javax.swing.JTextField txtdireccionproveedor;
     private javax.swing.JTextField txtnombreEditproveedor;
     private javax.swing.JTextField txtnombreproveedor;
-    private javax.swing.JTextPane txtobservacionescliente;
     private javax.swing.JTextPane txtobservacionescompra;
     private javax.swing.JTextField txtpreciocompra;
     private javax.swing.JTextField txttelefonoEditproveedor;
