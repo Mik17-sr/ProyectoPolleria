@@ -36,7 +36,7 @@ public class ProveedorController implements ActionListener {
             String direccion = frm.getTxtdireccionproveedor().getText();
             registrar(nombre, telefono, direccion);
         }
-        
+
         if (e.getSource() == frm.getBtnEditproveedor()) {
             Proveedor prov = (Proveedor) frm.getCmbnombreEditproveedor().getSelectedItem();
             int idprovedor = prov.getIdproveedor();
@@ -49,7 +49,7 @@ public class ProveedorController implements ActionListener {
     }
 
     public void registrar(String nombre, String telefono, String direccion) {
-        if (nombre == null || nombre.isBlank() || nombre.equals("Nombre obligatorio")) {
+        if (nombre == null || nombre.isBlank() || nombre.equals("Nombre (Obligatorio)")) {
             JOptionPane.showMessageDialog(frm, "El nombre no puede estar vacío");
             return;
         }
@@ -59,8 +59,22 @@ public class ProveedorController implements ActionListener {
                 telefono == null ? "" : telefono.trim(),
                 direccion == null ? "" : direccion.trim());
 
-        ob.guardar(prov);
-        JOptionPane.showMessageDialog(frm, "Proveedor registrado correctamente");
+        int opcion = JOptionPane.showConfirmDialog(
+                frm,
+                "¿Está seguro de registrar el proveedor: " +prov.getNombre() + "?",
+                "Confirmación de registro",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE
+        );
+        System.out.println("Cojone");
+
+        if (opcion == JOptionPane.YES_OPTION) {
+            ob.guardar(prov);
+            JOptionPane.showMessageDialog(frm, "Proveedor: " + prov.getNombre() + "\nRegistrado Correctamente", "Proveedor", JOptionPane.INFORMATION_MESSAGE);
+            
+        } else {
+            return;
+        }
         frm.getTxtnombreproveedor().setText("");
         frm.getTxttelefonoproveedor().setText("");
         frm.getTxtdireccionproveedor().setText("");
@@ -68,19 +82,23 @@ public class ProveedorController implements ActionListener {
     }
 
     private void actualizar(int idprovedor, String nombre, String telefono, String direccion) {
-        Proveedor editprov = new Proveedor(idprovedor, nombre, telefono, direccion);
-        if (editprov.getIdproveedor() == 0) {
+        if (frm.getCmbnombreEditproveedor().getSelectedIndex() == 0) {
             return;
+        } else {
+            Proveedor editprov = new Proveedor(idprovedor, nombre, telefono, direccion);
+            if (editprov.getIdproveedor() == 0) {
+                return;
+            }
+            if (nombre == "Nombre obligatorio" || nombre.trim().equals("Nombre obligatorio") || nombre == "" || nombre.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(frm, "El nombre no puede estar vacío");
+                return;
+            }
+            ob.actualizar(editprov);
+            frm.getTxtnombreEditproveedor().setText("");
+            frm.getTxttelefonoEditproveedor().setText("");
+            frm.getTxtdireccionEditproveedor().setText("");
+            rellenarcombox();
         }
-        if (nombre == "Nombre obligatorio" || nombre.trim().equals("Nombre obligatorio") || nombre == "" || nombre.trim().isEmpty()) {
-            JOptionPane.showMessageDialog(frm, "El nombre no puede estar vacío");
-            return;
-        }
-        ob.actualizar(editprov);
-        frm.getTxtnombreEditproveedor().setText("");
-        frm.getTxttelefonoEditproveedor().setText("");
-        frm.getTxtdireccionEditproveedor().setText("");
-        rellenarcombox();
     }
 
     private void rellenarcasillas() {

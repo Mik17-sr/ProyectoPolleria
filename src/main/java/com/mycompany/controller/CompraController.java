@@ -25,6 +25,7 @@ public class CompraController implements ActionListener {
         this.frm = frm;
         ob = new CompraDAO();
         frm.getBtnregistrarcompra().addActionListener(e -> registrar());
+        frm.getBtnagrProvRegistraraComp().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_REG_PROV));
         rellenarcombox();
         setFechaHoy();
         rellenarcasillas();
@@ -101,5 +102,9 @@ public class CompraController implements ActionListener {
         PlaceholderUtil.placeholder(frm.getTxtobservacionescompra(), "No es obligatorio ");
         PlaceholderUtil.placeholder(frm.getTxtpreciocompra(), "Obligatorio");
 
+    }
+
+    private void redirigir() {
+        
     }
 }
