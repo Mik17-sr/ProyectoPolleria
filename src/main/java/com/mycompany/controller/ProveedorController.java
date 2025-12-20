@@ -1,8 +1,7 @@
 package com.mycompany.controller;
 
-import com.mycompany.DAO.proveedorDAO;
+import com.mycompany.model.proveedorDAO;
 import com.mycompany.Utility.PlaceholderUtil;
-import com.mycompany.Utility.utility;
 import com.mycompany.model.Proveedor;
 import com.mycompany.vista.FrmPrincipal;
 import java.awt.event.ActionEvent;
@@ -22,7 +21,7 @@ public class ProveedorController implements ActionListener {
         ob = new proveedorDAO();
         this.frm = frm;
         rellenarcasillas();
-        utility.rellenarcombox(frm);
+        rellenarcombox(frm);
         frm.getBtnregistrarproveedor().addActionListener(this);
         frm.getBtnEditproveedor().addActionListener(this);
         frm.getCmbnombreEditproveedor().addActionListener(e -> cargarProveedorSeleccionado());
@@ -35,6 +34,7 @@ public class ProveedorController implements ActionListener {
             String nombre = frm.getTxtnombreproveedor().getText();
             String telefono = frm.getTxttelefonoproveedor().getText();
             String direccion = frm.getTxtdireccionproveedor().getText();
+
             registrar(nombre, telefono, direccion);
         }
 
@@ -62,7 +62,7 @@ public class ProveedorController implements ActionListener {
 
         int opcion = JOptionPane.showConfirmDialog(
                 frm,
-                "¿Está seguro de registrar el proveedor: " +prov.getNombre() + "?",
+                "¿Está seguro de registrar el proveedor: " + prov.getNombre() + "?",
                 "Confirmación de registro",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE
@@ -72,14 +72,14 @@ public class ProveedorController implements ActionListener {
         if (opcion == JOptionPane.YES_OPTION) {
             ob.guardar(prov);
             JOptionPane.showMessageDialog(frm, "Proveedor: " + prov.getNombre() + "\nRegistrado Correctamente", "Proveedor", JOptionPane.INFORMATION_MESSAGE);
-            
+
         } else {
             return;
         }
         frm.getTxtnombreproveedor().setText("");
         frm.getTxttelefonoproveedor().setText("");
         frm.getTxtdireccionproveedor().setText("");
-        utility.rellenarcombox(frm);
+        rellenarcombox(frm);
     }
 
     private void actualizar(int idprovedor, String nombre, String telefono, String direccion) {
@@ -98,7 +98,7 @@ public class ProveedorController implements ActionListener {
             frm.getTxtnombreEditproveedor().setText("");
             frm.getTxttelefonoEditproveedor().setText("");
             frm.getTxtdireccionEditproveedor().setText("");
-            utility.rellenarcombox(frm);
+            rellenarcombox(frm);
         }
     }
 
@@ -108,41 +108,53 @@ public class ProveedorController implements ActionListener {
         PlaceholderUtil.placeholder(frm.getTxtdireccionproveedor(), "Direccion (Opcional)");
     }
 
-    private void rellenarcombox() {
+    static public void rellenarcombox(FrmPrincipal frm) {
         DefaultComboBoxModel<Proveedor> modelo = new DefaultComboBoxModel<>();
         proveedorDAO ob = new proveedorDAO();
 
-        Proveedor dummy = new Proveedor();
-        dummy.setIdproveedor(-1);
-        dummy.setNombre("Seleccione proveedor...");
-        modelo.addElement(dummy);
+        try {
+            List<Proveedor> lista = ob.listarTodos();
+            Proveedor dummy = new Proveedor();
 
-        List<Proveedor> lista = ob.listarTodos();
-        if(lista.isEmpty()){
-            frm.getCmbnombreEditproveedor().setEnabled(false);
-            frm.getBtnEditproveedor().setEnabled(false);
-            PlaceholderUtil.placeholder(frm.getTxtnombreEditproveedor(), "No hay proveedores registrados");
-            PlaceholderUtil.placeholder(frm.getTxttelefonoEditproveedor(), "No hay proveedores registrados");
-            PlaceholderUtil.placeholder(frm.getTxtdireccionEditproveedor(), "No hay proveedores registrados");
-           
-        }
-        else{
-            frm.getCmbnombreEditproveedor().setEnabled(true);
-            frm.getBtnEditproveedor().setEnabled(true);
-        }
-        lista.sort(Comparator.comparing(
-                p -> p.getNombre().toLowerCase()
-        ));
+            if (lista == null || lista.isEmpty()) {
+                frm.getCmbcompraReg().setEnabled(false);
+                frm.getBtnregistrarcompra().setEnabled(false);
 
-        for (Proveedor p : lista) {
-            modelo.addElement(p);
-        }
+                frm.getCmbnombreEditproveedor().setEnabled(false);
+                frm.getBtnEditproveedor().setEnabled(false);
 
-        frm.getCmbnombreEditproveedor().setModel(modelo);
-        frm.getCmbnombreEditproveedor().setSelectedIndex(0);
-        
-        frm.getCmbcompraReg().setModel(modelo);
-        frm.getCmbcompraReg().setSelectedIndex(0);
+                dummy.setIdproveedor(-1);
+                dummy.setNombre("No hay proveedores registrados");
+            } else {
+                frm.getCmbcompraReg().setEnabled(true);
+                frm.getBtnregistrarcompra().setEnabled(true);
+                frm.getCmbnombreEditproveedor().setEnabled(true);
+                frm.getBtnEditproveedor().setEnabled(true);
+                dummy.setIdproveedor(-1);
+                dummy.setNombre("Seleccione proveedor...");
+
+                // Ordenar alfabéticamente ignorando mayúsculas
+                lista.sort(Comparator.comparing(Proveedor::getNombre, String.CASE_INSENSITIVE_ORDER));
+            }
+
+            // Agregar primero el marcador de posición
+            modelo.addElement(dummy);
+
+            // Agregar el resto de la lista si no está vacía
+            if (lista != null) {
+                lista.forEach(modelo::addElement);
+            }
+
+            frm.getCmbcompraReg().setModel(modelo);
+            frm.getCmbcompraReg().setSelectedIndex(0);
+
+            frm.getCmbnombreEditproveedor().setModel(modelo);
+            frm.getCmbnombreEditproveedor().setSelectedIndex(0);
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar proveedores: " + e.getMessage());
+            // Aquí podrías mostrar un JOptionPane de error
+        }
     }
 
     private void cargarProveedorSeleccionado() {
