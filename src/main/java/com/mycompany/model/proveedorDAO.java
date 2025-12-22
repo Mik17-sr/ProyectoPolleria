@@ -1,6 +1,6 @@
-package com.mycompany.DAO;
+package com.mycompany.model;
 
-import com.mycompany.model.Proveedor;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ public class proveedorDAO {
         String sql = "INSERT INTO proveedor (nombre, telefono, direccion) VALUES (?, ?, ?)";
 
         try (
-            Connection cn = new CConexion().establecerconexion();
+            Connection cn = Conexion.getConexion();
             PreparedStatement ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
         ) {
             ps.setString(1, p.getNombre());
@@ -35,7 +35,7 @@ public class proveedorDAO {
         String sql = "UPDATE proveedor SET nombre=?, telefono=?, direccion=? WHERE id_proveedor=?";
 
         try (
-            Connection cn = new CConexion().establecerconexion();
+            Connection cn = Conexion.getConexion();
             PreparedStatement ps = cn.prepareStatement(sql)
         ) {
             ps.setString(1, p.getNombre());
@@ -54,7 +54,7 @@ public class proveedorDAO {
         String sql = "DELETE FROM proveedor WHERE id_proveedor=?";
 
         try (
-            Connection cn = new CConexion().establecerconexion();
+            Connection cn = Conexion.getConexion();
             PreparedStatement ps = cn.prepareStatement(sql)
         ) {
             ps.setInt(1, id);
@@ -70,7 +70,7 @@ public class proveedorDAO {
         String sql = "SELECT * FROM proveedor WHERE id_proveedor=?";
 
         try (
-            Connection cn = new CConexion().establecerconexion();
+            Connection cn = Conexion.getConexion();
             PreparedStatement ps = cn.prepareStatement(sql)
         ) {
             ps.setInt(1, id);
@@ -97,7 +97,7 @@ public class proveedorDAO {
         String sql = "SELECT * FROM proveedor";
 
         try (
-            Connection cn = new CConexion().establecerconexion();
+            Connection cn = Conexion.getConexion();
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql)
         ) {

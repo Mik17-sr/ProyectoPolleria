@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.DAO;
+package com.mycompany.model;
 
-import com.mycompany.model.Compra;
-import com.mycompany.model.Proveedor;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 
 import java.text.SimpleDateFormat;
 
@@ -27,7 +27,7 @@ public class CompraDAO {
         """;
 
         try (
-            Connection cn = new CConexion().establecerconexion();
+            Connection cn = Conexion.getConexion();
             PreparedStatement ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
         ) {
             ps.setInt(1, c.getProveedor().getIdproveedor());
@@ -59,7 +59,7 @@ public class CompraDAO {
         """;
 
         try (
-            Connection cn = new CConexion().establecerconexion();
+            Connection cn = Conexion.getConexion();
             PreparedStatement ps = cn.prepareStatement(sql)
         ) {
             ps.setInt(1, c.getProveedor().getIdproveedor());
@@ -80,7 +80,7 @@ public class CompraDAO {
         String sql = "DELETE FROM compra WHERE id_compra=?";
 
         try (
-            Connection cn = new CConexion().establecerconexion();
+            Connection cn = Conexion.getConexion();
             PreparedStatement ps = cn.prepareStatement(sql)
         ) {
             ps.setInt(1, idCompra);
@@ -101,7 +101,7 @@ public class CompraDAO {
         """;
 
         try (
-            Connection cn = new CConexion().establecerconexion();
+            Connection cn = Conexion.getConexion();
             PreparedStatement ps = cn.prepareStatement(sql)
         ) {
             ps.setInt(1, idCompra);
@@ -139,7 +139,7 @@ public class CompraDAO {
         """;
 
         try (
-            Connection cn = new CConexion().establecerconexion();
+            Connection cn = Conexion.getConexion();
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql)
         ) {

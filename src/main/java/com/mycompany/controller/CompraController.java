@@ -1,7 +1,7 @@
 package com.mycompany.controller;
 
-import com.mycompany.DAO.CompraDAO;
-import com.mycompany.DAO.proveedorDAO;
+import com.mycompany.model.CompraDAO;
+import com.mycompany.model.proveedorDAO;
 import com.mycompany.Utility.PlaceholderUtil;
 import com.mycompany.Utility.validacion;
 import com.mycompany.model.Compra;
@@ -26,7 +26,7 @@ public class CompraController implements ActionListener {
         ob = new CompraDAO();
         frm.getBtnregistrarcompra().addActionListener(e -> registrar());
         frm.getBtnagrProvRegistraraComp().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_REG_PROV));
-        rellenarcombox();
+        ProveedorController.rellenarcombox(frm);
         setFechaHoy();
         rellenarcasillas();
     }
@@ -41,69 +41,32 @@ public class CompraController implements ActionListener {
             }
             Date fechaUtil = frm.getjDatefechaCompra().getDate();
             java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
-/*
-            if (frm.getTxtpreciocompra().getText() == null || !validacion.esDouble(frm.getTxtpreciocompra().getText())) {
-                JOptionPane.showMessageDialog(null, "Valor de precio no aceptado");
-                return;
-            }
-            double precio = Double.parseDouble(frm.getTxtpreciocompra().getText());
+
+//            if (frm.getTxtpreciocompra().getText() == null || !validacion.esDouble(frm.getTxtpreciocompra().getText())) {
+//                JOptionPane.showMessageDialog(null, "Valor de precio no aceptado");
+//                return;
+//            }
+            double precio = ((Number) frm.getTxtPrecioCompra().getValue()).doubleValue();
+            
             if (precio < 0) {
                 JOptionPane.showMessageDialog(null, "Precio no valido");
                 return;
             }
-*/
+
 
             String observaciones = frm.getTxtobservacionescompra().getText();
-            //Compra compra = new Compra(prov, 0, precio, fechaSql, observaciones);
-
-//            ob.guardar(compra);
+            System.out.print(precio);
+            Compra compra = new Compra(prov, 0, precio, fechaSql, observaciones);
+            ob.guardar(compra);
             setFechaHoy();
             frm.getCmbcompraReg().setSelectedIndex(0);
             rellenarcasillas();
+            ProveedorController.rellenarcombox(frm);
         } else {
             return;
         }
     }
 
-    private void rellenarcombox() {
-        DefaultComboBoxModel<Proveedor> modelo = new DefaultComboBoxModel<>();
-        proveedorDAO ob = new proveedorDAO();
-
-        try {
-            List<Proveedor> lista = ob.listarTodos();
-            Proveedor dummy = new Proveedor();
-
-            if (lista == null || lista.isEmpty()) {
-                frm.getCmbcompraReg().setEnabled(false);
-                frm.getBtnregistrarcompra().setEnabled(false);
-                dummy.setIdproveedor(-1);
-                dummy.setNombre("No hay proveedores registrados");
-            } else {
-                frm.getCmbcompraReg().setEnabled(true);
-                frm.getBtnregistrarcompra().setEnabled(true);
-                dummy.setIdproveedor(-1);
-                dummy.setNombre("Seleccione proveedor...");
-
-                // Ordenar alfabéticamente ignorando mayúsculas
-                lista.sort(Comparator.comparing(Proveedor::getNombre, String.CASE_INSENSITIVE_ORDER));
-            }
-
-            // Agregar primero el marcador de posición
-            modelo.addElement(dummy);
-
-            // Agregar el resto de la lista si no está vacía
-            if (lista != null) {
-                lista.forEach(modelo::addElement);
-            }
-
-            frm.getCmbcompraReg().setModel(modelo);
-            frm.getCmbcompraReg().setSelectedIndex(0);
-
-        } catch (Exception e) {
-            System.err.println("Error al cargar proveedores: " + e.getMessage());
-            // Aquí podrías mostrar un JOptionPane de error
-        }
-    }
 
     @Override
     public void actionPerformed(ActionEvent e

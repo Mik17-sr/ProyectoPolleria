@@ -1,26 +1,22 @@
 package com.mycompany.model;
-
+import com.mycompany.model.Proveedor;
+import com.mycompany.model.Transaccion;
 import java.util.Date;
 
-public class Compra extends Transaccion{
+public class Compra extends Transaccion {
+
     private Proveedor proveedor;
     private String observacion;
 
-    public String getObservacion() {
-        return observacion;
-    }
-
-    public void setObservacion(String observacion) {
-        this.observacion = observacion;
-    }
     public Compra() {
         super();
         this.proveedor = new Proveedor();
     }
 
-    public Compra(Proveedor proveedor, int id, double precio, Date fecha,String observacion) {
+    public Compra(Proveedor proveedor, int id, double precio, Date fecha, String observacion) {
         super(id, precio, fecha);
         this.proveedor = proveedor;
+        this.observacion = observacion;
     }
 
     public Proveedor getProveedor() {
@@ -31,36 +27,13 @@ public class Compra extends Transaccion{
         this.proveedor = proveedor;
     }
 
-    @Override
-    public String toString() {
-        return "Compra: " + super.toString() + "\nProveedor"+ proveedor;
+    public String getObservacion() {
+        return observacion;
     }
 
-    public int getId() {
-        return id;
+    public void setObservacion(String observacion) {
+        this.observacion = observacion;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-    
-    
-    
-    
+  
 }
