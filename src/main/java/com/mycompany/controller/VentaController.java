@@ -11,18 +11,23 @@ import com.mycompany.model.VentaDAO;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class VentaController implements ActionListener {
     private FrmPrincipal frm;
     private List<Cliente> clientes;
     private ClienteDAO clDAO;
     private VentaDAO vtDAO;
+    private List<Venta> ventas;
 
     public VentaController() {
         super();
@@ -31,6 +36,7 @@ public class VentaController implements ActionListener {
     public VentaController(FrmPrincipal frm) {
         this.frm = frm;
         this.clientes = new ArrayList<>();
+        this.ventas = new ArrayList<>();
         this.clDAO = new ClienteDAO();
         this.vtDAO = new VentaDAO();
         frm.getBtnAddVenta().addActionListener(this);
@@ -52,6 +58,12 @@ public class VentaController implements ActionListener {
         frm.getBtnSdRegVenta().addActionListener(e -> {
             cargarClientes();
             listarComboVentas();
+            habilitarBotonRegVenta();
+            setFechaHoy();
+        });
+        frm.getBtnSdVerVentas().addActionListener(e -> {
+            cargarVentas();
+            listarTablaVentas();
             habilitarBotonRegVenta();
             setFechaHoy();
         });
@@ -81,8 +93,32 @@ public class VentaController implements ActionListener {
         frm.getCmbRegVentaClient().setSelectedIndex(0);
     }
     
+    private void listarTablaVentas(){
+        DefaultTableModel model = (DefaultTableModel) frm.getTblVentas().getModel();
+        model.setRowCount(0);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        
+        NumberFormat formatoCOP = NumberFormat.getCurrencyInstance(new Locale("es", "CO"));
+        formatoCOP.setMaximumFractionDigits(0);
+        double totalVentas = 0;
+        for(Venta v : ventas){
+            totalVentas += v.getPrecio();
+            model.addRow(new Object[]{
+                v.getCliente().getNombre(),
+                sdf.format(v.getFecha()),
+                formatoCOP.format(v.getPrecio()),
+                v.getObservacion()
+            });
+        }
+        frm.getLblTotalVentas().setText(formatoCOP.format(totalVentas));
+    }
+    
     private void cargarClientes(){
         clientes = clDAO.readAll();
+    }
+    
+    private void cargarVentas(){
+        ventas = vtDAO.readAll();
     }
     
     private void resetTextFields(Container con){
@@ -148,7 +184,7 @@ public class VentaController implements ActionListener {
             
             int opcion = JOptionPane.showConfirmDialog(
                 frm, 
-                "¿Está seguro de Registrar la venta ?",
+                "¿Está seguro de Registrar la venta por monto: " + venta.getPrecio() + " ?",
                 "Confirmación de registro",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE
@@ -161,8 +197,7 @@ public class VentaController implements ActionListener {
                 }
             }else{
                 return;
-            }
-            
+            } 
         }
         
         if(e.getSource().equals(frm.getBtnAddVenta())){

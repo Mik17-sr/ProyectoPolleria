@@ -1,6 +1,5 @@
 package com.mycompany.controller;
 
-import com.mycompany.model.Compra;
 import com.mycompany.vista.FrmPrincipal;
 import javax.swing.JFrame;
 
@@ -15,6 +14,7 @@ public class Controller {
         new ClienteController(frm);
         new CompraController(frm);
         new VentaController(frm);
+        new PagoController(frm);
     }
     
     public Controller(FrmPrincipal frm) {
@@ -44,5 +44,7 @@ public class Controller {
         frm.getBtnSdRegVenta().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_REG_VENTA));
         frm.getBtnSdEditProv().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_EDIT_PROV));
         frm.getBtnSdEditClient().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_EDIT_CLIENT));
+        frm.getBtnSdVerVentas().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_VER_VENTAS));
+        frm.getBtnSdInsertarPago().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_INS_PAGO));
     }    
 }

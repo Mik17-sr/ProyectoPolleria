@@ -99,7 +99,7 @@ public class ClienteController implements ActionListener{
         if(e.getSource().equals(frm.getBtnRegistrarCliente())){
             Cliente client = new Cliente();
             String nombre = frm.getTxtNombreCliente().getText();
-            if(nombre.equals("Nombre (Obligatorio)")){
+            if(nombre.equals("Nombre (Obligatorio)") || nombre.isBlank()){
                 mostrarAlerta("Debe ingresar el nombre", "Nombre");
                 return;
             }else{

@@ -2,12 +2,19 @@ package com.mycompany.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class VentaDAO implements DAO<Venta>{
     private static final String SQL_INSERT = "INSERT INTO venta(id_cliente, fecha_venta, precio_venta, observaciones) VALUES (?, ?, ?, ?)";
-
+    private static final String SQL_READ_ALL = "SELECT c.nombre AS cliente, v.fecha_venta AS fecha, v.precio_venta AS precio, v.observaciones AS observaciones FROM venta v INNER JOIN cliente c ON v.id_cliente = c.id_cliente";
     @Override
     public boolean create(Venta object) {
         PreparedStatement ps;
@@ -50,7 +57,33 @@ public class VentaDAO implements DAO<Venta>{
 
     @Override
     public List<Venta> readAll() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArrayList<Venta> ventas = new ArrayList<>();
+        PreparedStatement ps;
+        ResultSet rs;
+        Connection cx = Conexion.getConexion();
+        try{
+            ps = cx.prepareStatement(SQL_READ_ALL);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                Venta venta = new Venta();
+                Cliente client = new Cliente();
+                client.setNombre(rs.getString("cliente"));
+                venta.setCliente(client);
+                String fechaStr = rs.getString("fecha");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date fecha = sdf.parse(fechaStr);
+                venta.setFecha(fecha);
+                venta.setPrecio(rs.getDouble("precio"));
+                venta.setObservacion(rs.getString("observaciones"));
+                ventas.add(venta);
+            }
+            return ventas;
+        }catch(SQLException ex){
+            System.out.println("Error: No se obtuvieron los datos de la BD");
+        } catch (ParseException ex) {
+            Logger.getLogger(VentaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
 }
