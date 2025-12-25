@@ -48,11 +48,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         txtPrecioVenta.setFormatterFactory(factory);
         txtPrecioCompra.setFormatterFactory(factory);
-        //txtMontoPago.setFormatterFactory(factory);
+        txtMontoPago.setFormatterFactory(factory);
 
         txtPrecioVenta.setValue(0);
         txtPrecioCompra.setValue(0);
-        //txtMontoPago.setValue(0);
+        txtMontoPago.setValue(0);
 
         cardLayout = (CardLayout) pnlCards.getLayout();
     }

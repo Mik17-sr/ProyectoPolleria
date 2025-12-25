@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 public class VentaDAO implements DAO<Venta>{
     private static final String SQL_INSERT = "INSERT INTO venta(id_cliente, fecha_venta, precio_venta, observaciones) VALUES (?, ?, ?, ?)";
-    private static final String SQL_READ_ALL = "SELECT c.nombre AS cliente, v.fecha_venta AS fecha, v.precio_venta AS precio, v.observaciones AS observaciones FROM venta v INNER JOIN cliente c ON v.id_cliente = c.id_cliente";
+    private static final String SQL_READ_ALL = "SELECT v.id_venta id, c.nombre AS cliente, v.fecha_venta AS fecha, v.precio_venta AS precio, v.observaciones AS observaciones FROM venta v INNER JOIN cliente c ON v.id_cliente = c.id_cliente";
     @Override
     public boolean create(Venta object) {
         PreparedStatement ps;
@@ -68,6 +68,7 @@ public class VentaDAO implements DAO<Venta>{
                 Venta venta = new Venta();
                 Cliente client = new Cliente();
                 client.setNombre(rs.getString("cliente"));
+                venta.setId(rs.getInt("id"));
                 venta.setCliente(client);
                 String fechaStr = rs.getString("fecha");
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

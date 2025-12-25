@@ -1,19 +1,14 @@
 package com.mycompany.controller;
 
 import com.mycompany.model.CompraDAO;
-import com.mycompany.model.proveedorDAO;
 import com.mycompany.Utility.PlaceholderUtil;
-import com.mycompany.Utility.validacion;
 import com.mycompany.model.Compra;
 import com.mycompany.model.Proveedor;
 import com.mycompany.vista.FrmPrincipal;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 public class CompraController implements ActionListener {

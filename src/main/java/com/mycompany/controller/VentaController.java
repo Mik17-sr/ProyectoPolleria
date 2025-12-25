@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
@@ -28,6 +29,7 @@ public class VentaController implements ActionListener {
     private ClienteDAO clDAO;
     private VentaDAO vtDAO;
     private List<Venta> ventas;
+    NumberFormat formatoCOP;
 
     public VentaController() {
         super();
@@ -39,6 +41,8 @@ public class VentaController implements ActionListener {
         this.ventas = new ArrayList<>();
         this.clDAO = new ClienteDAO();
         this.vtDAO = new VentaDAO();
+        this.formatoCOP = NumberFormat.getCurrencyInstance(new Locale("es", "CO"));
+        formatoCOP.setMaximumFractionDigits(0);
         frm.getBtnAddVenta().addActionListener(this);
         frm.getBtnRegistrarVenta().addActionListener(this);
         frm.getCmbRegVentaClient().addActionListener(this);
@@ -125,6 +129,8 @@ public class VentaController implements ActionListener {
         for(Component c : con.getComponents()){
             if(c instanceof JTextField){
                 ((JTextField) c).setText("");
+            }else if(c instanceof JTextArea){
+                ((JTextArea) c).setText("");
             }else if(c instanceof Container){
                 resetTextFields((Container) c);
             }
@@ -160,7 +166,6 @@ public class VentaController implements ActionListener {
         if(e.getSource().equals(frm.getBtnRegistrarVenta())){
             Cliente selected = (Cliente) frm.getCmbRegVentaClient().getSelectedItem();
             Venta venta = new Venta();   
-            System.out.println(selected);
             venta.setCliente(selected);
             Date fecha = frm.getDateFechaVenta().getDate();
             if(fecha != null){
@@ -184,16 +189,17 @@ public class VentaController implements ActionListener {
             
             int opcion = JOptionPane.showConfirmDialog(
                 frm, 
-                "¿Está seguro de Registrar la venta por monto: " + venta.getPrecio() + " ?",
+                "¿Está seguro de Registrar la venta por monto: " + formatoCOP.format(venta.getPrecio()) + " ?",
                 "Confirmación de registro",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE
             );
             if(opcion == JOptionPane.YES_OPTION){
                 if(vtDAO.create(venta)){
-                    JOptionPane.showMessageDialog(frm, "Venta por: " + venta.getPrecio() + "\nRegistrada Correctamente", "Venta", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(frm, "Venta por: " + formatoCOP.format(venta.getPrecio()) + "\nRegistrada Correctamente", "Venta", JOptionPane.INFORMATION_MESSAGE);
                     frm.getCmbRegVentaClient().setSelectedIndex(0);
                     resetTextFields(frm.getRegistrarVenta());
+                    frm.getTxtPrecioVenta().setText("");
                 }
             }else{
                 return;
