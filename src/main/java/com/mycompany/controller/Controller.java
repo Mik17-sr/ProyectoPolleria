@@ -38,8 +38,6 @@ public class Controller {
     }
     private void initEventos(){
         frm.getBtnSdInicio().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_INICIO));
-        frm.getBtnSdRegClient().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_REG_CLIENT));
-        frm.getBtnSdRegProv().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_REG_PROV));
         frm.getBtnSdRegCompra().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_REG_COMPRA));
         frm.getBtnSdRegVenta().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_REG_VENTA));
         frm.getBtnSdEditProv().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_EDIT_PROV));

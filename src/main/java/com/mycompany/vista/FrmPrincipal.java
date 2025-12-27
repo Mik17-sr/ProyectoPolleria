@@ -185,19 +185,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     public JButton getBtnSdEditClient() {
-        return btnSdEditClient;
+        return btnSdEditClient1;
     }
 
     public void setBtnSdEditClient(JButton btnSdEditClient) {
-        this.btnSdEditClient = btnSdEditClient;
+        this.btnSdEditClient1 = btnSdEditClient;
     }
 
     public JButton getBtnSdEditProv() {
-        return btnSdEditProv;
+        return btnSdEditProv1;
     }
 
     public void setBtnSdEditProv(JButton btnSdEditProv) {
-        this.btnSdEditProv = btnSdEditProv;
+        this.btnSdEditProv1 = btnSdEditProv;
     }
 
     public JButton getBtnSdInicio() {
@@ -208,13 +208,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.btnSdInicio = btnSdInicio;
     }
 
-    public JButton getBtnSdRegClient() {
-        return btnSdRegClient;
-    }
 
-    public void setBtnSdRegClient(JButton btnSdRegClient) {
-        this.btnSdRegClient = btnSdRegClient;
-    }
 
     public JButton getBtnSdRegCompra() {
         return btnSdRegCompra;
@@ -224,13 +218,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.btnSdRegCompra = btnSdRegCompra;
     }
 
-    public JButton getBtnSdRegProv() {
-        return btnSdRegProv;
-    }
 
-    public void setBtnSdRegProv(JButton btnSdRegProv) {
-        this.btnSdRegProv = btnSdRegProv;
-    }
 
     public JButton getBtnSdRegVenta() {
         return btnSdRegVenta;
@@ -925,10 +913,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         background = new javax.swing.JPanel();
         sideBar = new javax.swing.JPanel();
         btnSdInicio = new javax.swing.JButton();
-        btnSdRegProv = new javax.swing.JButton();
-        btnSdRegClient = new javax.swing.JButton();
-        btnSdEditProv = new javax.swing.JButton();
-        btnSdEditClient = new javax.swing.JButton();
         btnSdRegCompra = new javax.swing.JButton();
         btnSdRegVenta = new javax.swing.JButton();
         btnSdVerCompras = new javax.swing.JButton();
@@ -962,6 +946,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         txtDireccionCliente = new javax.swing.JTextField();
         btnRegistrarCliente = new javax.swing.JButton();
         lblPollo2 = new javax.swing.JLabel();
+        btnSdEditClient1 = new javax.swing.JButton();
         registrarProveedor = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -972,6 +957,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         txtdireccionproveedor = new javax.swing.JTextField();
         btnregistrarproveedor = new javax.swing.JButton();
         lblPollo3 = new javax.swing.JLabel();
+        btnSdEditProv1 = new javax.swing.JButton();
         registrarCompra = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         txtobservacionescompra = new javax.swing.JTextPane();
@@ -1069,43 +1055,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         btnSdInicio.setText("Inicio");
         btnSdInicio.setToolTipText("");
-        sideBar.add(btnSdInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 115, 126, -1));
-
-        btnSdRegProv.setText("Registrar Proveedor");
-        btnSdRegProv.setToolTipText("");
-        sideBar.add(btnSdRegProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 148, 126, -1));
-
-        btnSdRegClient.setText("Registrar Cliente");
-        btnSdRegClient.setToolTipText("");
-        sideBar.add(btnSdRegClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 181, 126, -1));
-
-        btnSdEditProv.setText("Editar Proveedor");
-        btnSdEditProv.setToolTipText("");
-        sideBar.add(btnSdEditProv, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 214, 126, -1));
-
-        btnSdEditClient.setText("Editar Cliente");
-        btnSdEditClient.setToolTipText("");
-        sideBar.add(btnSdEditClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 247, 126, -1));
+        sideBar.add(btnSdInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 150, -1));
 
         btnSdRegCompra.setText("Registrar Compra");
         btnSdRegCompra.setToolTipText("");
-        sideBar.add(btnSdRegCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 280, -1, -1));
+        sideBar.add(btnSdRegCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 150, -1));
 
         btnSdRegVenta.setText("Registrar Venta");
         btnSdRegVenta.setToolTipText("");
-        sideBar.add(btnSdRegVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 313, 126, -1));
+        sideBar.add(btnSdRegVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 150, -1));
 
         btnSdVerCompras.setText("Ver Compras");
         btnSdVerCompras.setToolTipText("");
-        sideBar.add(btnSdVerCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 346, 126, -1));
+        sideBar.add(btnSdVerCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 150, -1));
 
         btnSdVerVentas.setText("Ver Ventas");
         btnSdVerVentas.setToolTipText("");
-        sideBar.add(btnSdVerVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 379, 126, -1));
+        sideBar.add(btnSdVerVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 150, -1));
 
         btnSdInsertarPago.setText("Insertar Pago");
         btnSdInsertarPago.setToolTipText("");
-        sideBar.add(btnSdInsertarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 412, 126, -1));
+        sideBar.add(btnSdInsertarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 150, -1));
 
         lblPollo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         sideBar.add(lblPollo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
@@ -1231,6 +1201,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lblPollo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         registrarCliente.add(lblPollo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 100, -1));
 
+        btnSdEditClient1.setText("Editar Cliente");
+        btnSdEditClient1.setToolTipText("");
+        registrarCliente.add(btnSdEditClient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 126, -1));
+
         pnlCards.add(registrarCliente, "REG_CLIENT");
 
         registrarProveedor.setMinimumSize(new java.awt.Dimension(630, 530));
@@ -1264,6 +1238,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         lblPollo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         registrarProveedor.add(lblPollo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 100, -1));
+
+        btnSdEditProv1.setText("Editar Proveedor");
+        btnSdEditProv1.setToolTipText("");
+        registrarProveedor.add(btnSdEditProv1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 150, -1));
 
         pnlCards.add(registrarProveedor, "REG_PROV");
 
@@ -1311,7 +1289,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnagrProvRegistraraComp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnagrProvRegistraraComp.setForeground(new java.awt.Color(255, 255, 255));
         btnagrProvRegistraraComp.setText("Agregar Proveedor");
-        registrarCompra.add(btnagrProvRegistraraComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 160, 170, 30));
+        btnagrProvRegistraraComp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagrProvRegistraraCompActionPerformed(evt);
+            }
+        });
+        registrarCompra.add(btnagrProvRegistraraComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, 170, 30));
 
         txtPrecioCompra.setColumns(10);
         registrarCompra.add(txtPrecioCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 460, 30));
@@ -1626,18 +1609,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlCards, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE))
+                .addComponent(pnlCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(backgroundLayout.createSequentialGroup()
-                .addComponent(pnlCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlCards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(backgroundLayout.createSequentialGroup()
+                        .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1645,6 +1629,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnagrProvRegistraraCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagrProvRegistraraCompActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnagrProvRegistraraCompActionPerformed
 
     public JButton getBtnagrProvRegistraraComp() {
         return btnagrProvRegistraraComp;
@@ -2007,13 +1995,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JButton btnRegistrarPago;
     private javax.swing.JButton btnRegistrarVenta;
-    private javax.swing.JButton btnSdEditClient;
-    private javax.swing.JButton btnSdEditProv;
+    private javax.swing.JButton btnSdEditClient1;
+    private javax.swing.JButton btnSdEditProv1;
     private javax.swing.JButton btnSdInicio;
     private javax.swing.JButton btnSdInsertarPago;
-    private javax.swing.JButton btnSdRegClient;
     private javax.swing.JButton btnSdRegCompra;
-    private javax.swing.JButton btnSdRegProv;
     private javax.swing.JButton btnSdRegVenta;
     private javax.swing.JButton btnSdVerCompras;
     private javax.swing.JButton btnSdVerVentas;
