@@ -43,6 +43,7 @@ public class Controller {
         frm.getBtnSdEditProv().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_EDIT_PROV));
         frm.getBtnSdEditClient().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_EDIT_CLIENT));
         frm.getBtnSdVerVentas().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_VER_VENTAS));
+        frm.getBtnSdVerCompras().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_VER_COMPRAS));
         frm.getBtnSdInsertarPago().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_INS_PAGO));
     }    
 }
