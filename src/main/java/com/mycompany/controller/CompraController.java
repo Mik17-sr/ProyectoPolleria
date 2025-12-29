@@ -86,6 +86,8 @@ public class CompraController implements ActionListener {
     private void mostrarCompras() {
         // 1. Obtener los datos
         List<Compra> listCompras = ob.listarTodas();
+
+        // Debug en consola
         System.out.println("\n--- DEBUG: LISTA DE COMPRAS ---");
         for (Compra c : listCompras) {
             System.out.println("Proveedor: " + c.getProveedor()
@@ -94,29 +96,41 @@ public class CompraController implements ActionListener {
         }
         System.out.println("Total registros: " + listCompras.size());
         System.out.println("-------------------------------\n");
+
         // 2. Definir columnas
         String[] columnas = {"Proveedor", "Fecha compra", "Precio Compra", "Observaciones"};
 
-        // 3. Crear el modelo (podemos hacerlo vacío inicialmente)
+        // 3. Crear el modelo
         DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
 
-        // 4. EL PASO QUE FALTA: Llenar el modelo con la lista
+        // 4. Configuración de Formatos (Fecha y Moneda COP)
         java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
+        java.text.NumberFormat formatoCOP = java.text.NumberFormat.getCurrencyInstance(new java.util.Locale("es", "CO"));
+        formatoCOP.setMaximumFractionDigits(0); // Para que no muestre decimales si es COP
 
+        double total = 0;
+
+        // 5. Llenar el modelo con la lista
         for (Compra c : listCompras) {
-            // 2. Convierte la fecha a String (manejando posibles nulos para evitar errores)
+            total += c.getPrecio();
+
+            // Formatear fecha
             String fechaFormateada = (c.getFecha() != null) ? sdf.format(c.getFecha()) : "";
+
+            // Formatear precio a moneda
+            String precioFormateado = formatoCOP.format(c.getPrecio());
 
             Object[] fila = {
                 c.getProveedor(),
-                fechaFormateada, // <--- Aquí pasamos el String ya formateado
-                c.getPrecio(),
+                fechaFormateada,
+                precioFormateado, // <--- Ahora se pasa el String con formato $
                 c.getObservacion()
             };
             modelo.addRow(fila);
         }
 
-        // 5. Asignar el modelo a la tabla del formulario
+        // 6. Asignar el modelo y el total formateado
         frm.getTblCompras().setModel(modelo);
+        frm.getLblTotalCompras().setText(formatoCOP.format(total));
     }
 }

@@ -1015,6 +1015,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         tblCompras = new javax.swing.JTable();
         jLabel41 = new javax.swing.JLabel();
         lblPollo8 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        lblTotalCompras = new javax.swing.JLabel();
         verVentas = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -1446,7 +1448,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tblCompras);
 
-        verCompras.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 183, 642, 375));
+        verCompras.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 183, 642, 320));
 
         jLabel41.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
         jLabel41.setText("Ver Compras");
@@ -1454,6 +1456,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         lblPollo8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         verCompras.add(lblPollo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
+
+        jLabel20.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
+        jLabel20.setText("Total en Ventas:");
+        verCompras.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, -1, 30));
+
+        lblTotalCompras.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
+        verCompras.add(lblTotalCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 120, 30));
 
         pnlCards.add(verCompras, "VER_COMPRAS");
 
@@ -1697,6 +1706,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     public void setVerCompras(JPanel verCompras) {
         this.verCompras = verCompras;
+    }
+
+    public JLabel getLblTotalCompras() {
+        return lblTotalCompras;
+    }
+
+    public void setLblTotalCompras(JLabel lblTotalCompras) {
+        this.lblTotalCompras = lblTotalCompras;
     }
 
     public JButton getBtnRegistrarPago() {
@@ -2029,6 +2046,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -2087,6 +2105,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblPollo8;
     private javax.swing.JLabel lblPollo9;
     private javax.swing.JLabel lblSaldoPendiente;
+    private javax.swing.JLabel lblTotalCompras;
     private javax.swing.JLabel lblTotalPagado;
     private javax.swing.JLabel lblTotalVenta;
     private javax.swing.JLabel lblTotalVentas;
