@@ -920,6 +920,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnSdInsertarPago = new javax.swing.JButton();
         lblPollo1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        btnDB = new javax.swing.JButton();
         pnlCards = new javax.swing.JPanel();
         vistaInicio = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -1080,8 +1081,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         sideBar.add(btnSdInsertarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 150, -1));
 
         lblPollo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
-        sideBar.add(lblPollo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        sideBar.add(lblPollo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
         sideBar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 6, -1, 103));
+
+        btnDB.setText("DescargarBD");
+        btnDB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDBActionPerformed(evt);
+            }
+        });
+        sideBar.add(btnDB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
 
         pnlCards.setLayout(new java.awt.CardLayout());
 
@@ -1643,6 +1652,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnagrProvRegistraraCompActionPerformed
 
+    private void btnDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDBActionPerformed
+
+    public JButton getBtnDB() {
+        return btnDB;
+    }
+
+    public void setBtnDB(JButton btnDB) {
+        this.btnDB = btnDB;
+    }
+
     public JButton getBtnagrProvRegistraraComp() {
         return btnagrProvRegistraraComp;
     }
@@ -2007,6 +2028,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel background;
     private javax.swing.JButton btnAddVenta;
     private javax.swing.JButton btnCrearNuevoPedido;
+    private javax.swing.JButton btnDB;
     private javax.swing.JButton btnEditClient;
     private javax.swing.JButton btnEditproveedor;
     private javax.swing.JButton btnRegistrarCliente;

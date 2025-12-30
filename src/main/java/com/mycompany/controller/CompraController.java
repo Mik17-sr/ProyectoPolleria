@@ -1,13 +1,16 @@
 package com.mycompany.controller;
 
+import com.mycompany.Utility.ComboHelper;
 import com.mycompany.model.CompraDAO;
 import com.mycompany.Utility.PlaceholderUtil;
 import com.mycompany.model.Compra;
 import com.mycompany.model.Proveedor;
+import com.mycompany.model.proveedorDAO;
 import com.mycompany.vista.FrmPrincipal;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -17,6 +20,8 @@ public class CompraController implements ActionListener {
 
     private FrmPrincipal frm;
     private CompraDAO ob;
+    private static final SimpleDateFormat FORMATO_FECHA
+            = new SimpleDateFormat("yyyy-MM-dd");
 
     public CompraController(FrmPrincipal frm) {
         this.frm = frm;
@@ -25,8 +30,13 @@ public class CompraController implements ActionListener {
         frm.getBtnagrProvRegistraraComp().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_REG_PROV));
         frm.getBtnSdVerCompras().addActionListener(e -> mostrarCompras());
         ProveedorController.rellenarcombox(frm);
+        proveedorDAO dao = new proveedorDAO();
+        List<Proveedor> lista = dao.listarTodos();
+        ComboHelper.habilitarFiltrado(frm.getCmbcompraReg(), lista);
         setFechaHoy();
         rellenarcasillas();
+        frm.getCmbcompraReg().setEditable(true);
+
     }
 
     public void registrar() {
@@ -133,4 +143,5 @@ public class CompraController implements ActionListener {
         frm.getTblCompras().setModel(modelo);
         frm.getLblTotalCompras().setText(formatoCOP.format(total));
     }
+
 }

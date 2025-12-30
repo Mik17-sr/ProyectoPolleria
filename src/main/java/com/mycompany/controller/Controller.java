@@ -1,5 +1,6 @@
 package com.mycompany.controller;
 
+import com.mycompany.Utility.guardarBD;
 import com.mycompany.vista.FrmPrincipal;
 import javax.swing.JFrame;
 
@@ -45,5 +46,6 @@ public class Controller {
         frm.getBtnSdVerVentas().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_VER_VENTAS));
         frm.getBtnSdVerCompras().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_VER_COMPRAS));
         frm.getBtnSdInsertarPago().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_INS_PAGO));
+        frm.getBtnDB().addActionListener(e->guardarBD.descargar());
     }    
 }
