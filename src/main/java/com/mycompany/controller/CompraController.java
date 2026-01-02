@@ -14,14 +14,18 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.event.PopupMenuEvent;
+import javax.swing.event.PopupMenuListener;
 import javax.swing.table.DefaultTableModel;
 
-public class CompraController implements ActionListener {
+public class CompraController {
 
     private FrmPrincipal frm;
     private CompraDAO ob;
     private static final SimpleDateFormat FORMATO_FECHA
             = new SimpleDateFormat("yyyy-MM-dd");
+    proveedorDAO dao = new proveedorDAO();
+    List<Proveedor> lista = dao.listarTodos();
 
     public CompraController(FrmPrincipal frm) {
         this.frm = frm;
@@ -30,9 +34,6 @@ public class CompraController implements ActionListener {
         frm.getBtnagrProvRegistraraComp().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_REG_PROV));
         frm.getBtnSdVerCompras().addActionListener(e -> mostrarCompras());
         ProveedorController.rellenarcombox(frm);
-        proveedorDAO dao = new proveedorDAO();
-        List<Proveedor> lista = dao.listarTodos();
-        ComboHelper.habilitarFiltrado(frm.getCmbcompraReg(), lista);
         setFechaHoy();
         rellenarcasillas();
         frm.getCmbcompraReg().setEditable(true);
@@ -40,44 +41,49 @@ public class CompraController implements ActionListener {
     }
 
     public void registrar() {
-        Proveedor prov = new Proveedor();
-        prov = (Proveedor) frm.getCmbcompraReg().getSelectedItem();
-        if (prov.getIdproveedor() != -1) {
-            if (frm.getjDatefechaCompra().getDate() == null) {
-                JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha");
-                return;
-            }
-            Date fechaUtil = frm.getjDatefechaCompra().getDate();
-            java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
-
-//            if (frm.getTxtpreciocompra().getText() == null || !validacion.esDouble(frm.getTxtpreciocompra().getText())) {
-//                JOptionPane.showMessageDialog(null, "Valor de precio no aceptado");
-//                return;
-//            }
-            double precio = ((Number) frm.getTxtPrecioCompra().getValue()).doubleValue();
-
-            if (precio < 0) {
-                JOptionPane.showMessageDialog(null, "Precio no valido");
-                return;
-            }
-
-            String observaciones = frm.getTxtobservacionescompra().getText();
-            System.out.print(precio);
-            Compra compra = new Compra(prov, 0, precio, fechaSql, observaciones);
-            ob.guardar(compra);
-            setFechaHoy();
-            frm.getCmbcompraReg().setSelectedIndex(0);
-            rellenarcasillas();
-            ProveedorController.rellenarcombox(frm);
-        } else {
+        Object seleccionado = frm.getCmbcompraReg().getSelectedItem();
+        Proveedor prov = validar(seleccionado);
+        if (prov == null) {
             return;
         }
+        Date fechaUtil = frm.getjDatefechaCompra().getDate();
+        java.sql.Date fechaSql = new java.sql.Date(fechaUtil.getTime());
+
+        double precio = ((Number) frm.getTxtPrecioCompra().getValue()).doubleValue();
+
+        if (precio <= 0) {
+            JOptionPane.showMessageDialog(frm, "Precio no valido");
+            return;
+        }
+
+        String observaciones = frm.getTxtobservacionescompra().getText();
+        System.out.print(precio);
+        Compra compra = new Compra(prov, 0, precio, fechaSql, observaciones);
+        ob.guardar(compra);
+        setFechaHoy();
+        frm.getCmbcompraReg().setSelectedIndex(0);
+        rellenarcasillas();
+        ProveedorController.rellenarcombox(frm);
+        frm.getTxtPrecioCompra().setValue(0);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e
-    ) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public Proveedor validar(Object seleccionado) {
+        if (!(seleccionado instanceof Proveedor)) {
+            JOptionPane.showMessageDialog(frm, "Por favor seleccione un proveedor de la lista");
+            return null;
+        }
+        Proveedor prov = (Proveedor) seleccionado;
+        System.out.println("Proveedor seleccionado: " + prov.getNombre());
+        if (prov.getIdproveedor() == -1) {
+            return null;
+        }
+
+        if (frm.getjDatefechaCompra().getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una fecha");
+            return null;
+        }
+        return prov;
+
     }
 
     public void setFechaHoy() {

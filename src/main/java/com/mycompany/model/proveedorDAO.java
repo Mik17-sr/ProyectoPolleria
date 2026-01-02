@@ -1,6 +1,5 @@
 package com.mycompany.model;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +11,7 @@ public class proveedorDAO {
         String sql = "INSERT INTO proveedor (nombre, telefono, direccion) VALUES (?, ?, ?)";
 
         try (
-            Connection cn = Conexion.getConexion();
-            PreparedStatement ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
-        ) {
+                Connection cn = Conexion.getConexion(); PreparedStatement ps = cn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, p.getNombre());
             ps.setString(2, p.getTelefono());
             ps.setString(3, p.getDireccion());
@@ -35,9 +32,7 @@ public class proveedorDAO {
         String sql = "UPDATE proveedor SET nombre=?, telefono=?, direccion=? WHERE id_proveedor=?";
 
         try (
-            Connection cn = Conexion.getConexion();
-            PreparedStatement ps = cn.prepareStatement(sql)
-        ) {
+                Connection cn = Conexion.getConexion(); PreparedStatement ps = cn.prepareStatement(sql)) {
             ps.setString(1, p.getNombre());
             ps.setString(2, p.getTelefono());
             ps.setString(3, p.getDireccion());
@@ -54,9 +49,7 @@ public class proveedorDAO {
         String sql = "DELETE FROM proveedor WHERE id_proveedor=?";
 
         try (
-            Connection cn = Conexion.getConexion();
-            PreparedStatement ps = cn.prepareStatement(sql)
-        ) {
+                Connection cn = Conexion.getConexion(); PreparedStatement ps = cn.prepareStatement(sql)) {
             ps.setInt(1, id);
             ps.executeUpdate();
 
@@ -70,18 +63,16 @@ public class proveedorDAO {
         String sql = "SELECT * FROM proveedor WHERE id_proveedor=?";
 
         try (
-            Connection cn = Conexion.getConexion();
-            PreparedStatement ps = cn.prepareStatement(sql)
-        ) {
+                Connection cn = Conexion.getConexion(); PreparedStatement ps = cn.prepareStatement(sql)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
                 return new Proveedor(
-                    rs.getInt("id_proveedor"),
-                    rs.getString("nombre"),
-                    rs.getString("telefono"),
-                    rs.getString("direccion")
+                        rs.getInt("id_proveedor"),
+                        rs.getString("nombre"),
+                        rs.getString("telefono"),
+                        rs.getString("direccion")
                 );
             }
 
@@ -97,16 +88,13 @@ public class proveedorDAO {
         String sql = "SELECT * FROM proveedor";
 
         try (
-            Connection cn = Conexion.getConexion();
-            Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery(sql)
-        ) {
+                Connection cn = Conexion.getConexion(); Statement st = cn.createStatement(); ResultSet rs = st.executeQuery(sql)) {
             while (rs.next()) {
                 lista.add(new Proveedor(
-                    rs.getInt("id_proveedor"),
-                    rs.getString("nombre"),
-                    rs.getString("telefono"),
-                    rs.getString("direccion")
+                        rs.getInt("id_proveedor"),
+                        rs.getString("nombre"),
+                        rs.getString("telefono"),
+                        rs.getString("direccion")
                 ));
             }
 
@@ -115,4 +103,19 @@ public class proveedorDAO {
         }
         return lista;
     }
+
+    public boolean buscarNombre(String nombre) {
+        String sql = "SELECT 1 FROM proveedor WHERE nombre = ? LIMIT 1"; // solo necesitamos saber si existe
+        try (
+                Connection cn = Conexion.getConexion(); PreparedStatement ps = cn.prepareStatement(sql)) {
+            ps.setString(1, nombre);
+            try (ResultSet rs = ps.executeQuery()) {
+                return rs.next(); // true si encontró al menos un registro
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al validar nombre de proveedor: " + e.getMessage());
+        }
+        return false; // si hay error o no existe
+    }
+
 }

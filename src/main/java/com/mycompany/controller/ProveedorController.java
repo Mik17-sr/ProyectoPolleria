@@ -1,5 +1,6 @@
 package com.mycompany.controller;
 
+import com.mycompany.Utility.ComboHelper;
 import com.mycompany.model.proveedorDAO;
 import com.mycompany.Utility.PlaceholderUtil;
 import com.mycompany.model.Proveedor;
@@ -147,6 +148,7 @@ public class ProveedorController implements ActionListener {
 
             frm.getCmbcompraReg().setModel(modelo);
             frm.getCmbcompraReg().setSelectedIndex(0);
+            ComboHelper.habilitarFiltrado(frm.getCmbcompraReg(), lista);
 
             frm.getCmbnombreEditproveedor().setModel(modelo);
             frm.getCmbnombreEditproveedor().setSelectedIndex(0);
