@@ -1,5 +1,6 @@
 package com.mycompany.controller;
 
+import com.mycompany.Utility.ComboHelper;
 import com.mycompany.Utility.PlaceholderUtil;
 import com.mycompany.vista.FrmPrincipal;
 import java.awt.event.ActionEvent;
@@ -34,6 +35,7 @@ public class ClienteController implements ActionListener{
         frm.getCmbCliente().addActionListener(this);
         initEventos();
         rellenarcasillas();
+        
     }
 
     public FrmPrincipal getFrm() {
@@ -79,6 +81,7 @@ public class ClienteController implements ActionListener{
     }
     
     private void listarCombo(){
+        
         DefaultComboBoxModel<Object> model = new DefaultComboBoxModel<>();
         if(clientes.isEmpty()){
             model.addElement("No hay clientes para elegir");
@@ -92,6 +95,8 @@ public class ClienteController implements ActionListener{
         }
         frm.getCmbCliente().setModel(model);
         frm.getCmbCliente().setSelectedIndex(0);
+        ComboHelper.habilitarFiltradoC(frm.getCmbCliente(), clientes);
+        frm.getCmbCliente().setEditable(true);
     }
 
     @Override

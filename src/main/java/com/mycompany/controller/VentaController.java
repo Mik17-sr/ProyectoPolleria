@@ -1,5 +1,6 @@
 package com.mycompany.controller;
 
+import com.mycompany.Utility.ComboHelper;
 import com.mycompany.Utility.PlaceholderUtil;
 import com.mycompany.model.Cliente;
 import com.mycompany.model.ClienteDAO;
@@ -48,6 +49,8 @@ public class VentaController implements ActionListener {
         frm.getCmbRegVentaClient().addActionListener(this);
         initEventos();
         rellenarcasillas();
+        
+        
     }
 
     public FrmPrincipal getFrm() {
@@ -95,6 +98,8 @@ public class VentaController implements ActionListener {
         }
         frm.getCmbRegVentaClient().setModel(model);
         frm.getCmbRegVentaClient().setSelectedIndex(0);
+        ComboHelper.habilitarFiltradoC(frm.getCmbRegVentaClient(), clientes);
+        frm.getCmbRegVentaClient().setEditable(true);
     }
     
     private void listarTablaVentas(){
