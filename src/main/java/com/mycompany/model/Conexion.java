@@ -1,5 +1,6 @@
 package com.mycompany.model;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,8 +8,8 @@ import java.sql.SQLException;
 public class Conexion {
     public static Connection getConexion(){
         Connection conexion = null;
-        String baseDatos = "../pollodb.db";
-        String url = "jdbc:sqlite:" + baseDatos;
+        String ruta = new File("resources/pollodb.db").getAbsolutePath();
+        String url = "jdbc:sqlite:" + ruta;
         try{
             Class.forName("org.sqlite.JDBC");
             conexion = DriverManager.getConnection(url);

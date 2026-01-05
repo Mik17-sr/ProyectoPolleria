@@ -16,6 +16,7 @@ public class Controller {
         new CompraController(frm);
         new VentaController(frm);
         new PagoController(frm);
+        frm.getjScrollPane7().setBorder(null);
     }
     
     public Controller(FrmPrincipal frm) {
