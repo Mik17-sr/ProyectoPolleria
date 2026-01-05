@@ -12,6 +12,7 @@ import com.mycompany.model.VentaDAO;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.event.ItemEvent;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -49,7 +51,8 @@ public class VentaController implements ActionListener {
         frm.getCmbRegVentaClient().addActionListener(this);
         initEventos();
         rellenarcasillas();
-        
+        escucharcheck();
+        frm.getChbPagoCompleto().setSelected(true);
         
     }
 
@@ -215,6 +218,20 @@ public class VentaController implements ActionListener {
             CardLayout card = (CardLayout) frm.getPnlCards().getLayout();
             card.show(frm.getPnlCards(), "REG_CLIENT");
         }
+    }
+    //modificado por krate
+    private void escucharcheck() {
+        JCheckBox chb=frm.getChbPagoCompleto();
+        boolean retorno=false;
+        chb.addItemListener(e->{
+        boolean bandera=(e.getStateChange()==ItemEvent.SELECTED);
+        if(bandera){
+            frm.getTxtPrecioCancelado().setEditable(false);
+        }
+        else{
+            frm.getTxtPrecioCancelado().setEditable(true);
+        }
+        });
     }
     
     

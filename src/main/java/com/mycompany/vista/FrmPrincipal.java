@@ -7,6 +7,7 @@ import java.awt.CardLayout;
 import java.text.NumberFormat;
 import java.util.Locale;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
@@ -49,7 +50,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         txtPrecioVenta.setFormatterFactory(factory);
         txtPrecioCompra.setFormatterFactory(factory);
         txtMontoPago.setFormatterFactory(factory);
+        txtPrecioCancelado.setFormatterFactory(factory);
 
+        txtPrecioCancelado.setValue(0);
         txtPrecioVenta.setValue(0);
         txtPrecioCompra.setValue(0);
         txtMontoPago.setValue(0);
@@ -973,20 +976,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         btnagrProvRegistraraComp = new javax.swing.JButton();
         txtPrecioCompra = new javax.swing.JFormattedTextField();
-        registrarVenta = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtObservacionesVenta = new javax.swing.JTextPane();
-        cmbRegVentaClient = new javax.swing.JComboBox<>();
-        jLabel19 = new javax.swing.JLabel();
-        lblPollo5 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        btnAddVenta = new javax.swing.JButton();
-        dateFechaVenta = new com.toedter.calendar.JDateChooser();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        btnRegistrarVenta = new javax.swing.JButton();
-        txtPrecioVenta = new javax.swing.JFormattedTextField();
         editarProveedor = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -1083,6 +1072,24 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel59 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        registrarVenta = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtObservacionesVenta = new javax.swing.JTextPane();
+        cmbRegVentaClient = new javax.swing.JComboBox<>();
+        jLabel19 = new javax.swing.JLabel();
+        lblPollo5 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        btnAddVenta = new javax.swing.JButton();
+        dateFechaVenta = new com.toedter.calendar.JDateChooser();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        btnRegistrarVenta = new javax.swing.JButton();
+        txtPrecioVenta = new javax.swing.JFormattedTextField();
+        jLabel50 = new javax.swing.JLabel();
+        txtPrecioCancelado = new javax.swing.JFormattedTextField();
+        chbPagoCompleto = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1349,57 +1356,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pnlCards.add(registrarCompra, "REG_COMPRA");
 
-        registrarVenta.setMinimumSize(new java.awt.Dimension(630, 530));
-        registrarVenta.setPreferredSize(new java.awt.Dimension(630, 530));
-        registrarVenta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jScrollPane3.setViewportView(txtObservacionesVenta);
-
-        registrarVenta.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 600, 160));
-
-        registrarVenta.add(cmbRegVentaClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 380, 30));
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel19.setText("Observaciones:");
-        registrarVenta.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
-
-        lblPollo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
-        registrarVenta.add(lblPollo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
-
-        jLabel21.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
-        jLabel21.setText("Registrar Venta");
-        registrarVenta.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, 48));
-
-        btnAddVenta.setBackground(new java.awt.Color(245, 121, 0));
-        btnAddVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAddVenta.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddVenta.setText("Agregar Cliente");
-        registrarVenta.add(btnAddVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 150, 30));
-        registrarVenta.add(dateFechaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 470, 30));
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel22.setText("Cliente:");
-        registrarVenta.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
-
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel23.setText("Fecha Venta:");
-        registrarVenta.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
-
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel24.setText("Precio Venta:");
-        registrarVenta.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
-
-        btnRegistrarVenta.setBackground(new java.awt.Color(245, 121, 0));
-        btnRegistrarVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRegistrarVenta.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrarVenta.setText("Registrar Venta");
-        registrarVenta.add(btnRegistrarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 170, 30));
-
-        txtPrecioVenta.setColumns(10);
-        registrarVenta.add(txtPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 460, 30));
-
-        pnlCards.add(registrarVenta, "REG_VENTA");
-
         editarProveedor.setMinimumSize(new java.awt.Dimension(630, 530));
         editarProveedor.setPreferredSize(new java.awt.Dimension(630, 530));
         editarProveedor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1659,7 +1615,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pnlCards.add(jScrollPane7, "INS_PAGO");
 
-        jScrollPane8.setPreferredSize(new java.awt.Dimension(630, 530));
+        jScrollPane8.setPreferredSize(new java.awt.Dimension(630, 703));
 
         dashboard.setBackground(new java.awt.Color(245, 245, 247));
         dashboard.setForeground(new java.awt.Color(245, 245, 247));
@@ -1706,7 +1662,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         cuentasCobrar.add(panelRound8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel61.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jLabel61.setForeground(new java.awt.Color(0, 0, 0));
         jLabel61.setText("Cuentas por Cobrar:");
         cuentasCobrar.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 180, 30));
 
@@ -1741,7 +1696,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         balanceNeto.add(panelRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel62.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jLabel62.setForeground(new java.awt.Color(0, 0, 0));
         jLabel62.setText("Balance Neto:");
         balanceNeto.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 180, 30));
 
@@ -1777,7 +1731,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pagosProveedores.add(panelRound7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel60.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jLabel60.setForeground(new java.awt.Color(0, 0, 0));
         jLabel60.setText("Pagos a Proveedores:");
         pagosProveedores.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 180, 30));
 
@@ -1813,7 +1766,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         cobrosTotales.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel55.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
         jLabel55.setText("Cobros Totales (Ventas):");
         cobrosTotales.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 180, 30));
 
@@ -1855,6 +1807,78 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pnlCards.add(jScrollPane8, "DASHBOARD");
 
+        registrarVenta.setMinimumSize(new java.awt.Dimension(630, 530));
+        registrarVenta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane3.setViewportView(txtObservacionesVenta);
+
+        registrarVenta.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 600, 160));
+
+        registrarVenta.add(cmbRegVentaClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 380, 30));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel19.setText("Observaciones:");
+        registrarVenta.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
+
+        lblPollo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
+        registrarVenta.add(lblPollo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
+        jLabel21.setText("Registrar Venta");
+        registrarVenta.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, 48));
+
+        btnAddVenta.setBackground(new java.awt.Color(245, 121, 0));
+        btnAddVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddVenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddVenta.setText("Agregar Cliente");
+        registrarVenta.add(btnAddVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 150, 30));
+        registrarVenta.add(dateFechaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 470, 30));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel22.setText("Cliente:");
+        registrarVenta.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel23.setText("Fecha Venta:");
+        registrarVenta.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel24.setText("Precio Venta:");
+        registrarVenta.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+
+        btnRegistrarVenta.setBackground(new java.awt.Color(245, 121, 0));
+        btnRegistrarVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRegistrarVenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarVenta.setText("Registrar Venta");
+        registrarVenta.add(btnRegistrarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 590, 170, 30));
+
+        txtPrecioVenta.setColumns(10);
+        registrarVenta.add(txtPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 460, 30));
+
+        jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel50.setText("Precio Cancelado:");
+        registrarVenta.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+
+        txtPrecioCancelado.setColumns(10);
+        txtPrecioCancelado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPrecioCanceladoActionPerformed(evt);
+            }
+        });
+        registrarVenta.add(txtPrecioCancelado, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 410, 30));
+
+        chbPagoCompleto.setText("Pago completo");
+        chbPagoCompleto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chbPagoCompletoActionPerformed(evt);
+            }
+        });
+        registrarVenta.add(chbPagoCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+
+        jScrollPane10.setViewportView(registrarVenta);
+
+        pnlCards.add(jScrollPane10, "REG_VENTA");
+
         background.add(pnlCards, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 0, -1, 530));
 
         getContentPane().add(background, java.awt.BorderLayout.PAGE_END);
@@ -1870,8 +1894,32 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDBActionPerformed
 
+    private void chbPagoCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbPagoCompletoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chbPagoCompletoActionPerformed
+
+    private void txtPrecioCanceladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioCanceladoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPrecioCanceladoActionPerformed
+
     public JButton getBtnDB() {
         return btnDB;
+    }
+
+    public JCheckBox getChbPagoCompleto() {
+        return chbPagoCompleto;
+    }
+
+    public void setChbPagoCompleto(JCheckBox chbPagoCompleto) {
+        this.chbPagoCompleto = chbPagoCompleto;
+    }
+
+    public JFormattedTextField getTxtPrecioCancelado() {
+        return txtPrecioCancelado;
+    }
+
+    public void setTxtPrecioCancelado(JFormattedTextField txtPrecioCancelado) {
+        this.txtPrecioCancelado = txtPrecioCancelado;
     }
 
     public void setBtnDB(JButton btnDB) {
@@ -2261,6 +2309,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnagrProvRegistraraComp;
     private javax.swing.JButton btnregistrarcompra;
     private javax.swing.JButton btnregistrarproveedor;
+    private javax.swing.JCheckBox chbPagoCompleto;
     private javax.swing.JComboBox<Object> cmbCliente;
     private javax.swing.JComboBox<String> cmbMetodoPago;
     private javax.swing.JComboBox<Object> cmbRegVentaClient;
@@ -2327,6 +2376,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
@@ -2341,6 +2391,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2399,6 +2450,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextPane txtObservacionesPago;
     private javax.swing.JTextPane txtObservacionesVenta;
+    private javax.swing.JFormattedTextField txtPrecioCancelado;
     private javax.swing.JFormattedTextField txtPrecioCompra;
     private javax.swing.JFormattedTextField txtPrecioVenta;
     private javax.swing.JTextField txtTelefonoCliente;
