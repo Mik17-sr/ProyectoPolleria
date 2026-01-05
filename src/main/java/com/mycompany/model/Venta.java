@@ -57,6 +57,18 @@ public class Venta extends Transaccion {
         return calcularMontoPagos() ==  precio;
     }
     
+    public String getEstado(){
+        if(pagos.isEmpty() || calcularMontoPagos() == 0){
+            return "PENDIENTE";
+        }else if(calcularMontoPagos() > 0  && calcularMontoPagos() < precio){
+            return "ABONO PARCIAL";
+        }else if(validarMontoPago()){
+            return "SALDADO";
+        }else{
+            return "SIN ESTADO";
+        }
+    }
+    
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

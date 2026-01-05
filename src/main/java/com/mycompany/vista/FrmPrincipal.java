@@ -1052,6 +1052,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnRegistrarPago = new javax.swing.JButton();
         jScrollPane8 = new javax.swing.JScrollPane();
         dashboard = new javax.swing.JPanel();
+        clientesDeudores = new com.mycompany.forms.PanelRound();
+        jLabel50 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tableDeudores = new javax.swing.JTable();
         flujoCaja = new com.mycompany.forms.PanelRound();
         jLabel46 = new javax.swing.JLabel();
         cuentasCobrar = new com.mycompany.forms.PanelRound();
@@ -1078,17 +1082,26 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel55 = new javax.swing.JLabel();
         detailsCobrosTotales = new javax.swing.JLabel();
         lblCobrosTotales = new javax.swing.JLabel();
-        btnRegistrarPago1 = new javax.swing.JButton();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel59 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        metodosPago = new com.mycompany.forms.PanelRound();
+        jLabel56 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(840, 540));
+        setMinimumSize(new java.awt.Dimension(840, 540));
 
+        background.setMaximumSize(new java.awt.Dimension(830, 560));
+        background.setMinimumSize(new java.awt.Dimension(830, 560));
+        background.setPreferredSize(new java.awt.Dimension(830, 560));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        sideBar.setPreferredSize(new java.awt.Dimension(200, 0));
+        sideBar.setMaximumSize(new java.awt.Dimension(830, 530));
+        sideBar.setMinimumSize(new java.awt.Dimension(830, 530));
+        sideBar.setPreferredSize(new java.awt.Dimension(830, 530));
+        sideBar.setRequestFocusEnabled(false);
         sideBar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnSdInicio.setText("Inicio");
@@ -1116,7 +1129,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         sideBar.add(btnSdInsertarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 150, -1));
 
         lblPollo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
-        sideBar.add(lblPollo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        sideBar.add(lblPollo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
         sideBar.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(132, 6, -1, 103));
 
         btnDB.setText("DescargarBD");
@@ -1127,13 +1140,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         sideBar.add(btnDB, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 150, -1));
 
-        background.add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 171, 530));
+        background.add(sideBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(-4, 0, 170, 540));
 
+        pnlCards.setMaximumSize(new java.awt.Dimension(660, 540));
+        pnlCards.setMinimumSize(new java.awt.Dimension(660, 540));
+        pnlCards.setName(""); // NOI18N
+        pnlCards.setPreferredSize(new java.awt.Dimension(660, 540));
         pnlCards.setLayout(new java.awt.CardLayout());
 
         vistaInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        vistaInicio.setMinimumSize(new java.awt.Dimension(630, 530));
-        vistaInicio.setPreferredSize(new java.awt.Dimension(630, 530));
+        vistaInicio.setMinimumSize(new java.awt.Dimension(620, 530));
+        vistaInicio.setPreferredSize(new java.awt.Dimension(620, 530));
         vistaInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1164,7 +1181,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 570, 80));
+        panelRound1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 590, 80));
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(33, 32, 30));
@@ -1200,20 +1217,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        panelRound1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 570, 80));
+        panelRound1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 590, 80));
 
         btnCrearNuevoPedido.setBackground(new java.awt.Color(245, 121, 0));
         btnCrearNuevoPedido.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         btnCrearNuevoPedido.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearNuevoPedido.setText("Crear Nuevo Pedido");
-        panelRound1.add(btnCrearNuevoPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 190, 30));
+        panelRound1.add(btnCrearNuevoPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 190, 30));
 
-        vistaInicio.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 590, 360));
+        vistaInicio.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 610, 360));
 
         jLabel7.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Panel de Control");
-        vistaInicio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 630, 50));
+        vistaInicio.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 660, 50));
 
         pnlCards.add(vistaInicio, "INICIO");
 
@@ -1479,6 +1496,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pnlCards.add(editarCliente, "EDIT_CLIENT");
 
+        verCompras.setMinimumSize(new java.awt.Dimension(650, 660));
+        verCompras.setPreferredSize(new java.awt.Dimension(650, 660));
         verCompras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblCompras.setModel(new javax.swing.table.DefaultTableModel(
@@ -1494,14 +1513,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tblCompras);
 
-        verCompras.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 183, 642, 320));
+        verCompras.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 183, 620, 320));
 
         jLabel41.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
         jLabel41.setText("Ver Compras");
-        verCompras.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, 48));
+        verCompras.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, 48));
 
         lblPollo8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
-        verCompras.add(lblPollo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
+        verCompras.add(lblPollo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 100, -1));
 
         jLabel20.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
         jLabel20.setText("Total en Ventas:");
@@ -1512,47 +1531,50 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pnlCards.add(verCompras, "VER_COMPRAS");
 
+        verVentas.setMinimumSize(new java.awt.Dimension(640, 560));
+        verVentas.setPreferredSize(new java.awt.Dimension(640, 560));
         verVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel42.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
         jLabel42.setText("Ver Ventas");
-        verVentas.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, 48));
+        verVentas.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, -1, 48));
 
         jScrollPane6.setPreferredSize(new java.awt.Dimension(200, 200));
 
         tblVentas.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
         tblVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Cliente", "Fecha Venta", "Precio Venta", "Observaciones"
+                "Cliente", "Fecha Venta", "Precio Venta", "Observaciones", "Estatus Pago"
             }
         ));
         jScrollPane6.setViewportView(tblVentas);
 
-        verVentas.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 183, 630, 330));
+        verVentas.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 630, 330));
 
         lblPollo9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
-        verVentas.add(lblPollo9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
+        verVentas.add(lblPollo9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 100, -1));
 
         lblTotalVentas.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
-        verVentas.add(lblTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 120, 30));
+        verVentas.add(lblTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, 120, 30));
 
         jLabel8.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
         jLabel8.setText("Total en Ventas:");
-        verVentas.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, -1, 30));
+        verVentas.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, -1, 30));
 
         pnlCards.add(verVentas, "VER_VENTAS");
 
-        jScrollPane7.setPreferredSize(new java.awt.Dimension(630, 530));
+        jScrollPane7.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane7.setMaximumSize(new java.awt.Dimension(660, 550));
+        jScrollPane7.setMinimumSize(new java.awt.Dimension(660, 550));
+        jScrollPane7.setPreferredSize(new java.awt.Dimension(660, 550));
 
-        insPago.setMaximumSize(new java.awt.Dimension(650, 770));
-        insPago.setMinimumSize(new java.awt.Dimension(650, 770));
-        insPago.setPreferredSize(new java.awt.Dimension(650, 770));
+        insPago.setMaximumSize(new java.awt.Dimension(650, 800));
+        insPago.setMinimumSize(new java.awt.Dimension(650, 800));
+        insPago.setPreferredSize(new java.awt.Dimension(650, 800));
+        insPago.setRequestFocusEnabled(false);
         insPago.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel48.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -1564,10 +1586,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jLabel49.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
         jLabel49.setText("Insertar Pago");
-        insPago.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, 48));
+        insPago.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, 48));
 
         lblPollo11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
-        insPago.add(lblPollo11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
+        insPago.add(lblPollo11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 100, -1));
         insPago.add(cmbVentaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 540, 30));
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -1663,10 +1685,41 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         dashboard.setBackground(new java.awt.Color(245, 245, 247));
         dashboard.setForeground(new java.awt.Color(245, 245, 247));
-        dashboard.setMaximumSize(new java.awt.Dimension(650, 770));
-        dashboard.setMinimumSize(new java.awt.Dimension(650, 770));
-        dashboard.setPreferredSize(new java.awt.Dimension(650, 770));
+        dashboard.setMaximumSize(new java.awt.Dimension(650, 900));
+        dashboard.setMinimumSize(new java.awt.Dimension(650, 900));
+        dashboard.setPreferredSize(new java.awt.Dimension(650, 900));
         dashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        clientesDeudores.setBackground(new java.awt.Color(255, 255, 255));
+        clientesDeudores.setForeground(new java.awt.Color(255, 255, 255));
+        clientesDeudores.setRoundBottomLeft(35);
+        clientesDeudores.setRoundBottomRight(35);
+        clientesDeudores.setRoundTopLeft(35);
+        clientesDeudores.setRoundTopRight(35);
+        clientesDeudores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel50.setBackground(new java.awt.Color(33, 33, 33));
+        jLabel50.setFont(new java.awt.Font("Inter", 0, 20)); // NOI18N
+        jLabel50.setForeground(new java.awt.Color(33, 33, 33));
+        jLabel50.setText("Clientes deudores");
+        clientesDeudores.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        tableDeudores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane10.setViewportView(tableDeudores);
+
+        clientesDeudores.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 260, 230));
+
+        dashboard.add(clientesDeudores, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, 290, 290));
 
         flujoCaja.setBackground(new java.awt.Color(255, 255, 255));
         flujoCaja.setForeground(new java.awt.Color(255, 255, 255));
@@ -1827,18 +1880,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         dashboard.add(cobrosTotales, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 275, 80));
 
-        btnRegistrarPago1.setBackground(new java.awt.Color(245, 121, 0));
-        btnRegistrarPago1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        btnRegistrarPago1.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrarPago1.setText("Registrar Pago");
-        dashboard.add(btnRegistrarPago1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 730, 170, 30));
-
         jSeparator5.setBackground(new java.awt.Color(2, 5, 2));
         jSeparator5.setForeground(new java.awt.Color(245, 121, 0));
         jSeparator5.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        dashboard.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 20, 180));
+        jSeparator5.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jSeparator5.setMinimumSize(new java.awt.Dimension(60, 0));
+        jSeparator5.setPreferredSize(new java.awt.Dimension(60, 0));
+        dashboard.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 10, 180));
 
-        jLabel59.setFont(new java.awt.Font("Montserrat", 0, 24)); // NOI18N
+        jLabel59.setFont(new java.awt.Font("Gotham", 1, 24)); // NOI18N
         jLabel59.setForeground(new java.awt.Color(33, 33, 33));
         jLabel59.setText("ESTADISTICAS FINANCIERAS");
         dashboard.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 48));
@@ -1851,11 +1901,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Anualmente", "Mensualmente", "Semanalmente" }));
         dashboard.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 53, 110, -1));
 
+        metodosPago.setBackground(new java.awt.Color(255, 255, 255));
+        metodosPago.setForeground(new java.awt.Color(255, 255, 255));
+        metodosPago.setRoundBottomLeft(35);
+        metodosPago.setRoundBottomRight(35);
+        metodosPago.setRoundTopLeft(35);
+        metodosPago.setRoundTopRight(35);
+        metodosPago.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel56.setBackground(new java.awt.Color(33, 33, 33));
+        jLabel56.setFont(new java.awt.Font("Inter", 0, 20)); // NOI18N
+        jLabel56.setForeground(new java.awt.Color(33, 33, 33));
+        jLabel56.setText("Métodos de Pago");
+        metodosPago.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        dashboard.add(metodosPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 280, 290));
+
         jScrollPane8.setViewportView(dashboard);
 
         pnlCards.add(jScrollPane8, "DASHBOARD");
 
-        background.add(pnlCards, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 0, -1, 530));
+        background.add(pnlCards, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 660, 580));
 
         getContentPane().add(background, java.awt.BorderLayout.PAGE_END);
 
@@ -2248,7 +2314,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnEditproveedor;
     private javax.swing.JButton btnRegistrarCliente;
     private javax.swing.JButton btnRegistrarPago;
-    private javax.swing.JButton btnRegistrarPago1;
     private javax.swing.JButton btnRegistrarVenta;
     private javax.swing.JButton btnSdEditClient1;
     private javax.swing.JButton btnSdEditProv1;
@@ -2261,6 +2326,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnagrProvRegistraraComp;
     private javax.swing.JButton btnregistrarcompra;
     private javax.swing.JButton btnregistrarproveedor;
+    private com.mycompany.forms.PanelRound clientesDeudores;
     private javax.swing.JComboBox<Object> cmbCliente;
     private javax.swing.JComboBox<String> cmbMetodoPago;
     private javax.swing.JComboBox<Object> cmbRegVentaClient;
@@ -2327,11 +2393,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
@@ -2341,6 +2409,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2373,6 +2442,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalPagado;
     private javax.swing.JLabel lblTotalVenta;
     private javax.swing.JLabel lblTotalVentas;
+    private com.mycompany.forms.PanelRound metodosPago;
     private com.mycompany.forms.PanelRound pagosProveedores;
     private com.mycompany.forms.PanelRound panelRound1;
     private com.mycompany.forms.PanelRound panelRound2;
@@ -2386,6 +2456,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel registrarProveedor;
     private javax.swing.JPanel registrarVenta;
     private javax.swing.JPanel sideBar;
+    private javax.swing.JTable tableDeudores;
     private javax.swing.JTable tblCompras;
     private javax.swing.JTable tblVentas;
     private javax.swing.JLabel totalVenta;

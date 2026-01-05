@@ -23,6 +23,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import com.mycompany.Utility.ColorRenderer;
+import com.mycompany.model.Pago;
+import com.mycompany.model.PagoDAO;
 
 public class VentaController implements ActionListener {
     private FrmPrincipal frm;
@@ -49,7 +52,7 @@ public class VentaController implements ActionListener {
         frm.getCmbRegVentaClient().addActionListener(this);
         initEventos();
         rellenarcasillas();
-        
+        frm.getTblVentas().getColumnModel().getColumn(4).setCellRenderer(new ColorRenderer());
         
     }
 
@@ -112,11 +115,14 @@ public class VentaController implements ActionListener {
         double totalVentas = 0;
         for(Venta v : ventas){
             totalVentas += v.getPrecio();
+            PagoDAO pDAO = new PagoDAO();
+            v.setPagos((ArrayList<Pago>) pDAO.readAllByVenta(v.getId()));
             model.addRow(new Object[]{
                 v.getCliente().getNombre(),
                 sdf.format(v.getFecha()),
                 formatoCOP.format(v.getPrecio()),
-                v.getObservacion()
+                v.getObservacion(),
+                v.getEstado()
             });
         }
         frm.getLblTotalVentas().setText(formatoCOP.format(totalVentas));
