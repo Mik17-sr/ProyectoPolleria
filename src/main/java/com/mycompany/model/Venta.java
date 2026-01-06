@@ -56,7 +56,9 @@ public class Venta extends Transaccion {
     public boolean validarMontoPago(){
         return calcularMontoPagos() ==  precio;
     }
-    
+    public  void setIdVenta(int id){
+        this.id=id;
+    }
     @Override
     public String toString() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
@@ -50,14 +51,38 @@ public class FrmPrincipal extends javax.swing.JFrame {
         txtPrecioVenta.setFormatterFactory(factory);
         txtPrecioCompra.setFormatterFactory(factory);
         txtMontoPago.setFormatterFactory(factory);
-        txtPrecioCancelado.setFormatterFactory(factory);
 
-        txtPrecioCancelado.setValue(0);
+
+       
         txtPrecioVenta.setValue(0);
         txtPrecioCompra.setValue(0);
         txtMontoPago.setValue(0);
 
         cardLayout = (CardLayout) pnlCards.getLayout();
+    }
+
+    public JComboBox<String> getCmbFechaVencimiento() {
+        return cmbFechaVencimiento;
+    }
+
+    public void setCmbFechaVencimiento(JComboBox<String> cmbFechaVencimiento) {
+        this.cmbFechaVencimiento = cmbFechaVencimiento;
+    }
+
+    public JLabel getLblFechaVencimiento() {
+        return lblFechaVencimiento;
+    }
+
+    public void setLblFechaVencimiento(JLabel lblFechaVencimiento) {
+        this.lblFechaVencimiento = lblFechaVencimiento;
+    }
+
+    public JRadioButton getChbPagoCredito() {
+        return chbPagoCredito;
+    }
+
+    public void setChbPagoCredito(JRadioButton chbPagoCredito) {
+        this.chbPagoCredito = chbPagoCredito;
     }
 
 
@@ -97,12 +122,30 @@ public class FrmPrincipal extends javax.swing.JFrame {
         return txttelefonoEditproveedor;
     }
 
+    public JLabel getLblMetodoPago() {
+        return lblMetodoPago;
+    }
+
+    public void setLblMetodoPago(JLabel lblMetodoPago) {
+        this.lblMetodoPago = lblMetodoPago;
+    }
+
+
+
     public void setTxttelefonoEditproveedor(JTextField txttelefonoEditproveedor) {
         this.txttelefonoEditproveedor = txttelefonoEditproveedor;
     }
 
     public JButton getBtnregistrarproveedor() {
         return btnregistrarproveedor;
+    }
+
+    public JComboBox<String> getCmbMetodoPago1() {
+        return cmbMetodoPago1;
+    }
+
+    public void setCmbMetodoPago1(JComboBox<String> cmbMetodoPago1) {
+        this.cmbMetodoPago1 = cmbMetodoPago1;
     }
 
     public void setBtnregistrarproveedor(JButton btnregistrarproveedor) {
@@ -913,6 +956,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tipodePago = new javax.swing.ButtonGroup();
         background = new javax.swing.JPanel();
         sideBar = new javax.swing.JPanel();
         btnSdInicio = new javax.swing.JButton();
@@ -1000,13 +1044,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lblPollo7 = new javax.swing.JLabel();
         cmbCliente = new javax.swing.JComboBox<>();
         jLabel40 = new javax.swing.JLabel();
-        verCompras = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tblCompras = new javax.swing.JTable();
-        jLabel41 = new javax.swing.JLabel();
-        lblPollo8 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        lblTotalCompras = new javax.swing.JLabel();
         verVentas = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -1087,9 +1124,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         btnRegistrarVenta = new javax.swing.JButton();
         txtPrecioVenta = new javax.swing.JFormattedTextField();
-        jLabel50 = new javax.swing.JLabel();
-        txtPrecioCancelado = new javax.swing.JFormattedTextField();
-        chbPagoCompleto = new javax.swing.JCheckBox();
+        lblMetodoPago = new javax.swing.JLabel();
+        cmbMetodoPago1 = new javax.swing.JComboBox<>();
+        chbPagoCredito = new javax.swing.JRadioButton();
+        chbPagoCompleto = new javax.swing.JRadioButton();
+        lblFechaVencimiento = new javax.swing.JLabel();
+        cmbFechaVencimiento = new javax.swing.JComboBox<>();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        verCompras = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tblCompras = new javax.swing.JTable();
+        jLabel41 = new javax.swing.JLabel();
+        lblPollo8 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        lblTotalCompras = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1435,39 +1483,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pnlCards.add(editarCliente, "EDIT_CLIENT");
 
-        verCompras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        tblCompras.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Proveedor", "Fecha Compra", "Precio Compra", "Observaciones"
-            }
-        ));
-        jScrollPane5.setViewportView(tblCompras);
-
-        verCompras.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 183, 642, 320));
-
-        jLabel41.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
-        jLabel41.setText("Ver Compras");
-        verCompras.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, 48));
-
-        lblPollo8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
-        verCompras.add(lblPollo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
-
-        jLabel20.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
-        jLabel20.setText("Total en Ventas:");
-        verCompras.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, -1, 30));
-
-        lblTotalCompras.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
-        verCompras.add(lblTotalCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 120, 30));
-
-        pnlCards.add(verCompras, "VER_COMPRAS");
-
         verVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel42.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
@@ -1524,6 +1539,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         lblPollo11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         insPago.add(lblPollo11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
+
+        cmbVentaPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbVentaPagoActionPerformed(evt);
+            }
+        });
         insPago.add(cmbVentaPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 540, 30));
 
         jLabel51.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
@@ -1812,13 +1833,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jScrollPane3.setViewportView(txtObservacionesVenta);
 
-        registrarVenta.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, 600, 160));
+        registrarVenta.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 600, 160));
 
         registrarVenta.add(cmbRegVentaClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 380, 30));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
         jLabel19.setText("Observaciones:");
-        registrarVenta.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, -1, -1));
+        registrarVenta.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
 
         lblPollo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         registrarVenta.add(lblPollo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
@@ -1850,34 +1871,71 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnRegistrarVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnRegistrarVenta.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrarVenta.setText("Registrar Venta");
-        registrarVenta.add(btnRegistrarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 590, 170, 30));
+        registrarVenta.add(btnRegistrarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 650, 170, 30));
 
         txtPrecioVenta.setColumns(10);
         registrarVenta.add(txtPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 460, 30));
 
-        jLabel50.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel50.setText("Precio Cancelado:");
-        registrarVenta.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
+        lblMetodoPago.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblMetodoPago.setText("Método Pago:");
+        registrarVenta.add(lblMetodoPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 160, -1));
 
-        txtPrecioCancelado.setColumns(10);
-        txtPrecioCancelado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPrecioCanceladoActionPerformed(evt);
-            }
-        });
-        registrarVenta.add(txtPrecioCancelado, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 410, 30));
+        cmbMetodoPago1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Transferencia" }));
+        registrarVenta.add(cmbMetodoPago1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 430, 30));
 
-        chbPagoCompleto.setText("Pago completo");
-        chbPagoCompleto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                chbPagoCompletoActionPerformed(evt);
-            }
-        });
+        tipodePago.add(chbPagoCredito);
+        chbPagoCredito.setText("Pago Credito");
+        registrarVenta.add(chbPagoCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
+
+        tipodePago.add(chbPagoCompleto);
+        chbPagoCompleto.setText("Pago de contado");
         registrarVenta.add(chbPagoCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+
+        lblFechaVencimiento.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblFechaVencimiento.setText("Fecha de vencimiento:");
+        registrarVenta.add(lblFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 270, -1));
+
+        cmbFechaVencimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "15 Días", "30 Días", "45 Días", "60 Días" }));
+        registrarVenta.add(cmbFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 340, 30));
 
         jScrollPane10.setViewportView(registrarVenta);
 
         pnlCards.add(jScrollPane10, "REG_VENTA");
+
+        verCompras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tblCompras.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Proveedor", "Fecha Compra", "Precio Compra", "Observaciones"
+            }
+        ));
+        jScrollPane5.setViewportView(tblCompras);
+
+        verCompras.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 183, 642, 320));
+
+        jLabel41.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
+        jLabel41.setText("Ver Compras");
+        verCompras.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, 48));
+
+        lblPollo8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
+        verCompras.add(lblPollo8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
+
+        jLabel20.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
+        jLabel20.setText("Total en Ventas:");
+        verCompras.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, -1, 30));
+
+        lblTotalCompras.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
+        verCompras.add(lblTotalCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 120, 30));
+
+        jScrollPane11.setViewportView(verCompras);
+
+        pnlCards.add(jScrollPane11, "card13");
 
         background.add(pnlCards, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 0, -1, 530));
 
@@ -1894,33 +1952,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDBActionPerformed
 
-    private void chbPagoCompletoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chbPagoCompletoActionPerformed
+    private void cmbVentaPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbVentaPagoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_chbPagoCompletoActionPerformed
-
-    private void txtPrecioCanceladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPrecioCanceladoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPrecioCanceladoActionPerformed
+    }//GEN-LAST:event_cmbVentaPagoActionPerformed
 
     public JButton getBtnDB() {
         return btnDB;
     }
 
-    public JCheckBox getChbPagoCompleto() {
+    public JRadioButton getChbPagoCompleto() {
         return chbPagoCompleto;
     }
 
-    public void setChbPagoCompleto(JCheckBox chbPagoCompleto) {
+    public void setChbPagoCompleto(JRadioButton chbPagoCompleto) {
         this.chbPagoCompleto = chbPagoCompleto;
     }
 
-    public JFormattedTextField getTxtPrecioCancelado() {
-        return txtPrecioCancelado;
-    }
 
-    public void setTxtPrecioCancelado(JFormattedTextField txtPrecioCancelado) {
-        this.txtPrecioCancelado = txtPrecioCancelado;
-    }
 
     public void setBtnDB(JButton btnDB) {
         this.btnDB = btnDB;
@@ -2309,9 +2357,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnagrProvRegistraraComp;
     private javax.swing.JButton btnregistrarcompra;
     private javax.swing.JButton btnregistrarproveedor;
-    private javax.swing.JCheckBox chbPagoCompleto;
+    private javax.swing.JRadioButton chbPagoCompleto;
+    private javax.swing.JRadioButton chbPagoCredito;
     private javax.swing.JComboBox<Object> cmbCliente;
+    private javax.swing.JComboBox<String> cmbFechaVencimiento;
     private javax.swing.JComboBox<String> cmbMetodoPago;
+    private javax.swing.JComboBox<String> cmbMetodoPago1;
     private javax.swing.JComboBox<Object> cmbRegVentaClient;
     private javax.swing.JComboBox<Object> cmbVentaPago;
     private javax.swing.JComboBox<Proveedor> cmbcompraReg;
@@ -2376,7 +2427,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
@@ -2392,6 +2442,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2408,6 +2459,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblBalanceNeto;
     private javax.swing.JLabel lblCobrosTotales;
     private javax.swing.JLabel lblCuentasCobrar;
+    private javax.swing.JLabel lblFechaVencimiento;
+    private javax.swing.JLabel lblMetodoPago;
     private javax.swing.JLabel lblPagosProveedores;
     private javax.swing.JLabel lblPollo1;
     private javax.swing.JLabel lblPollo11;
@@ -2439,6 +2492,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel sideBar;
     private javax.swing.JTable tblCompras;
     private javax.swing.JTable tblVentas;
+    private javax.swing.ButtonGroup tipodePago;
     private javax.swing.JLabel totalVenta;
     private javax.swing.JLabel totalVenta1;
     private javax.swing.JLabel totalVenta2;
@@ -2450,7 +2504,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtNombreCliente;
     private javax.swing.JTextPane txtObservacionesPago;
     private javax.swing.JTextPane txtObservacionesVenta;
-    private javax.swing.JFormattedTextField txtPrecioCancelado;
     private javax.swing.JFormattedTextField txtPrecioCompra;
     private javax.swing.JFormattedTextField txtPrecioVenta;
     private javax.swing.JTextField txtTelefonoCliente;
