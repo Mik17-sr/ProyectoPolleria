@@ -1044,13 +1044,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lblPollo7 = new javax.swing.JLabel();
         cmbCliente = new javax.swing.JComboBox<>();
         jLabel40 = new javax.swing.JLabel();
-        verVentas = new javax.swing.JPanel();
-        jLabel42 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tblVentas = new javax.swing.JTable();
-        lblPollo9 = new javax.swing.JLabel();
-        lblTotalVentas = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         insPago = new javax.swing.JPanel();
         jLabel48 = new javax.swing.JLabel();
@@ -1138,6 +1131,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lblPollo8 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         lblTotalCompras = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        verVentas = new javax.swing.JPanel();
+        jLabel42 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tblVentas = new javax.swing.JTable();
+        lblPollo9 = new javax.swing.JLabel();
+        lblTotalVentas = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1482,42 +1483,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         editarCliente.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         pnlCards.add(editarCliente, "EDIT_CLIENT");
-
-        verVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel42.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
-        jLabel42.setText("Ver Ventas");
-        verVentas.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, 48));
-
-        jScrollPane6.setPreferredSize(new java.awt.Dimension(200, 200));
-
-        tblVentas.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
-        tblVentas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Cliente", "Fecha Venta", "Precio Venta", "Observaciones"
-            }
-        ));
-        jScrollPane6.setViewportView(tblVentas);
-
-        verVentas.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 183, 630, 330));
-
-        lblPollo9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
-        verVentas.add(lblPollo9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
-
-        lblTotalVentas.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
-        verVentas.add(lblTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 120, 30));
-
-        jLabel8.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
-        jLabel8.setText("Total en Ventas:");
-        verVentas.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, -1, 30));
-
-        pnlCards.add(verVentas, "VER_VENTAS");
 
         jScrollPane7.setPreferredSize(new java.awt.Dimension(630, 530));
 
@@ -1935,7 +1900,45 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jScrollPane11.setViewportView(verCompras);
 
-        pnlCards.add(jScrollPane11, "card13");
+        pnlCards.add(jScrollPane11, "VER_COMPRAS");
+
+        verVentas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel42.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
+        jLabel42.setText("Ver Ventas");
+        verVentas.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, -1, 48));
+
+        jScrollPane6.setPreferredSize(new java.awt.Dimension(200, 200));
+
+        tblVentas.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
+        tblVentas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Cliente", "Fecha Venta", "Precio Venta", "Observaciones"
+            }
+        ));
+        jScrollPane6.setViewportView(tblVentas);
+
+        verVentas.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 183, 630, 330));
+
+        lblPollo9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
+        verVentas.add(lblPollo9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 100, -1));
+
+        lblTotalVentas.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
+        verVentas.add(lblTotalVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 520, 120, 30));
+
+        jLabel8.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
+        jLabel8.setText("Total en Ventas:");
+        verVentas.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, -1, 30));
+
+        jScrollPane12.setViewportView(verVentas);
+
+        pnlCards.add(jScrollPane12, "VER_VENTAS");
 
         background.add(pnlCards, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 0, -1, 530));
 
@@ -2443,6 +2446,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
