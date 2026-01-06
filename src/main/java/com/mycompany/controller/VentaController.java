@@ -205,7 +205,7 @@ public class VentaController implements ActionListener {
         JRadioButton credito = frm.getChbPagoCredito();
         contado.addItemListener(e -> {
             metodo = (e.getStateChange() == ItemEvent.SELECTED);//contado true; credito false           
-            frm.getCmbMetodoPago1().setEditable(true);
+           
             frm.getCmbMetodoPago1().setVisible(true);
             frm.getLblMetodoPago().setVisible(true);
 
@@ -215,12 +215,12 @@ public class VentaController implements ActionListener {
         });
         credito.addItemListener(e -> {
             metodo = !(e.getStateChange() == ItemEvent.SELECTED);//contado true; credito false           
-            frm.getCmbMetodoPago1().setEditable(false);
+
             frm.getCmbMetodoPago1().setVisible(false);
             frm.getLblMetodoPago().setVisible(false);
 
-            frm.getCmbFechaVencimiento().setVisible(true);
-            frm.getLblFechaVencimiento().setVisible(true);
+            frm.getCmbFechaVencimiento().setVisible(false);
+            frm.getLblFechaVencimiento().setVisible(false);
 
         });
 
