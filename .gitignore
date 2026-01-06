@@ -14,7 +14,7 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
+*.form
 *.class
 *.jar
 hs_err_pid*
