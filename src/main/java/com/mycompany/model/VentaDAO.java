@@ -15,6 +15,27 @@ import java.util.logging.Logger;
 public class VentaDAO implements DAO<Venta>{
     private static final String SQL_INSERT = "INSERT INTO venta(id_cliente, fecha_venta, precio_venta, observaciones) VALUES (?, ?, ?, ?)";
     private static final String SQL_READ_ALL = "SELECT v.id_venta id, c.nombre AS cliente, v.fecha_venta AS fecha, v.precio_venta AS precio, v.observaciones AS observaciones FROM venta v INNER JOIN cliente c ON v.id_cliente = c.id_cliente";
+    private static final String SQL_READ_DINERO = """
+                                                    SELECT 
+                                                        SUM(v.precio_venta - IFNULL(p.total_pagado, 0)) AS total_pendiente
+                                                    FROM venta v
+                                                    LEFT JOIN (
+                                                        SELECT id_venta, SUM(monto_pago) AS total_pagado
+                                                        FROM pago
+                                                        GROUP BY id_venta
+                                                    ) p ON p.id_venta = v.id_venta
+                                                    WHERE IFNULL(p.total_pagado, 0) < v.precio_venta;
+                                                    """;
+    private static final String SQL_READ_PENDIENTES = """
+                                                      SELECT COUNT(*) AS ventas_pendientes
+                                                      FROM venta v
+                                                      LEFT JOIN (
+                                                          SELECT id_venta, SUM(monto_pago) AS total_pagado
+                                                          FROM pago
+                                                          GROUP BY id_venta
+                                                      ) p ON p.id_venta = v.id_venta
+                                                      WHERE IFNULL(p.total_pagado, 0) < v.precio_venta;
+                                                      """;
     @Override
     public boolean create(Venta object) {
         PreparedStatement ps;
@@ -87,4 +108,34 @@ public class VentaDAO implements DAO<Venta>{
         return null;
     }
     
+    
+    public double obtenerTotalPendiente() {
+        double total = 0;
+        Connection cx = Conexion.getConexion();
+        try (PreparedStatement ps = cx.prepareStatement(SQL_READ_DINERO);
+            ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                total = rs.getDouble("total_pendiente");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al obtener total pendiente");
+            e.printStackTrace();
+        }
+        return total;
+    }
+    
+    public int obtenerCantidadVentasPendientes() {
+        int cantidad = 0;
+        Connection cx = Conexion.getConexion();
+        try (PreparedStatement ps = cx.prepareStatement(SQL_READ_PENDIENTES);
+             ResultSet rs = ps.executeQuery()) {
+            if (rs.next()) {
+                cantidad = rs.getInt("ventas_pendientes");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al obtener cantidad de ventas pendientes");
+            e.printStackTrace();
+        }
+        return cantidad;
+    }
 }

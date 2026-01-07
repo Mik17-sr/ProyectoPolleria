@@ -8,7 +8,8 @@ import java.sql.SQLException;
 public class Conexion {
     public static Connection getConexion(){
         Connection conexion = null;
-        String ruta = new File("resources/pollodb.db").getAbsolutePath();
+        //String ruta = new File("resources/pollodb.db").getAbsolutePath();
+        String ruta = "pollodb.db";
         String url = "jdbc:sqlite:" + ruta;
         try{
             Class.forName("org.sqlite.JDBC");
