@@ -1504,7 +1504,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         cmbFechaVencimiento = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(840, 540));
         setMinimumSize(new java.awt.Dimension(840, 540));
 
         background.setMaximumSize(new java.awt.Dimension(830, 560));
@@ -2124,7 +2123,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         cuentasCobrar.add(panelRound8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel61.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jLabel61.setForeground(new java.awt.Color(0, 0, 0));
         jLabel61.setText("Cuentas por Cobrar:");
         cuentasCobrar.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 180, 30));
 
@@ -2159,7 +2157,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         balanceNeto.add(panelRound9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel62.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jLabel62.setForeground(new java.awt.Color(0, 0, 0));
         jLabel62.setText("Balance Neto:");
         balanceNeto.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 180, 30));
 
@@ -2195,7 +2192,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         pagosProveedores.add(panelRound7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel60.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jLabel60.setForeground(new java.awt.Color(0, 0, 0));
         jLabel60.setText("Pagos a Proveedores:");
         pagosProveedores.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 180, 30));
 
@@ -2231,7 +2227,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         cobrosTotales.add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel55.setFont(new java.awt.Font("Montserrat", 0, 14)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
         jLabel55.setText("Cobros Totales (Ventas):");
         cobrosTotales.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 0, 180, 30));
 

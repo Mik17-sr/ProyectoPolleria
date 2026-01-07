@@ -9,7 +9,6 @@ public class Conexion {
     public static Connection getConexion(){
         Connection conexion = null;
         //String ruta = new File("resources/pollodb.db").getAbsolutePath();
-        String ruta = "pollodb.db"
         String ruta = new File("../pollodb.db").getAbsolutePath();
         String url = "jdbc:sqlite:" + ruta;
         try{

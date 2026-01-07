@@ -1,14 +1,22 @@
 package com.mycompany.controller;
 
+import com.mycompany.Utility.Demo;
 import com.mycompany.Utility.guardarBD;
 import com.mycompany.vista.FrmPrincipal;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 public class Controller {
     private FrmPrincipal frm;
-
+    private Demo demo;
 
     public Controller(){
+        demo = new Demo();
+        if(!demo.verificarRegistros()){
+            JOptionPane.showMessageDialog(frm, "Se ha acabado el tiempo de prueba");
+            System.exit(0);
+            return;                    
+        }
         this.frm = new FrmPrincipal();
         initEventos();
         new ProveedorController(frm);

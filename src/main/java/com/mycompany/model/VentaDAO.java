@@ -37,7 +37,7 @@ public class VentaDAO implements DAO<Venta> {
                                                           ) p ON p.id_venta = v.id_venta
                                                           WHERE IFNULL(p.total_pagado,0) < v.precio_venta;
                                                           """;
-    
+
     @Override
     public boolean create(Venta object) {
         PreparedStatement ps;
@@ -71,13 +71,12 @@ public class VentaDAO implements DAO<Venta> {
         }
         return false;
     }
-    
+
     public double obtenerTotalPendiente() {
         double total = 0;
         Connection cx = Conexion.getConexion();
 
-        try (PreparedStatement ps = cx.prepareStatement(SQL_TOTAL_PENDIENTE);
-             ResultSet rs = ps.executeQuery()) {
+        try (PreparedStatement ps = cx.prepareStatement(SQL_TOTAL_PENDIENTE); ResultSet rs = ps.executeQuery()) {
 
             if (rs.next()) {
                 total = rs.getDouble("total_pendiente");
@@ -90,13 +89,12 @@ public class VentaDAO implements DAO<Venta> {
 
         return total;
     }
-    
+
     public int obtenerCantidadVentasPendientes() {
         int cantidad = 0;
         Connection cx = Conexion.getConexion();
 
-        try (PreparedStatement ps = cx.prepareStatement(SQL_CANTIDAD_PENDIENTES);
-             ResultSet rs = ps.executeQuery()) {
+        try (PreparedStatement ps = cx.prepareStatement(SQL_CANTIDAD_PENDIENTES); ResultSet rs = ps.executeQuery()) {
 
             if (rs.next()) {
                 cantidad = rs.getInt("ventas_pendientes");
@@ -109,7 +107,7 @@ public class VentaDAO implements DAO<Venta> {
 
         return cantidad;
     }
-    
+
     @Override
     public boolean delete(Venta object) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
@@ -265,6 +263,24 @@ public class VentaDAO implements DAO<Venta> {
         } catch (SQLException e) {
             System.out.println("Error al cerrar: " + e.getMessage());
         }
+    }
+
+    public int obtenerTotalRegistros() {
+        String sql = "SELECT COUNT(*) AS total FROM venta";
+        int total = 0;
+
+        try (Connection cx = Conexion.getConexion(); PreparedStatement ps = cx.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+
+            if (rs.next()) {
+                total = rs.getInt("total");
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al contar los registros de ventas: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return total;
     }
 
 }
