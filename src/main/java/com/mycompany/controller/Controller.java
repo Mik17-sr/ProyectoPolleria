@@ -3,22 +3,28 @@ package com.mycompany.controller;
 import com.mycompany.Utility.Demo;
 import com.mycompany.Utility.guardarBD;
 import com.mycompany.vista.FrmPrincipal;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 public class Controller {
+
     private FrmPrincipal frm;
     private Demo demo;
 
-    public Controller(){
+    public Controller() {
+        int min=(1000*60*30);
         demo = new Demo();
-        if(!demo.verificarRegistros()){
-            JOptionPane.showMessageDialog(frm, "Se ha acabado el tiempo de prueba");
-            System.exit(0);
-            return;                    
-        }
+        validarFuncion();
+        Timer timer = new Timer(min, e -> {
+            validarFuncion(); // Aquí pones tu lógica
+        });
+        timer.start();
         this.frm = new FrmPrincipal();
         initEventos();
+        new InicioController(frm);
         new ProveedorController(frm);
         new ClienteController(frm);
         new CompraController(frm);
@@ -29,7 +35,7 @@ public class Controller {
         frm.getjScrollPane8().setBorder(null);
         frm.getScrollRegistrarVenta().setBorder(null);
     }
-    
+
     public Controller(FrmPrincipal frm) {
         this.frm = frm;
     }
@@ -41,24 +47,39 @@ public class Controller {
     public void setFrm(FrmPrincipal frm) {
         this.frm = frm;
     }
-    
-    public void iniciar(){
+
+    public void iniciar() {
         frm.setTitle("Aplicacion polleria");
         frm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frm.setLocationRelativeTo(null);
         frm.setResizable(false);
         frm.setVisible(true);
     }
-    private void initEventos(){
-        frm.getBtnSdInicio().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_INICIO));
-        frm.getBtnSdRegCompra().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_REG_COMPRA));
-        frm.getBtnSdRegVenta().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_REG_VENTA));
-        frm.getBtnSdEditProv().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_EDIT_PROV));
-        frm.getBtnSdEditClient().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_EDIT_CLIENT));
-        frm.getBtnSdVerVentas().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_VER_VENTAS));
-        frm.getBtnSdVerCompras().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_VER_COMPRAS));
-        frm.getBtnSdInsertarPago().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_INS_PAGO));
-        frm.getBtnSdVerEstadisticas().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_DASHBOARD));
-        frm.getBtnDB().addActionListener(e->guardarBD.descargar());
-    }    
+
+    private void initEventos() {
+        frm.getBtnSdInicio().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_INICIO));
+        frm.getBtnSdRegCompra().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_REG_COMPRA));
+        frm.getBtnSdRegVenta().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_REG_VENTA));
+        frm.getBtnSdEditProv().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_EDIT_PROV));
+        frm.getBtnSdEditClient().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_EDIT_CLIENT));
+        frm.getBtnSdVerVentas().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_VER_VENTAS));
+        frm.getBtnSdVerCompras().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_VER_COMPRAS));
+        frm.getBtnSdInsertarPago().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_INS_PAGO));
+        frm.getBtnSdVerEstadisticas().addActionListener(e -> frm.mostrarCard(FrmPrincipal.CARD_DASHBOARD));
+        frm.getBtnDB().addActionListener(e -> guardarBD.descargar());
+    }
+
+    private void validarFuncion() {
+//        Icon miicono = new ImageIcon("src/main/resources/Pollo.png");
+//        if (!demo.verificarRegistros()) {
+//            JOptionPane.showMessageDialog(frm,
+//                    "Se ha acabado el tiempo de prueba",
+//                    "Fin de la DEMO",
+//                    JOptionPane.WARNING_MESSAGE,
+//                    miicono);
+//            System.exit(0);
+//            return;
+//        }
+          
+    }
 }

@@ -7,7 +7,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteDAO implements DAO<Cliente>{
+public class ClienteDAO implements DAO<Cliente> {
+
     private static final String SQL_INSERT = "INSERT INTO cliente(nombre, telefono, direccion) VALUES (?, ?, ?)";
     private static final String SQL_DELETE = "DELETE FROM cliente WHERE id_cliente = ?";
     private static final String SQL_UPDATE = "UPDATE cliente SET nombre = ?, telefono = ?, direccion = ? WHERE id_cliente = ?";
@@ -27,24 +28,24 @@ public class ClienteDAO implements DAO<Cliente>{
                                                     WHERE IFNULL(p.total_pagado, 0) < v.precio_venta
                                                     GROUP BY c.id_cliente, c.nombre;
                                                     """;
-    
+
     @Override
     public boolean create(Cliente object) {
         PreparedStatement ps;
         Connection cx = Conexion.getConexion();
-        try{
+        try {
             ps = cx.prepareStatement(SQL_INSERT);
             ps.setString(1, object.getNombre());
             ps.setString(2, object.getTelefono());
             ps.setString(3, object.getDireccion());
             int filas = ps.executeUpdate();
             return filas > 0;
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             System.out.println("Error: No se inserto el dato dentro de la BD");
-        }finally {
-            try{
+        } finally {
+            try {
                 cx.close();
-            }catch(Exception er){
+            } catch (Exception er) {
                 System.out.println("Error: No se pudo cerrar la conexion");
             }
         }
@@ -61,7 +62,7 @@ public class ClienteDAO implements DAO<Cliente>{
     public boolean update(Cliente object) {
         PreparedStatement ps;
         Connection cx = Conexion.getConexion();
-        try{
+        try {
             ps = cx.prepareStatement(SQL_UPDATE);
             ps.setString(1, object.getNombre());
             ps.setString(2, object.getTelefono());
@@ -69,12 +70,12 @@ public class ClienteDAO implements DAO<Cliente>{
             ps.setInt(4, object.getIdCliente());
             int filasAfectadas = ps.executeUpdate();
             return filasAfectadas > 0;
-        }catch(SQLException ex){    
+        } catch (SQLException ex) {
             System.out.println("Error: No se actializo el dato dentro de la BD");
-        }finally {
-            try{
+        } finally {
+            try {
                 cx.close();
-            }catch(Exception er){
+            } catch (Exception er) {
                 System.out.println("Error: No se pudo cerrar la conexion");
             }
         }
@@ -93,46 +94,61 @@ public class ClienteDAO implements DAO<Cliente>{
         PreparedStatement ps;
         ResultSet rs;
         Connection cx = Conexion.getConexion();
-        try{
+        try {
             ps = cx.prepareStatement(SQL_READ_ALL);
             rs = ps.executeQuery();
-            while(rs.next()){
-                Cliente c = new Cliente(rs.getInt("id_cliente")
-                        , rs.getString("nombre"), rs.getString("telefono"), rs.getString("direccion"));
+            while (rs.next()) {
+                Cliente c = new Cliente(rs.getInt("id_cliente"),
+                         rs.getString("nombre"), rs.getString("telefono"), rs.getString("direccion"));
                 clientes.add(c);
             }
             return clientes;
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             System.out.println("Error: No se obtuvieron los datos de la BD");
         }
         return null;
     }
-    
+
     public List<Object[]> readClientesConDeuda() {
         List<Object[]> clientes = new ArrayList<>();
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection cx = Conexion.getConexion();
-        try{
+        try {
             ps = cx.prepareStatement(SQL_READ_DEUDORES);
             rs = ps.executeQuery();
-            while (rs.next()){
+            while (rs.next()) {
                 Object[] fila = new Object[3];
-                fila[0] = rs.getInt("id_cliente");       
-                fila[1] = rs.getString("nombre");        
+                fila[0] = rs.getInt("id_cliente");
+                fila[1] = rs.getString("nombre");
                 fila[2] = rs.getDouble("total_adeudado");
                 clientes.add(fila);
             }
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
             System.out.println("Error al listar clientes con deuda");
             ex.printStackTrace();
-        }finally{
-            try{
+        } finally {
+            try {
                 cx.close();
-            }catch(Exception er){
+            } catch (Exception er) {
                 System.out.println("Error: No se pudo cerrar la conexion");
             }
         }
         return clientes;
+    }
+
+    public List<String> listarTodosLosClientes() {
+        List<String> lista = new ArrayList<>();
+        // Usamos tu constante SQL_READ_ALL = "SELECT * FROM cliente"
+        try (Connection conn = Conexion.getConexion(); PreparedStatement ps = conn.prepareStatement(SQL_READ_ALL); ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                // Extraemos solo el nombre (ignoramos ID y lo demás)
+                lista.add(rs.getString("nombre"));
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al leer clientes: " + e.getMessage());
+        }
+        return lista;
     }
 }

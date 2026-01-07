@@ -5,7 +5,7 @@ import com.mycompany.model.CompraDAO;
 import com.mycompany.Utility.PlaceholderUtil;
 import com.mycompany.model.Compra;
 import com.mycompany.model.Proveedor;
-import com.mycompany.model.proveedorDAO;
+import com.mycompany.model.ProveedorDAO;
 import com.mycompany.vista.FrmPrincipal;
 import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
@@ -24,7 +24,7 @@ public class CompraController {
     private CompraDAO ob;
     private static final SimpleDateFormat FORMATO_FECHA
             = new SimpleDateFormat("yyyy-MM-dd");
-    proveedorDAO dao = new proveedorDAO();
+    ProveedorDAO dao = new ProveedorDAO();
     List<Proveedor> lista = dao.listarTodos();
 
     public CompraController(FrmPrincipal frm) {

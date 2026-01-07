@@ -1,7 +1,7 @@
 package com.mycompany.controller;
 
 import com.mycompany.Utility.ComboHelper;
-import com.mycompany.model.proveedorDAO;
+import com.mycompany.model.ProveedorDAO;
 import com.mycompany.Utility.PlaceholderUtil;
 import com.mycompany.model.Proveedor;
 import com.mycompany.vista.FrmPrincipal;
@@ -16,10 +16,10 @@ public class ProveedorController implements ActionListener {
 
     private List<Proveedor> listaProv;
     private FrmPrincipal frm;
-    private proveedorDAO ob;
+    private ProveedorDAO ob;
 
     public ProveedorController(FrmPrincipal frm) {
-        ob = new proveedorDAO();
+        ob = new ProveedorDAO();
         this.frm = frm;
         rellenarcasillas();
         rellenarcombox(frm);
@@ -111,7 +111,7 @@ public class ProveedorController implements ActionListener {
 
     static public void rellenarcombox(FrmPrincipal frm) {
         DefaultComboBoxModel<Proveedor> modelo = new DefaultComboBoxModel<>();
-        proveedorDAO ob = new proveedorDAO();
+        ProveedorDAO ob = new ProveedorDAO();
 
         try {
             List<Proveedor> lista = ob.listarTodos();

@@ -550,13 +550,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.background = background;
     }
 
-    public JButton getBtnCrearNuevoPedido() {
-        return btnCrearNuevoPedido;
-    }
 
-    public void setBtnCrearNuevoPedido(JButton btnCrearNuevoPedido) {
-        this.btnCrearNuevoPedido = btnCrearNuevoPedido;
-    }
 
     public JButton getBtnAddVenta() {
         return btnAddVenta;
@@ -1335,7 +1329,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        btnCrearNuevoPedido = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         registrarCliente = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -1621,7 +1614,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(33, 32, 30));
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel14.setText("Pedidos Recientes");
+        jLabel14.setText("Clientes");
         panelRound1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 30));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
@@ -1635,12 +1628,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         panelRound1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 590, 80));
-
-        btnCrearNuevoPedido.setBackground(new java.awt.Color(245, 121, 0));
-        btnCrearNuevoPedido.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btnCrearNuevoPedido.setForeground(new java.awt.Color(255, 255, 255));
-        btnCrearNuevoPedido.setText("Crear Nuevo Pedido");
-        panelRound1.add(btnCrearNuevoPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, 190, 30));
 
         vistaInicio.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 610, 360));
 
@@ -2825,7 +2812,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel background;
     private com.mycompany.forms.PanelRound balanceNeto;
     private javax.swing.JButton btnAddVenta;
-    private javax.swing.JButton btnCrearNuevoPedido;
     private javax.swing.JButton btnDB;
     private javax.swing.JButton btnEditClient;
     private javax.swing.JButton btnEditproveedor;

@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class proveedorDAO {
+public class ProveedorDAO {
 
     // GUARDAR
     public void guardar(Proveedor p) {
