@@ -145,6 +145,24 @@ public class CompraDAO {
         }
         return lista;
     }
+    
+    public List<Compra> listarComprasDash() {
+        List<Compra> compras = new ArrayList<>();
+        String sql = "SELECT c.id_compra, c.precio_compra FROM compra c";
+
+        try (
+                Connection cn = Conexion.getConexion(); Statement st = cn.createStatement(); ResultSet rs = st.executeQuery(sql)) {
+            while (rs.next()) {
+                Compra c = new Compra();
+                c.setId(rs.getInt("id_compra"));
+                c.setPrecio(rs.getDouble("precio_compra"));
+                compras.add(c);
+            }
+        } catch (Exception e) {
+            System.err.println("Error al listar compras: " + e.getMessage());
+        }
+        return compras;
+    }
 
     public List<Compra> listarPorAtributo(String columna, Object valor) {
         List<Compra> lista = new ArrayList<>();

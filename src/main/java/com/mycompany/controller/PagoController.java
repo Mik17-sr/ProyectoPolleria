@@ -25,8 +25,8 @@ public class PagoController implements ActionListener {
     private FrmPrincipal frm;
     private List<Venta> ventas;
     private VentaDAO vtDAO;
-    PagoDAO pagoDAO;
-    NumberFormat formatoCOP;
+    private PagoDAO pagoDAO;
+    private NumberFormat formatoCOP;
     
     public PagoController(FrmPrincipal frm){
         this.frm = frm;

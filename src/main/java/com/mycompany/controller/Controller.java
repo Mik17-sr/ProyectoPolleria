@@ -16,7 +16,10 @@ public class Controller {
         new CompraController(frm);
         new VentaController(frm);
         new PagoController(frm);
+        new DashboardController(frm);
         frm.getjScrollPane7().setBorder(null);
+        frm.getjScrollPane8().setBorder(null);
+        frm.getScrollRegistrarVenta().setBorder(null);
     }
     
     public Controller(FrmPrincipal frm) {
@@ -47,6 +50,7 @@ public class Controller {
         frm.getBtnSdVerVentas().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_VER_VENTAS));
         frm.getBtnSdVerCompras().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_VER_COMPRAS));
         frm.getBtnSdInsertarPago().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_INS_PAGO));
+        frm.getBtnSdVerEstadisticas().addActionListener(e->frm.mostrarCard(FrmPrincipal.CARD_DASHBOARD));
         frm.getBtnDB().addActionListener(e->guardarBD.descargar());
     }    
 }

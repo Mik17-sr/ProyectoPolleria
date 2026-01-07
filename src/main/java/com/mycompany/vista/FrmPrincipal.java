@@ -3,6 +3,8 @@ package com.mycompany.vista;
 import com.mycompany.forms.PanelRound;
 import com.mycompany.model.Proveedor;
 import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JMonthChooser;
+import com.toedter.calendar.JYearChooser;
 import java.awt.CardLayout;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -11,6 +13,7 @@ import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTable;
@@ -21,9 +24,7 @@ import javax.swing.text.NumberFormatter;
 
 
 public class FrmPrincipal extends javax.swing.JFrame {
-    
     private CardLayout cardLayout;
-    
     public static final String CARD_INICIO = "INICIO";
     public static final String CARD_REG_CLIENT = "REG_CLIENT";
     public static final String CARD_REG_PROV = "REG_PROV";
@@ -34,6 +35,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public static final String CARD_VER_COMPRAS = "VER_COMPRAS";
     public static final String CARD_VER_VENTAS = "VER_VENTAS";
     public static final String CARD_INS_PAGO = "INS_PAGO";
+    public static final String CARD_DASHBOARD = "DASHBOARD";
     
     public FrmPrincipal() {
         initComponents();
@@ -81,6 +83,344 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public void setTxtdireccionEditproveedor(JTextField txtdireccionEditproveedor) {
         this.txtdireccionEditproveedor = txtdireccionEditproveedor;
     }
+
+    public PanelRound getBalanceNeto() {
+        return balanceNeto;
+    }
+
+    public void setBalanceNeto(PanelRound balanceNeto) {
+        this.balanceNeto = balanceNeto;
+    }
+
+    public JButton getBtnSdEditClient1() {
+        return btnSdEditClient1;
+    }
+
+    public void setBtnSdEditClient1(JButton btnSdEditClient1) {
+        this.btnSdEditClient1 = btnSdEditClient1;
+    }
+
+    public JButton getBtnSdEditProv1() {
+        return btnSdEditProv1;
+    }
+
+    public void setBtnSdEditProv1(JButton btnSdEditProv1) {
+        this.btnSdEditProv1 = btnSdEditProv1;
+    }
+
+    public JButton getBtnSdVerEstadisticas() {
+        return btnSdVerEstadisticas;
+    }
+
+    public void setBtnSdVerEstadisticas(JButton btnSdVerEstadisticas) {
+        this.btnSdVerEstadisticas = btnSdVerEstadisticas;
+    }
+
+    public PanelRound getClientesDeudores() {
+        return clientesDeudores;
+    }
+
+    public void setClientesDeudores(PanelRound clientesDeudores) {
+        this.clientesDeudores = clientesDeudores;
+    }
+
+    public PanelRound getCobrosTotales() {
+        return cobrosTotales;
+    }
+
+    public void setCobrosTotales(PanelRound cobrosTotales) {
+        this.cobrosTotales = cobrosTotales;
+    }
+
+    public PanelRound getCuentasCobrar() {
+        return cuentasCobrar;
+    }
+
+    public void setCuentasCobrar(PanelRound cuentasCobrar) {
+        this.cuentasCobrar = cuentasCobrar;
+    }
+
+    public JPanel getDashboard() {
+        return dashboard;
+    }
+
+    public void setDashboard(JPanel dashboard) {
+        this.dashboard = dashboard;
+    }
+
+    public JLabel getDetailsBalanceNeto() {
+        return detailsBalanceNeto;
+    }
+
+    public void setDetailsBalanceNeto(JLabel detailsBalanceNeto) {
+        this.detailsBalanceNeto = detailsBalanceNeto;
+    }
+
+    public JLabel getDetailsCobrosTotales() {
+        return detailsCobrosTotales;
+    }
+
+    public void setDetailsCobrosTotales(JLabel detailsCobrosTotales) {
+        this.detailsCobrosTotales = detailsCobrosTotales;
+    }
+
+    public JLabel getDetailsCuentasCobrar() {
+        return detailsCuentasCobrar;
+    }
+
+    public void setDetailsCuentasCobrar(JLabel detailsCuentasCobrar) {
+        this.detailsCuentasCobrar = detailsCuentasCobrar;
+    }
+
+    public JLabel getDetailsPagosProveedores() {
+        return detailsPagosProveedores;
+    }
+
+    public void setDetailsPagosProveedores(JLabel detailsPagosProveedores) {
+        this.detailsPagosProveedores = detailsPagosProveedores;
+    }
+
+    public PanelRound getFlujoCaja() {
+        return flujoCaja;
+    }
+
+    public void setFlujoCaja(PanelRound flujoCaja) {
+        this.flujoCaja = flujoCaja;
+    }
+
+    public JComboBox<String> getCmbFiltro() {
+        return cmbFiltro;
+    }
+
+    public void setCmbFiltro(JComboBox<String> cmbFiltro) {
+        this.cmbFiltro = cmbFiltro;
+    }
+
+    public JLabel getjLabel15() {
+        return jLabel15;
+    }
+
+    public void setjLabel15(JLabel jLabel15) {
+        this.jLabel15 = jLabel15;
+    }
+
+    public JLabel getjLabel20() {
+        return jLabel20;
+    }
+
+    public void setjLabel20(JLabel jLabel20) {
+        this.jLabel20 = jLabel20;
+    }
+
+    public JLabel getjLabel43() {
+        return jLabel43;
+    }
+
+    public void setjLabel43(JLabel jLabel43) {
+        this.jLabel43 = jLabel43;
+    }
+
+    public JLabel getjLabel44() {
+        return jLabel44;
+    }
+
+    public void setjLabel44(JLabel jLabel44) {
+        this.jLabel44 = jLabel44;
+    }
+
+    public JLabel getjLabel45() {
+        return jLabel45;
+    }
+
+    public void setjLabel45(JLabel jLabel45) {
+        this.jLabel45 = jLabel45;
+    }
+
+    public JLabel getjLabel46() {
+        return jLabel46;
+    }
+
+    public void setjLabel46(JLabel jLabel46) {
+        this.jLabel46 = jLabel46;
+    }
+
+    public JLabel getjLabel47() {
+        return jLabel47;
+    }
+
+    public void setjLabel47(JLabel jLabel47) {
+        this.jLabel47 = jLabel47;
+    }
+
+    public JLabel getjLabel50() {
+        return jLabel50;
+    }
+
+    public void setjLabel50(JLabel jLabel50) {
+        this.jLabel50 = jLabel50;
+    }
+
+    public JLabel getjLabel55() {
+        return jLabel55;
+    }
+
+    public void setjLabel55(JLabel jLabel55) {
+        this.jLabel55 = jLabel55;
+    }
+
+    public JLabel getjLabel56() {
+        return jLabel56;
+    }
+
+    public void setjLabel56(JLabel jLabel56) {
+        this.jLabel56 = jLabel56;
+    }
+
+    public JLabel getjLabel59() {
+        return jLabel59;
+    }
+
+    public void setjLabel59(JLabel jLabel59) {
+        this.jLabel59 = jLabel59;
+    }
+
+    public JLabel getjLabel60() {
+        return jLabel60;
+    }
+
+    public void setjLabel60(JLabel jLabel60) {
+        this.jLabel60 = jLabel60;
+    }
+
+    public JLabel getjLabel61() {
+        return jLabel61;
+    }
+
+    public void setjLabel61(JLabel jLabel61) {
+        this.jLabel61 = jLabel61;
+    }
+
+    public JLabel getjLabel62() {
+        return jLabel62;
+    }
+
+    public void setjLabel62(JLabel jLabel62) {
+        this.jLabel62 = jLabel62;
+    }
+
+    public JScrollPane getjScrollPane10() {
+        return jScrollPane10;
+    }
+
+    public void setjScrollPane10(JScrollPane jScrollPane10) {
+        this.jScrollPane10 = jScrollPane10;
+    }
+
+    public JScrollPane getjScrollPane8() {
+        return jScrollPane8;
+    }
+
+    public void setjScrollPane8(JScrollPane jScrollPane8) {
+        this.jScrollPane8 = jScrollPane8;
+    }
+
+    public JSeparator getjSeparator5() {
+        return jSeparator5;
+    }
+
+    public void setjSeparator5(JSeparator jSeparator5) {
+        this.jSeparator5 = jSeparator5;
+    }
+
+    public JLabel getLblBalanceNeto() {
+        return lblBalanceNeto;
+    }
+
+    public void setLblBalanceNeto(JLabel lblBalanceNeto) {
+        this.lblBalanceNeto = lblBalanceNeto;
+    }
+
+    public JLabel getLblCobrosTotales() {
+        return lblCobrosTotales;
+    }
+
+    public void setLblCobrosTotales(JLabel lblCobrosTotales) {
+        this.lblCobrosTotales = lblCobrosTotales;
+    }
+
+    public JLabel getLblCuentasCobrar() {
+        return lblCuentasCobrar;
+    }
+
+    public void setLblCuentasCobrar(JLabel lblCuentasCobrar) {
+        this.lblCuentasCobrar = lblCuentasCobrar;
+    }
+
+    public JLabel getLblPagosProveedores() {
+        return lblPagosProveedores;
+    }
+
+    public void setLblPagosProveedores(JLabel lblPagosProveedores) {
+        this.lblPagosProveedores = lblPagosProveedores;
+    }
+
+    public PanelRound getMetodosPago() {
+        return metodosPago;
+    }
+
+    public void setMetodosPago(PanelRound metodosPago) {
+        this.metodosPago = metodosPago;
+    }
+
+    public PanelRound getPagosProveedores() {
+        return pagosProveedores;
+    }
+
+    public void setPagosProveedores(PanelRound pagosProveedores) {
+        this.pagosProveedores = pagosProveedores;
+    }
+
+    public PanelRound getPanelRound5() {
+        return panelRound5;
+    }
+
+    public void setPanelRound5(PanelRound panelRound5) {
+        this.panelRound5 = panelRound5;
+    }
+
+    public PanelRound getPanelRound7() {
+        return panelRound7;
+    }
+
+    public void setPanelRound7(PanelRound panelRound7) {
+        this.panelRound7 = panelRound7;
+    }
+
+    public PanelRound getPanelRound8() {
+        return panelRound8;
+    }
+
+    public void setPanelRound8(PanelRound panelRound8) {
+        this.panelRound8 = panelRound8;
+    }
+
+    public PanelRound getPanelRound9() {
+        return panelRound9;
+    }
+
+    public void setPanelRound9(PanelRound panelRound9) {
+        this.panelRound9 = panelRound9;
+    }
+
+    public JTable getTableDeudores() {
+        return tableDeudores;
+    }
+
+    public void setTableDeudores(JTable tableDeudores) {
+        this.tableDeudores = tableDeudores;
+    }
+    
+    
 
     public JTextField getTxtnombreEditproveedor() {
         return txtnombreEditproveedor;
@@ -138,6 +478,64 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     public CardLayout getCardLayout() {
         return cardLayout;
+    }
+
+    public JYearChooser getAnioFiltro() {
+        return anioFiltro;
+    }
+
+    public void setAnioFiltro(JYearChooser anioFiltro) {
+        this.anioFiltro = anioFiltro;
+    }
+
+    public PanelRound getFiltros() {
+        return filtros;
+    }
+
+    public void setFiltros(PanelRound filtros) {
+        this.filtros = filtros;
+    }
+
+    public JMonthChooser getMesFiltro() {
+        return mesFiltro;
+    }
+
+    public JYearChooser getAnualmenteFiltro() {
+        return anualmenteFiltro;
+    }
+
+    public void setAnualmenteFiltro(JYearChooser anualmenteFiltro) {
+        this.anualmenteFiltro = anualmenteFiltro;
+    }
+    
+    
+
+    public void setMesFiltro(JMonthChooser mesFiltro) {
+        this.mesFiltro = mesFiltro;
+    }
+
+    public JDateChooser getSemanaFiltro() {
+        return semanaFiltro;
+    }
+
+    public void setSemanaFiltro(JDateChooser semanaFiltro) {
+        this.semanaFiltro = semanaFiltro;
+    }
+
+    public JPanel getPnlGraficaFlujoCaja() {
+        return pnlGraficaFlujoCaja;
+    }
+
+    public void setPnlGraficaFlujoCaja(JPanel pnlGraficaFlujoCaja) {
+        this.pnlGraficaFlujoCaja = pnlGraficaFlujoCaja;
+    }
+
+    public JPanel getPnlMetodosPago() {
+        return pnlMetodosPago;
+    }
+
+    public void setPnlMetodosPago(JPanel pnlMetodosPago) {
+        this.pnlMetodosPago = pnlMetodosPago;
     }
 
     public void setCardLayout(CardLayout cardLayout) {
@@ -910,6 +1308,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        tipodePago = new javax.swing.ButtonGroup();
         background = new javax.swing.JPanel();
         sideBar = new javax.swing.JPanel();
         btnSdInicio = new javax.swing.JButton();
@@ -918,6 +1317,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnSdVerCompras = new javax.swing.JButton();
         btnSdVerVentas = new javax.swing.JButton();
         btnSdInsertarPago = new javax.swing.JButton();
+        btnSdVerEstadisticas = new javax.swing.JButton();
         lblPollo1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnDB = new javax.swing.JButton();
@@ -973,20 +1373,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel32 = new javax.swing.JLabel();
         btnagrProvRegistraraComp = new javax.swing.JButton();
         txtPrecioCompra = new javax.swing.JFormattedTextField();
-        registrarVenta = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtObservacionesVenta = new javax.swing.JTextPane();
-        cmbRegVentaClient = new javax.swing.JComboBox<>();
-        jLabel19 = new javax.swing.JLabel();
-        lblPollo5 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        btnAddVenta = new javax.swing.JButton();
-        dateFechaVenta = new com.toedter.calendar.JDateChooser();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        btnRegistrarVenta = new javax.swing.JButton();
-        txtPrecioVenta = new javax.swing.JFormattedTextField();
         editarProveedor = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -1058,6 +1444,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         tableDeudores = new javax.swing.JTable();
         flujoCaja = new com.mycompany.forms.PanelRound();
         jLabel46 = new javax.swing.JLabel();
+        pnlGraficaFlujoCaja = new javax.swing.JPanel();
         cuentasCobrar = new com.mycompany.forms.PanelRound();
         panelRound8 = new com.mycompany.forms.PanelRound();
         jLabel44 = new javax.swing.JLabel();
@@ -1085,9 +1472,36 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JSeparator();
         jLabel59 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmbFiltro = new javax.swing.JComboBox<>();
+        filtros = new com.mycompany.forms.PanelRound();
+        mesFiltro = new com.toedter.calendar.JMonthChooser();
+        anioFiltro = new com.toedter.calendar.JYearChooser();
+        semanaFiltro = new com.toedter.calendar.JDateChooser();
+        anualmenteFiltro = new com.toedter.calendar.JYearChooser();
         metodosPago = new com.mycompany.forms.PanelRound();
         jLabel56 = new javax.swing.JLabel();
+        pnlMetodosPago = new javax.swing.JPanel();
+        scrollRegistrarVenta = new javax.swing.JScrollPane();
+        registrarVenta = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtObservacionesVenta = new javax.swing.JTextPane();
+        cmbRegVentaClient = new javax.swing.JComboBox<>();
+        jLabel19 = new javax.swing.JLabel();
+        lblPollo5 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        btnAddVenta = new javax.swing.JButton();
+        dateFechaVenta = new com.toedter.calendar.JDateChooser();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        btnRegistrarVenta = new javax.swing.JButton();
+        txtPrecioVenta = new javax.swing.JFormattedTextField();
+        lblMetodoPago = new javax.swing.JLabel();
+        cmbMetodoPago1 = new javax.swing.JComboBox<>();
+        chbPagoCredito = new javax.swing.JRadioButton();
+        chbPagoCompleto = new javax.swing.JRadioButton();
+        lblFechaVencimiento = new javax.swing.JLabel();
+        cmbFechaVencimiento = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(840, 540));
@@ -1127,6 +1541,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnSdInsertarPago.setText("Insertar Pago");
         btnSdInsertarPago.setToolTipText("");
         sideBar.add(btnSdInsertarPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 150, -1));
+
+        btnSdVerEstadisticas.setText("Ver Estadísticas");
+        btnSdVerEstadisticas.setToolTipText("");
+        sideBar.add(btnSdVerEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 150, -1));
 
         lblPollo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
         sideBar.add(lblPollo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
@@ -1365,57 +1783,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         registrarCompra.add(txtPrecioCompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 460, 30));
 
         pnlCards.add(registrarCompra, "REG_COMPRA");
-
-        registrarVenta.setMinimumSize(new java.awt.Dimension(630, 530));
-        registrarVenta.setPreferredSize(new java.awt.Dimension(630, 530));
-        registrarVenta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jScrollPane3.setViewportView(txtObservacionesVenta);
-
-        registrarVenta.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 600, 160));
-
-        registrarVenta.add(cmbRegVentaClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 380, 30));
-
-        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel19.setText("Observaciones:");
-        registrarVenta.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
-
-        lblPollo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
-        registrarVenta.add(lblPollo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
-
-        jLabel21.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
-        jLabel21.setText("Registrar Venta");
-        registrarVenta.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, 48));
-
-        btnAddVenta.setBackground(new java.awt.Color(245, 121, 0));
-        btnAddVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnAddVenta.setForeground(new java.awt.Color(255, 255, 255));
-        btnAddVenta.setText("Agregar Cliente");
-        registrarVenta.add(btnAddVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 150, 30));
-        registrarVenta.add(dateFechaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 470, 30));
-
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel22.setText("Cliente:");
-        registrarVenta.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
-
-        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel23.setText("Fecha Venta:");
-        registrarVenta.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
-
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
-        jLabel24.setText("Precio Venta:");
-        registrarVenta.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
-
-        btnRegistrarVenta.setBackground(new java.awt.Color(245, 121, 0));
-        btnRegistrarVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnRegistrarVenta.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegistrarVenta.setText("Registrar Venta");
-        registrarVenta.add(btnRegistrarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 530, 170, 30));
-
-        txtPrecioVenta.setColumns(10);
-        registrarVenta.add(txtPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 460, 30));
-
-        pnlCards.add(registrarVenta, "REG_VENTA");
 
         editarProveedor.setMinimumSize(new java.awt.Dimension(630, 530));
         editarProveedor.setPreferredSize(new java.awt.Dimension(630, 530));
@@ -1706,13 +2073,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         tableDeudores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nombre", "Deuda"
             }
         ));
         jScrollPane10.setViewportView(tableDeudores);
@@ -1734,6 +2098,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel46.setForeground(new java.awt.Color(33, 33, 33));
         jLabel46.setText("Flujo de Caja: Compras y Ventas");
         flujoCaja.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        flujoCaja.add(pnlGraficaFlujoCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 540, 230));
 
         dashboard.add(flujoCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 580, 290));
 
@@ -1767,7 +2132,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         cuentasCobrar.add(lblCuentasCobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 26, 180, 35));
 
         detailsCuentasCobrar.setFont(new java.awt.Font("Inter", 0, 12)); // NOI18N
-        detailsCuentasCobrar.setForeground(new java.awt.Color(211, 139, 74));
+        detailsCuentasCobrar.setForeground(new java.awt.Color(102, 102, 102));
         cuentasCobrar.add(detailsCuentasCobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 180, 15));
 
         dashboard.add(cuentasCobrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 200, 275, 80));
@@ -1891,15 +2256,33 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel59.setFont(new java.awt.Font("Gotham", 1, 24)); // NOI18N
         jLabel59.setForeground(new java.awt.Color(33, 33, 33));
         jLabel59.setText("ESTADISTICAS FINANCIERAS");
-        dashboard.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, 48));
+        dashboard.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, 40));
 
         jLabel47.setFont(new java.awt.Font("Inter", 0, 18)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(33, 33, 33));
         jLabel47.setText("Filtrar: ");
-        dashboard.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 30));
+        dashboard.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Anualmente", "Mensualmente", "Semanalmente" }));
-        dashboard.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 53, 110, -1));
+        cmbFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Por Defecto", "Anualmente", "Mensualmente", "Semanalmente" }));
+        dashboard.add(cmbFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 61, 130, -1));
+
+        filtros.setBackground(new java.awt.Color(255, 255, 255));
+        filtros.setForeground(new java.awt.Color(255, 255, 255));
+        filtros.setRoundBottomLeft(35);
+        filtros.setRoundBottomRight(35);
+        filtros.setRoundTopLeft(35);
+        filtros.setRoundTopRight(35);
+        filtros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        filtros.add(mesFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 150, -1));
+
+        anioFiltro.setMinimum(2025);
+        filtros.add(anioFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 90, -1));
+        filtros.add(semanaFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 230, -1));
+
+        anualmenteFiltro.setMinimum(2025);
+        filtros.add(anualmenteFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 230, -1));
+
+        dashboard.add(filtros, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 250, 50));
 
         metodosPago.setBackground(new java.awt.Color(255, 255, 255));
         metodosPago.setForeground(new java.awt.Color(255, 255, 255));
@@ -1914,12 +2297,90 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel56.setForeground(new java.awt.Color(33, 33, 33));
         jLabel56.setText("Métodos de Pago");
         metodosPago.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+        metodosPago.add(pnlMetodosPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 240, 230));
 
         dashboard.add(metodosPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 280, 290));
 
         jScrollPane8.setViewportView(dashboard);
 
         pnlCards.add(jScrollPane8, "DASHBOARD");
+
+        registrarVenta.setMaximumSize(new java.awt.Dimension(630, 710));
+        registrarVenta.setMinimumSize(new java.awt.Dimension(630, 710));
+        registrarVenta.setName(""); // NOI18N
+        registrarVenta.setPreferredSize(new java.awt.Dimension(630, 710));
+        registrarVenta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane3.setViewportView(txtObservacionesVenta);
+
+        registrarVenta.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 600, 160));
+
+        registrarVenta.add(cmbRegVentaClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 380, 30));
+
+        jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel19.setText("Observaciones:");
+        registrarVenta.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 450, -1, -1));
+
+        lblPollo5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Pollo.png"))); // NOI18N
+        registrarVenta.add(lblPollo5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Gotham", 1, 36)); // NOI18N
+        jLabel21.setText("Registrar Venta");
+        registrarVenta.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, 48));
+
+        btnAddVenta.setBackground(new java.awt.Color(245, 121, 0));
+        btnAddVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAddVenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddVenta.setText("Agregar Cliente");
+        registrarVenta.add(btnAddVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 150, 30));
+        registrarVenta.add(dateFechaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 470, 30));
+
+        jLabel22.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel22.setText("Cliente:");
+        registrarVenta.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel23.setText("Fecha Venta:");
+        registrarVenta.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 0, 22)); // NOI18N
+        jLabel24.setText("Precio Venta:");
+        registrarVenta.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+
+        btnRegistrarVenta.setBackground(new java.awt.Color(245, 121, 0));
+        btnRegistrarVenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnRegistrarVenta.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarVenta.setText("Registrar Venta");
+        registrarVenta.add(btnRegistrarVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 650, 170, 30));
+
+        txtPrecioVenta.setColumns(10);
+        registrarVenta.add(txtPrecioVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 460, 30));
+
+        lblMetodoPago.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblMetodoPago.setText("Método Pago:");
+        registrarVenta.add(lblMetodoPago, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 160, -1));
+
+        cmbMetodoPago1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Transferencia" }));
+        registrarVenta.add(cmbMetodoPago1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, 430, 30));
+
+        tipodePago.add(chbPagoCredito);
+        chbPagoCredito.setText("Pago Credito");
+        registrarVenta.add(chbPagoCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
+
+        tipodePago.add(chbPagoCompleto);
+        chbPagoCompleto.setText("Pago de contado");
+        registrarVenta.add(chbPagoCompleto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
+
+        lblFechaVencimiento.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblFechaVencimiento.setText("Fecha de vencimiento:");
+        registrarVenta.add(lblFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 270, -1));
+
+        cmbFechaVencimiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "15 Días", "30 Días", "45 Días", "60 Días" }));
+        registrarVenta.add(cmbFechaVencimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, 340, 30));
+
+        scrollRegistrarVenta.setViewportView(registrarVenta);
+
+        pnlCards.add(scrollRegistrarVenta, "REG_VENTA");
 
         background.add(pnlCards, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 0, 660, 580));
 
@@ -2304,7 +2765,68 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public void setLblTotalVentas(JLabel lblTotalVentas) {
         this.lblTotalVentas = lblTotalVentas;
     }
+
+    public JRadioButton getChbPagoCompleto() {
+        return chbPagoCompleto;
+    }
+
+    public void setChbPagoCompleto(JRadioButton chbPagoCompleto) {
+        this.chbPagoCompleto = chbPagoCompleto;
+    }
+
+    public JRadioButton getChbPagoCredito() {
+        return chbPagoCredito;
+    }
+
+    public void setChbPagoCredito(JRadioButton chbPagoCredito) {
+        this.chbPagoCredito = chbPagoCredito;
+    }
+
+    public JComboBox<String> getCmbFechaVencimiento() {
+        return cmbFechaVencimiento;
+    }
+
+    public void setCmbFechaVencimiento(JComboBox<String> cmbFechaVencimiento) {
+        this.cmbFechaVencimiento = cmbFechaVencimiento;
+    }
+
+    public JComboBox<String> getCmbMetodoPago1() {
+        return cmbMetodoPago1;
+    }
+
+    public void setCmbMetodoPago1(JComboBox<String> cmbMetodoPago1) {
+        this.cmbMetodoPago1 = cmbMetodoPago1;
+    }
+
+    public JLabel getLblFechaVencimiento() {
+        return lblFechaVencimiento;
+    }
+
+    public void setLblFechaVencimiento(JLabel lblFechaVencimiento) {
+        this.lblFechaVencimiento = lblFechaVencimiento;
+    }
+
+    public JLabel getLblMetodoPago() {
+        return lblMetodoPago;
+    }
+
+    public void setLblMetodoPago(JLabel lblMetodoPago) {
+        this.lblMetodoPago = lblMetodoPago;
+    }
+
+    public JScrollPane getScrollRegistrarVenta() {
+        return scrollRegistrarVenta;
+    }
+
+    public void setScrollRegistrarVenta(JScrollPane scrollRegistrarVenta) {
+        this.scrollRegistrarVenta = scrollRegistrarVenta;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JYearChooser anioFiltro;
+    private com.toedter.calendar.JYearChooser anualmenteFiltro;
     private javax.swing.JPanel background;
     private com.mycompany.forms.PanelRound balanceNeto;
     private javax.swing.JButton btnAddVenta;
@@ -2322,13 +2844,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnSdRegCompra;
     private javax.swing.JButton btnSdRegVenta;
     private javax.swing.JButton btnSdVerCompras;
+    private javax.swing.JButton btnSdVerEstadisticas;
     private javax.swing.JButton btnSdVerVentas;
     private javax.swing.JButton btnagrProvRegistraraComp;
     private javax.swing.JButton btnregistrarcompra;
     private javax.swing.JButton btnregistrarproveedor;
+    private javax.swing.JRadioButton chbPagoCompleto;
+    private javax.swing.JRadioButton chbPagoCredito;
     private com.mycompany.forms.PanelRound clientesDeudores;
     private javax.swing.JComboBox<Object> cmbCliente;
+    private javax.swing.JComboBox<String> cmbFechaVencimiento;
+    private javax.swing.JComboBox<String> cmbFiltro;
     private javax.swing.JComboBox<String> cmbMetodoPago;
+    private javax.swing.JComboBox<String> cmbMetodoPago1;
     private javax.swing.JComboBox<Object> cmbRegVentaClient;
     private javax.swing.JComboBox<Object> cmbVentaPago;
     private javax.swing.JComboBox<Proveedor> cmbcompraReg;
@@ -2344,9 +2872,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel detailsPagosProveedores;
     private javax.swing.JPanel editarCliente;
     private javax.swing.JPanel editarProveedor;
+    private com.mycompany.forms.PanelRound filtros;
     private com.mycompany.forms.PanelRound flujoCaja;
     private javax.swing.JPanel insPago;
-    private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDatefechaCompra;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2426,6 +2954,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblBalanceNeto;
     private javax.swing.JLabel lblCobrosTotales;
     private javax.swing.JLabel lblCuentasCobrar;
+    private javax.swing.JLabel lblFechaVencimiento;
+    private javax.swing.JLabel lblMetodoPago;
     private javax.swing.JLabel lblPagosProveedores;
     private javax.swing.JLabel lblPollo1;
     private javax.swing.JLabel lblPollo11;
@@ -2442,6 +2972,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblTotalPagado;
     private javax.swing.JLabel lblTotalVenta;
     private javax.swing.JLabel lblTotalVentas;
+    private com.toedter.calendar.JMonthChooser mesFiltro;
     private com.mycompany.forms.PanelRound metodosPago;
     private com.mycompany.forms.PanelRound pagosProveedores;
     private com.mycompany.forms.PanelRound panelRound1;
@@ -2451,14 +2982,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private com.mycompany.forms.PanelRound panelRound8;
     private com.mycompany.forms.PanelRound panelRound9;
     private javax.swing.JPanel pnlCards;
+    private javax.swing.JPanel pnlGraficaFlujoCaja;
+    private javax.swing.JPanel pnlMetodosPago;
     private javax.swing.JPanel registrarCliente;
     private javax.swing.JPanel registrarCompra;
     private javax.swing.JPanel registrarProveedor;
     private javax.swing.JPanel registrarVenta;
+    private javax.swing.JScrollPane scrollRegistrarVenta;
+    private com.toedter.calendar.JDateChooser semanaFiltro;
     private javax.swing.JPanel sideBar;
     private javax.swing.JTable tableDeudores;
     private javax.swing.JTable tblCompras;
     private javax.swing.JTable tblVentas;
+    private javax.swing.ButtonGroup tipodePago;
     private javax.swing.JLabel totalVenta;
     private javax.swing.JLabel totalVenta1;
     private javax.swing.JLabel totalVenta2;

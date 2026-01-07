@@ -12,6 +12,21 @@ public class ClienteDAO implements DAO<Cliente>{
     private static final String SQL_DELETE = "DELETE FROM cliente WHERE id_cliente = ?";
     private static final String SQL_UPDATE = "UPDATE cliente SET nombre = ?, telefono = ?, direccion = ? WHERE id_cliente = ?";
     private static final String SQL_READ_ALL = "SELECT * FROM cliente";
+    private static final String SQL_READ_DEUDORES = """
+                                                    SELECT 
+                                                        c.id_cliente,
+                                                        c.nombre,
+                                                        SUM(v.precio_venta - IFNULL(p.total_pagado, 0)) AS total_adeudado
+                                                    FROM cliente c
+                                                    JOIN venta v ON v.id_cliente = c.id_cliente
+                                                    LEFT JOIN (
+                                                        SELECT id_venta, SUM(monto_pago) AS total_pagado
+                                                        FROM pago
+                                                        GROUP BY id_venta
+                                                    ) p ON p.id_venta = v.id_venta
+                                                    WHERE IFNULL(p.total_pagado, 0) < v.precio_venta
+                                                    GROUP BY c.id_cliente, c.nombre;
+                                                    """;
     
     @Override
     public boolean create(Cliente object) {
@@ -91,5 +106,33 @@ public class ClienteDAO implements DAO<Cliente>{
             System.out.println("Error: No se obtuvieron los datos de la BD");
         }
         return null;
+    }
+    
+    public List<Object[]> readClientesConDeuda() {
+        List<Object[]> clientes = new ArrayList<>();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection cx = Conexion.getConexion();
+        try{
+            ps = cx.prepareStatement(SQL_READ_DEUDORES);
+            rs = ps.executeQuery();
+            while (rs.next()){
+                Object[] fila = new Object[3];
+                fila[0] = rs.getInt("id_cliente");       
+                fila[1] = rs.getString("nombre");        
+                fila[2] = rs.getDouble("total_adeudado");
+                clientes.add(fila);
+            }
+        }catch (SQLException ex){
+            System.out.println("Error al listar clientes con deuda");
+            ex.printStackTrace();
+        }finally{
+            try{
+                cx.close();
+            }catch(Exception er){
+                System.out.println("Error: No se pudo cerrar la conexion");
+            }
+        }
+        return clientes;
     }
 }
