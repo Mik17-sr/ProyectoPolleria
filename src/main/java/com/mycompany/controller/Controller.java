@@ -19,6 +19,7 @@ public class Controller {
         new DashboardController(frm);
         frm.getjScrollPane7().setBorder(null);
         frm.getjScrollPane8().setBorder(null);
+        frm.getScrollRegistrarVenta().setBorder(null);
     }
     
     public Controller(FrmPrincipal frm) {
